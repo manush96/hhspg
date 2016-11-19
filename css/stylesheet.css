@@ -117,3 +117,36 @@ input:-webkit-autofill
 	vertical-align: middle;
 	float: none;
 }
+#center #search_list
+{
+	position: absolute;
+	background: white;
+	width: 94.5%;
+	padding: 0px !important;
+	border: 1px solid #ccc !important;
+	border-top: 0px solid white !important;
+	z-index: 200;
+	overflow: none;
+}
+#center #search_list p
+{
+	padding: 3px 3px 3px 5px;
+	margin: 0px;
+	cursor: pointer;
+}
+#center #search_list li.selected 
+{
+	background: #00ff00;
+}
+#center #search_list li a
+{
+	text-decoration: none;
+}
+.list_hover
+{
+	background: #eeeeee !important;
+}
+.pg_result
+{
+	box-shadow: -5px 5px 5px gray;
+}

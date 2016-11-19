@@ -16,15 +16,20 @@ class Home extends CI_Controller
 		$this->load->view('common/index');
 		$this->load->view('common/footer');
 	}
-	public function search()
+	public function search($city, $area)
 	{
-		$city = $this->input->get('city');
-		$area = $this->input->get('area');
-		
 		$data['search_result'] = $this->home_model->search_pg($city, $area);
 		
 		$this->load->view('common/header');
 		$this->load->view('home/search',$data);
 		$this->load->view('common/footer');
+	}
+
+	public function get_area_suggestion($area)
+	{
+		$data['area_list'] = $this->home_model->get_area_suggestion($area);
+		$data['keyword'] = $area;
+
+		$this->load->view('home/area_suggestion',$data);
 	}
 }

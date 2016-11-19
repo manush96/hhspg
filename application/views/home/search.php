@@ -52,8 +52,9 @@
         	google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
                     infowindow.setContent("Hello : " +i);
-                    infowindow.open(map, marker);
+                    infowindow.open(map, marker);                	
                 }
+
             })(marker, i));
 
 			marker.setMap(map);
@@ -74,9 +75,12 @@
 <div class="col-sm-4" style="overflow-y: scroll; height: 500px">
 <?php foreach($search_result as $pg):?>
 	<div class="col-sm-12 pg_result">
-		<h3><?= $pg['name'];?></h3>
-		<h3><?= $pg['owner'];?></h3>
-		<h3><?= $pg['address'];?></h3>
+
+		<h4>
+			<img src="img/img.jpg" style="height: 80px; width: 100px;"/><?= $pg['name'];?>
+		</h4>
+		<h4><?= $pg['owner'];?></h4>
+		<h4><?= $pg['address'];?></h4>
 	</div>
 <?php endforeach;?>
 
