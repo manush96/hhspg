@@ -38,8 +38,8 @@
 			new google.maps.Point(0,0), // origin, in this case top-left corner
 			new google.maps.Point(9, 25)    // anchor, i.e. the point half-way along the bottom of the image
 		);
-		//var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
+		var infowindow = new google.maps.InfoWindow();
 		for(var i=0; i<lat_len; i++)
 		{
 			var mylocation=new google.maps.LatLng(lat[i], long[i]);
@@ -49,25 +49,20 @@
 				icon: image,	 
 			});
 			
-			
-			
-        	attachSecretMessage(marker, "<?php echo "hello";?>");	
-        	marker.addListener('click', function() 
-        	{
-          	
-          		infowindow.open(marker.get('map'), marker);
-        	});
+        	google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent("Hello : " +i);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
 
 			marker.setMap(map);
 
 		}
 		function attachSecretMessage(marker, secretMessage)
-			{
-        		infowindow = new google.maps.InfoWindow(
-        		{
-          			content: secretMessage
-        		});
-        	}
+		{
+    		
+    	}
 
 		map.setZoom(14); 
 	}
