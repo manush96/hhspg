@@ -1,3 +1,16 @@
+<?php 
+	$flash = $this->session->flashdata();
+?>
+<?php if(isset($flash)):?>
+	<?php foreach($flash as $type => $message):?>
+		<div class="col-sm-8">
+			<div class="alert alert-<?= $type;?> fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong><?= $message;?></strong>
+			</div>
+		</div>
+	<?php endforeach;?>
+<?php endif;?>
 <script type="text/javascript" src="js/index.js"></script>
 <div class=" col-sm-10" id="center">
 	<div class="col-sm-4">

@@ -12,7 +12,14 @@
 </head>
 <body>
 	<div class="container-fluid navbar" id="header" style="background: #ccc">
-		<h1 class="text-center">HHS PG</h1>
+		<h2 class="text-center"><a href="">HHS PG</a></h2>
+		<h2 class="text-right">
+			<?php if($this->session->userdata('user_id')!=null):?>
+				<a href="user/logout">Logout</a>
+			<?php else: ?>
+				<a href="user">Login</a>
+			<?php endif;?>
+		</h2>
 	</div>
 	<div class="clearfix"></div>
 	
