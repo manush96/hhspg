@@ -24,11 +24,14 @@ class Admin extends CI_Controller
     }
     public function view_users()
     {
+        $data['result']=$this->admin_model->view_users();
+        $this->load->view('admin/user_data',$data);
 
     }
     public function pg_analysis()
     {
-
+        $data['result']=$this->admin_model->pg_trends();
+        $this->load->view('admin/pg_trends');
     }
     public function area_analysis()
     {
