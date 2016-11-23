@@ -18,6 +18,9 @@ class Home extends CI_Controller
 	}
 	public function search($city, $area)
 	{
+		$city = urldecode($city);
+		$area = urldecode($area);
+
 		$data['search_result'] = $this->home_model->search_pg($city, $area);
 		
 		$this->load->view('common/header');
