@@ -12,6 +12,5 @@ class General {
             $this->CI->session->set_flashdata($type,$message);
             redirect($url);
         }
-        
 }
 ?>

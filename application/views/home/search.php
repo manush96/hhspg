@@ -1,15 +1,22 @@
 <?php
+	$name = array_column($search_result, 'name');
+	$contact = array_column($search_result, 'Contact_Detail');
 	$lat = array_column($search_result, 'latitude');
 	$long = array_column($search_result, 'longitude');
 
+	$myNames = json_encode($name);
+	$contact = json_encode($contact);
 	$myLat = implode(',', $lat);
 	$myLong = implode(',', $long);
 ?>
 
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBBRNM1pWrb94tlegwrj9LbZQcGGmotNl4"></script>
 <script>
+
 	var lat = [<?= $myLat;?>];
 	var long = [<?= $myLong;?>];
+	var names = <?= $myNames;?>;
+	var contact = <?= $contact;?>;
 
 	var lat_sum = lat.reduce(add, 0);
 	var long_sum = long.reduce(add, 0);
@@ -51,7 +58,8 @@
 			
         	google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
-                    infowindow.setContent("Hello : " +i);
+                    infowindow.setContent("<h5>" + names[i] + "</h5><h5>"
+                    	+ contact[i] + "</h5>");
                     infowindow.open(map, marker);                	
                 }
 

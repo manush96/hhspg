@@ -31,7 +31,7 @@ class User extends CI_Controller
         }   
         else
         {
-            $this->general->set_alert('alert','Wrong username or password!');
+            $this->general->set_alert('danger','Wrong username or password!');
         }
     }
 
@@ -43,11 +43,11 @@ class User extends CI_Controller
 
         if($id == -1)
         {
-            $this->general->set_alert('alert','Email already in use!');
+            $this->general->set_alert('danger','Email already in use!');
         }
         else if($id == 0)
         {
-            $this->general->set_alert('alert','Oops something went wrong!');
+            $this->general->set_alert('danger','Oops something went wrong!');
         }
         else
         {
