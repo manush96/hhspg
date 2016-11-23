@@ -12,7 +12,23 @@
 </head>
 <body>
 	<div class="container-fluid navbar" id="header" style="background: #ccc">
-		<h1 class="text-center">HHS PG</h1>
+		<h2 class="text-center">HHS PG</h2>
+		<h2 class="text-right">
+		<?php 
+			if($this->session->userdata('user_id')!=null)
+			{
+		?>
+				<a href="logout">Logout</a>
+		<?php
+			}					
+			else
+			{
+		?>
+			<a href="login">Login</a>
+		<?php
+			}
+		?>
+		</h2>
 	</div>
 	<div class="clearfix"></div>
 	

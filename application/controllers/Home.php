@@ -9,6 +9,7 @@ class Home extends CI_Controller
         $this->load->model('home_model');
         $this->load->helper('url_helper');
         $this->load->helper('cookie');
+        $this->load->library('session');
     }
 	public function index()
 	{
