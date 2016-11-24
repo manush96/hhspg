@@ -5,8 +5,19 @@ $count = implode(',',array_column($result, 'count'));
 $i = count($result);
 
 ?>
+<div class="col-sm-8 col-sm-offset-2">
+		<select class="form-control" id="graph_type" name="graph_type" style="cursor: pointer">
+			<option value="pie" >Pie Chart</option>
+			<option value="bar" selected>Bar Chart</option>
+			<option value="line">Line Chart</option>
+			<option value="radar">Radar Chart</option>
+			<option value="doughnut">Doughnut Chart</option>
+			<option value="polarArea">Polar Area Chart</option>
+		</select>
+	</div>
+	<div class="clearfix"></div><hr/>
 <script type="text/javascript" src="js/chart.js"></script>
-<canvas id="myChart" width="600" height="300"></canvas>
+<canvas id="myChart" width="500" height="200"></canvas>
 	<script>
 		var colors = ['rgba(255, 99, 132, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(255, 206, 86, 0.4)',
 		                'rgba(75, 192, 192, 0.4)', 'rgba(153, 102, 255, 0.4)', 'rgba(255, 159, 64, 0.4)']
@@ -35,9 +46,10 @@ $i = count($result);
 			              ?> 
 			            ],
 			            borderWidth: 1,
+			            /*barThickness: 30*/
 			        }]
 			    },
-			    options: {
+			    /*options: {
 			        scales: {
 			        	xAxes:[{
 			        		barThickness: 30
@@ -46,9 +58,10 @@ $i = count($result);
 			                ticks: {
 			                    beginAtZero:true
 			                }
-			            }]
+			            }],
+			            
 			        }
-			    }
+			    }*/
 			};
 		var temp = jQuery.extend(true, {}, config);
 		var myChart = new Chart(ctx, temp);

@@ -58,7 +58,7 @@
 			
         	google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
-                    infowindow.setContent("<h5>" + names[i] + "</h5><h5>"
+                    infowindow.setContent("<img src="+"\"img/img.jpg\""+" /><h5>" + names[i] + "</h5><h5>"
                     	+ contact[i] + "</h5>");
                     infowindow.open(map, marker);                	
                 }

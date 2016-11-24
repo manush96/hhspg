@@ -19,6 +19,7 @@ class Admin extends CI_Controller
     {
         $data['result']=$this->admin_model->view_search();
         $this->load->view('common/header');
+        $this->load->view('admin/menu_pane');
         $this->load->view('admin/search_trends',$data);
 
     }

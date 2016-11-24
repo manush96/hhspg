@@ -150,3 +150,40 @@ input:-webkit-autofill
 {
 	box-shadow: -5px 5px 5px gray;
 }
+#sidebar-wrapper
+{
+	border-right: 1px solid #ccc;
+	cursor: pointer;
+}
+#sidebar-wrapper ul
+{
+	list-style-type: none;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+#sidebar-wrapper ul li
+{
+	height: 50px;
+	font-size: 22px;
+	border-left: 5px solid white;
+	padding: 10px;
+}
+.active_sidelink
+{
+	background: #f6f9fb;
+	border-color: #5b9bd1 !important;
+	
+}
+.active_sidelink a
+{
+	color: #3279b3 !important;
+}
+#sidebar-wrapper ul li:hover
+{
+	background: #eee;
+}
+#sidebar-wrapper ul li a
+{
+	color: black;
+	cursor: pointer;
+}
