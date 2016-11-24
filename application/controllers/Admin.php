@@ -30,6 +30,7 @@ class Admin extends CI_Controller
     }
     public function pg_analysis()
     {
+        $this->model->list_count();#short list ma pg na occurrence gani pg no short list count ganva
         $data['result']=$this->admin_model->pg_trends();
         $this->load->view('admin/pg_trends');
     }
