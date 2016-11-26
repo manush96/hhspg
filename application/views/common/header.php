@@ -33,8 +33,8 @@
                     </ul> -->
                     <?php if($this->session->userdata('user_id')==null):?>	
 	                    <p class="navbar-text navbar-right actions">
-		                    <a class="navbar-link login" href="user">Log In</a>
-		                    <a class="btn btn-default action-button" role="button" href="user">Sign Up</a>
+		                    <a class="navbar-link login" href="owner">Owner</a>
+		                    <a class="btn btn-default action-button" role="button" href="user">User</a>
 		                </p>
 	                <?php else: ?>
 						<p class="navbar-text navbar-right actions">

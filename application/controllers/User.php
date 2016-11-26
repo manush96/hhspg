@@ -51,7 +51,7 @@ class User extends CI_Controller
         }
         else
         {
-            $this->session->set_userdata('user_id',$id);
+            $this->general->set_alert('success','Registered successfully');
             redirect("");
         }
     }
