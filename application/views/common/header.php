@@ -14,10 +14,12 @@
 	<div class="container-fluid navbar" id="header" style="background: #ccc">
 		<h2 class="text-center"><a href="">HHS PG</a></h2>
 		<h2 class="text-right">
-			<?php if($this->session->userdata('user_id')!=null):?>
+			<?php if($this->session->userdata('user_id')!=null || $this->session->userdata('owner_id')!=null):?>
 				<a href="user/logout">Logout</a>
 			<?php else: ?>
 				<a href="user">Login</a>
+				 | 
+				<a href="owner">Owner Login</a>
 			<?php endif;?>
 		</h2>
 	</div>
