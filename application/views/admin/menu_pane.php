@@ -2,11 +2,11 @@
 	<style type="text/css">
 		
 	</style>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/> 
- 	<link rel="stylesheet" type="text/css" href="css/stylesheet(2).css"/>
- 	<link rel="stylesheet" type="text/css" href="css/jquery-confirm.css"/>
+	<link rel="stylesheet" type="text/css" href="Css/bootstrap.css"/> 
+ 	<link rel="stylesheet" type="text/css" href="Css/stylesheet.css"/>
+ 	<link rel="stylesheet" type="text/css" href="Css/jquery-confirm.css"/>
 </head>
-<div class="container-fluid" id="body" height=100%>
+<div id="body" class="container-fluid">
 		<div id="sidebar-wrapper" class="col-sm-2 lr0pad">
             <ul class="sidebar-nav">
                 <li class="active_sidelink sidelink">
@@ -29,4 +29,9 @@
         </div>
         <div class="col-sm-10" id="content_div">
         </div>
+<<<<<<< HEAD
 </div>
+=======
+        
+	</div>
+>>>>>>> f10ee59e8e926f5f2d8d6c4834e9c67b3277a6f2
