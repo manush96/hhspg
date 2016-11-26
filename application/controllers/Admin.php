@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
@@ -10,7 +11,6 @@ class Admin extends CI_Controller
         $this->load->helper('cookie');
         $this->load->library('session');
     }
-
     public function index()
     {   
         $this->load->view("admin/login");
@@ -43,7 +43,7 @@ class Admin extends CI_Controller
         $this->load->view("admin/sidebar");
         $this->load->view('admin/search_trends',$data);
         $this->load->view("admin/footer");
-    }
+    }  
     public function view_users()
     {
         $data['result']=$this->admin_model->view_users();
