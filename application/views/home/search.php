@@ -1,6 +1,6 @@
 <?php
 	$name = array_column($search_result, 'name');
-	$contact = array_column($search_result, 'Contact_Detail');
+	$contact = array_column($search_result, 'contact');
 	$lat = array_column($search_result, 'latitude');
 	$long = array_column($search_result, 'longitude');
 
@@ -87,8 +87,8 @@
 		<h4>
 			<img src="img/img.jpg" style="height: 80px; width: 100px;"/><?= $pg['name'];?>
 		</h4>
-		<h4><?= $pg['owner'];?></h4>
-		<h4><?= $pg['address'];?></h4>
+		<h4><?= $pg['name'];?></h4>
+		<h4><?= $pg['amenities'];?></h4>
 	</div>
 <?php endforeach;?>
 
