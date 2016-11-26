@@ -1,26 +1,79 @@
 var list_ind;
 var list_max;
+var search_allow = 0;
+$("body").css('backgroundImage', 'url("/hhspg/img/banner.jpg")');
+$("#header").children().each(function()
+{
+	$(this).css('backgroundColor','transparent');
+});
 $(document).ready(function()
 {
+	$(function()
+	{
+		$("#type_anim_1").typed
+		({
+			strings: ["We make life"],
+			typeSpeed: 100,
+			callback: function()
+			{
+				$("#type_anim_1").next().remove();
+				$("#type_anim_2").typed
+				({
+					strings: ["simpler.","simplest."],
+					typeSpeed: 100,
+					backDelay: 800,
+					backSpeed: 50,
+					callback: function()
+					{
+						setTimeout(function()
+						{
+							$("#type_anim_2").next().removeClass().addClass("click_remove");	
+						},1000);
+					},
+				});
+			},
+		});
+	});
+	$(document).mouseup(function(e)
+	{
+	    var container = $("#search_container");
+
+	    if (!container.is(e.target) // if the target of the click isn't the container...
+	        && container.has(e.target).length === 0) // ... nor a descendant of the container
+	    {
+	        $("#search_list").hide();
+	    }
+	});
 	$("#search_pgs").click(function()
 	{
-		var city = $("#city").val();
-		var area = $("#area").val();
-		window.location.href = "home/search/"+city+"/"+area;
+		if(search_allow == 0)
+		{
+			$("#area").focus();
+			return;
+		}
+		else
+		{
+			var city = $("#city").val();
+			var area = $("#area").val();
+			window.location.href = "home/search/"+city+"/"+area;
+		}	
 	});
 	$("#area").keyup(function(event)
 	{
 		if(event.which <= 45 && event.which != 8)
 			return;
+		else
+			search_allow = 0;
 
+		var city = $("#city").val();
 		var area = $("#area").val();
 		if(area.trim()!="")
 		{
 			$.ajax
 			({
 				type: "GET",
-				url: "home/get_area_suggestion/"+area,
-				data: {},
+				url: "home/get_area_suggestion",
+				data: { city: city, area: area},
 				success: function(response)
 				{
 					if(response.trim() == "")
@@ -36,12 +89,12 @@ $(document).ready(function()
 							tmp_txt = $(this).html().replace(regex, '<strong>$&</strong>');
 							$(this).html(tmp_txt);
 						});
+						$("#search_list").show();
 					}
 					list_max = $("#search_list p").length;
 					list_ind = null;
 				}
 			});
-			$("#search_list").show();
 		}
 		else
 		{
@@ -82,6 +135,8 @@ $(document).ready(function()
 		}
 		else if(event.which == "13")
 		{
+			if(search_allow == 1)
+				$("#search_pgs").trigger('click');
 			select_area(list_ind);
 		}
 	});
@@ -94,6 +149,10 @@ $(document).ready(function()
 	{
 		select_area($(this).index()+1);	
 	});
+	$(document).on("click",".click_remove",function()
+	{
+		$(this).remove();
+	});
 });
 function goto_select(index)
 {
@@ -103,7 +162,13 @@ function goto_select(index)
 
 function select_area(index)
 {
-	$("#area").val($("#search_list p:nth-child("+index+")").text());
+	tmp = $("#search_list p:nth-child("+index+")").text();
+
+	if(tmp.trim() == "")
+		return;
+
+	$("#area").val(tmp);
+	search_allow = 1;
 	$("#search_list").html('');
 	$("#search_list").hide();
 }

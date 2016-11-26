@@ -43,22 +43,22 @@ class Home_model extends CI_Model
 	        return $result;
 
 		}
-		public function get_area_suggestion($area)
+		public function get_area_suggestion($area,$city)
 		{
 			$limit = 5;
 			$sql = "SELECT * FROM `pg` WHERE
 				    (area like '$area%'
 				    OR area like '%$area%'
 				    OR area like '$area%') 
-					
+					AND city = '$city'
 					GROUP BY area
 					
 					ORDER BY CASE 
 						WHEN area LIKE '$area%' THEN 1
 						WHEN area LIKE '%$area%' THEN 2
-						WHEN area LIKE '%$area' THEN 2
+						WHEN area LIKE '%$area' THEN 3
 				 		ELSE 5 
-				 	END
+				 	END, area ASC
 
 			 	LIMIT $limit;";
 

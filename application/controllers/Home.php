@@ -29,9 +29,11 @@ class Home extends CI_Controller
 		$this->load->view('common/footer');
 	}
 
-	public function get_area_suggestion($area)
+	public function get_area_suggestion()
 	{
-		$data['area_list'] = $this->home_model->get_area_suggestion($area);
+		$city = $this->input->get('city');
+		$area = $this->input->get('area');
+		$data['area_list'] = $this->home_model->get_area_suggestion($area,$city);
 		$data['keyword'] = $area;
 
 		$this->load->view('home/area_suggestion',$data);

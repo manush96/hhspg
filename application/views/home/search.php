@@ -9,7 +9,7 @@
 	$myLat = implode(',', $lat);
 	$myLong = implode(',', $long);
 ?>
-
+<script type="text/javascript" src="js/search.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBBRNM1pWrb94tlegwrj9LbZQcGGmotNl4"></script>
 <script>
 
@@ -80,19 +80,24 @@
 
 </script>
 
-<div class="col-sm-4" style="overflow-y: scroll; height: 500px">
+<div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 520px">
 <?php foreach($search_result as $pg):?>
-	<div class="col-sm-12 pg_result">
-
-		<h4>
-			<img src="img/img.jpg" style="height: 80px; width: 100px;"/><?= $pg['name'];?>
-		</h4>
-		<h4><?= $pg['name'];?></h4>
-		<h4><?= $pg['amenities'];?></h4>
+	<div class="col-sm-12 pg_result_div">
+		<div class="col-sm-4">
+			<img src="img/img.jpg" class="img-responsive pull-left" style="height: 90px; width: 100%;"/>
+		</div>
+		<div class="col-sm-8">
+			<span class="pg_name"><?= $pg['name'];?></span>
+			<span class="wishlist_icon" rel="<?= $pg['id'];?>">
+				<i class="fa fa-plus-square-o"></i>
+			</span>
+			<phr/>
+			<h4><?= $pg['amenities'];?></h4>
+		</div>
 	</div>
 <?php endforeach;?>
 
 </div>
 <div class="col-sm-8">
-	<div  id="googleMap" style="width:800px;height:500px"></div>
+	<div  id="googleMap" style="width:100%;height:510px;"></div>
 </div>

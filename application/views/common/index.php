@@ -1,35 +1,32 @@
-<?php 
-	$flash = $this->session->flashdata();
-?>
-<?php if(isset($flash)):?>
-	<?php foreach($flash as $type => $message):?>
-		<div class="col-sm-8">
-			<div class="alert alert-<?= $type;?> fade in">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<strong><?= $message;?></strong>
+<script type="text/javascript" src="js/typed.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<div class="container-fluid" id="center">
+	<div id="intro_container">
+		<h1 class="text-center white welcome">Welcome to HHSPG!</h1>
+		<h3 class="text-center" id="anim_header">
+			<span id="type_anim_1"></span>
+			<span id="type_anim_2"></span>
+		</h3>
+	</div>
+	<div id="search_container">
+		<div id="city_div" class="pull-left">
+			<select class="center_input" name="city" id="city" data-placeholder="City">
+				<option value="Ahmedabad" selected>Ahmedabad</option>
+				<option value="Jaipur">Jaipur</option>
+				<option value="Jodhpur">Jodhpur</option>
+			</select>
+		</div>
+		<div id="area_div" class="pull-left">
+			<input type="search" class="center_input" name="area" id="area" placeholder="Search by locality..." autocomplete="off" autofocus="true" />
+			<div id="search_list" style="display: none">
+				
 			</div>
 		</div>
-	<?php endforeach;?>
-<?php endif;?>
-<script type="text/javascript" src="js/index.js"></script>
-<div class=" col-sm-10" id="center">
-	<div class="col-sm-4">
-		<select class="form-control" name="city" id="city" data-placeholder="City">
-			<option value="Ahmedabad" selected>Ahmedabad</option>
-			<option value="Jaipur">Jaipur</option>
-			<option value="Jodhpur">Jodhpur</option>
-		</select>
-	</div>
-	<div class="col-sm-6">
-		<input type="search" class="form-control" name="area" id="area" placeholder="Area" value="Jodh" autocomplete="off"/>
-		<div id="search_list" style="display: none">
-			
+		<div id="search_btn_div" class="pull-left">
+			<button type="button" id="search_pgs" class="btn center_input">
+				<span class="glyphicon glyphicon-search"></span>
+				 Search
+			</button>
 		</div>
-	</div>
-	<div class="col-sm-2">
-		<button type="button" id="search_pgs" class="btn btn-primary">
-			<span class="glyphicon glyphicon-search"></span>
-			 Search
-		</button>
 	</div>
 </div>
