@@ -7,22 +7,30 @@ class User_model extends CI_Model
 			$this->load->helper('url');
 			$this->load->helper('cookie');
 		}
-		public function login($email,$password)
+		public function check($email,$password)
 		{
 			$this->db->select('*');
 			$this->db->from('user');
 			$this->db->where('email',$email);
 			$query=$this->db->get();
 			$result=$query->result();
-			$pass=$result[0]->password;
-			if(md5($password)==$pass)
+			if($query->num_rows()>0)
 			{
-				return $result[0]->id;
+				$pass=$result[0]->password;
+				if(md5($password)==$pass)
+				{
+					return $result[0]->id;
+				}
+				else
+				{
+					return -1;
+				}
 			}
 			else
 			{
 				return -1;
 			}
+
 		}
 
 		public function register($post)

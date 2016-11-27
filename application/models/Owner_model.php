@@ -16,14 +16,28 @@ class Owner_model extends CI_Model
 			$query=$this->db->get();
 			$result=$query->result();
 			$pass=$result[0]->password;
-			if(md5($password)==$pass)
+			$status=$result[0]->status;
+
+			if(md5($password)==$pass and $status==1)
 			{
 				return $result[0]->id;
 			}
-			else
+			else if(md5($password)==$pass and $status==0)
 			{
+				$this->session->set_userdata('temp_owner_id',$result[0]->id);
 				return -1;
 			}
+			else
+			{
+				return -2;
+			}
+		}
+		public function otp_generation()
+		{
+			$a="0123456789";
+			$shuffle=str_shuffle($a);
+			$otp=substr($shuffle, 1,4);
+			return $otp;
 		}
 
 

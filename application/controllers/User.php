@@ -31,7 +31,7 @@ class User extends CI_Controller
         }   
         else
         {
-            $this->general->set_alert('danger','Wrong username or password!');
+            $this->general->set_alert('danger','Wrong username or password!','user');
         }
     }
 

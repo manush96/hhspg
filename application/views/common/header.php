@@ -45,6 +45,5 @@
             </div>
         </nav>
     </div>
-	<div class="clearfix"></div>
 	
 	<div id="body">

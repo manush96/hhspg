@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>HHSPG</title>
-	<base href="<?= $this->config->item('base_url');?>"/>
+	<base href="<?= $this->config->item('base_url');?>/hhspg"/>
 	<meta
 		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 		name="viewport">
