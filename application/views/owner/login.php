@@ -24,7 +24,7 @@
         <div id="signup">   
           <h1>Sign Up for Free</h1>
           
-          <form action="owner/register" method="post" autocomplete="off">
+          <form action="owner/signup" method="post" autocomplete="off">
           
           
           <div class="field-wrap">
@@ -50,7 +50,7 @@
             <label>
               Phone no<span class="req">*</span>
             </label>
-            <input type="text" name="phone" required autocomplete="off"/>
+            <input type="text" name="contact" required autocomplete="off"/>
           </div>
           
           <button type="submit" class="button button-block"/>Get Started</button>

@@ -31,7 +31,7 @@
                             </ul>
                         </li>
                     </ul> -->
-                    <?php if($this->session->userdata('user_id')==null):?>	
+                    <?php if($this->session->userdata('user_id')==null or $this->session->userdata('owner_id')==null):?>	
 	                    <p class="navbar-text navbar-right actions">
 		                    <a class="navbar-link login" href="owner">Owner</a>
 		                    <a class="btn btn-default action-button" role="button" href="user">User</a>
