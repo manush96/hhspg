@@ -22,7 +22,7 @@ class Owner extends CI_Controller
 	   	$password=$this->input->post('password');
 
 	   	$check=$this->owner_model->check_creds($email,$password);
-        
+
         if($check>0)
         {
             $this->session->set_userdata('owner_id',$check);
@@ -38,6 +38,24 @@ class Owner extends CI_Controller
             $this->general->set_alert('danger','Wrong username or password!');
         }
    	}
+    public function signup()
+    {
+      $name=$this->input->post('name');
+      $email=$this->input->post('email');
+      $contact=$this->input->post('contact');
+      $password=$this->input->post('password');
+      $k=$this->owner_model->register_owner($name,$email,$contact,$password);
+      if($k==1)
+      {
+        redirect("owner/verify_otp");
+      }
+      else
+      {
+        echo "already in use";
+      }
+
+
+    }
     public function verify_otp()
     {
       $otp=$this->owner_model->otp_generation();
@@ -52,11 +70,13 @@ class Owner extends CI_Controller
       $true=$this->session->userdata('otp');
       if($given==$true)
       {
+        $this->owner_model->set_active();
+
         redirect("owner/profile");
       }
       else
       {
-        $this->general->set_alert('danger','Wrong otp please check again');
+        redirect("owner/verify_otp");
       }
     }
    	public function profile()

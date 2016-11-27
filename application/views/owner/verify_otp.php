@@ -13,7 +13,7 @@ echo $otp;
 
 Please enter the otp that is sent on your mobile numberrrr.
 
-<form action="owner/check_otp" method="post">
+<form action="check_otp" method="post">
 <input type="text" name="otp">
 <br>
 <br>
