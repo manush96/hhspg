@@ -17,6 +17,12 @@ class Home extends CI_Controller
 		$this->load->view('common/index');
 		$this->load->view('common/footer');
 	}
+	public function temp()
+	{
+		$this->load->view('common/header');
+		$this->load->view('owner/add_pg');
+		$this->load->view('common/footer');
+	}
 	public function search($city, $area)
 	{
 		$city = urldecode($city);

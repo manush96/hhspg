@@ -135,6 +135,13 @@ input:-webkit-autofill
 {
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
+@media screen and (max-width: 400px)
+{
+	#anim_header
+	{
+		display: none;
+	}
+}
 .typed-cursor{
     opacity: 1;
     -webkit-animation: blink 0.7s infinite;
@@ -160,7 +167,19 @@ input:-webkit-autofill
 {
 	position: absolute;
 	top: 30%;
-	padding: 0px 240px;
+	padding: 0% 0% 0% 18%;
+}
+@media screen and (max-width: 800px)
+{
+    #search_container
+    {
+    	width: 100%;
+        padding-left: 10% !important;
+    }
+    #city_div select, #area_div input, #search_pgs
+    {
+    	width: 200px !important;
+    }
 }
 .center_input
 {
@@ -182,6 +201,13 @@ input:-webkit-autofill
 	width: 500px;
 	padding: 14px 8px;
 	border-left: 1px solid #ccc;
+}
+@media screen and (max-width: 1200px)
+{
+	#city_div select, #area_div input
+	{
+		width: 100%;
+	}
 }
 #search_list
 {
@@ -295,4 +321,30 @@ phr
 {
 	color: black;
 	cursor: pointer;
+}
+.pg_info_div
+{
+	border: 1px solid #ccc;
+	border-radius: 7px;
+	padding: 0px;
+	margin-top: 30px; 
+}
+.pg_info_div .div_head
+{
+	background: #eeeeee;
+	cursor: pointer;
+	padding: 5px 15px;
+}
+.pg_info_div .div_head:hover
+{
+	background: #ddd;
+}
+.pg_info_div .div_head .full_text
+{
+	font-weight: 500;
+	font-size: 25px;
+}
+.pg_info_div .div_data
+{
+	display: none;
 }
