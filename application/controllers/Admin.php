@@ -92,7 +92,20 @@ class Admin extends CI_Controller
         $this->load->view("admin/sidebar");
         $this->load->view('admin/view_owner', $data);
         $this->load->view("admin/footer");
-
+    }
+    public function get_pg_request()
+    {
+        $list=$this->admin_model->get_pg_request();
+        $data['result']=$list;
+        $this->load->view("admin/header");
+        $this->load->view("admin/sidebar");
+        $this->load->view('admin/get_pg_request', $data);
+        $this->load->view("admin/footer");
+    }
+    public function approve_pg()
+    {
+        $k=$this->input->post();
+        print_r($k);
     }
 }
 

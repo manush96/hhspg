@@ -21,6 +21,7 @@ class Home_model extends CI_Model
 	        	$this->db->select('*');
 	        	$this->db->from('search');
 	        	$this->db->where('area',$result[0]['area']);
+	        	$this->db->where('status','1');
 	        	$query2=$this->db->get();
 	        	$row=$query2->num_rows();
 	        	if($row==0)

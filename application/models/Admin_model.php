@@ -51,6 +51,14 @@ class Admin_model extends CI_Model
 			$result=$query->result_array();
 			return $result;
 		}
+		public function get_pg_request()
+		{
+			$this->db->select('*');
+			$this->db->where('status','0');
+			$query=$this->db->get('pg');
+			$result=$query->result_array();
+			return $result;
+		}
 
 }
 ?>
