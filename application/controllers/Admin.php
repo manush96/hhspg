@@ -31,6 +31,7 @@ class Admin extends CI_Controller
             $this->general->set_alert('danger','Wrong username or password!','admin');
         }
     }
+
     public function add_pg()
     {
 
@@ -82,6 +83,16 @@ class Admin extends CI_Controller
     {
         $this->session->sess_destroy();
         redirect('admin');        
+    }
+    public function owner_list()
+    {
+        $list=$this->admin_model->get_owner();
+        $data['result']=$list;
+        $this->load->view("admin/header");
+        $this->load->view("admin/sidebar");
+        $this->load->view('admin/view_owner', $data);
+        $this->load->view("admin/footer");
+
     }
 }
 

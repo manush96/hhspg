@@ -58,7 +58,14 @@ class User extends CI_Controller
     
     public function logout()
 	{
-	    $this->session->unset_userdata('user_id');
+	    if($this->session->userdata('user_id')!=null)
+        {
+            $this->session->unset_userdata('user_id');
+        }
+        else if($this->session->userdata('owner_id')!=null)
+        {
+            $this->session->unset_userdata('owner_id');
+        }
 	    redirect("home");
 	}
 }

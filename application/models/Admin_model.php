@@ -44,6 +44,13 @@ class Admin_model extends CI_Model
 					
 			}
 		}
+		public function get_owner()
+		{
+			$this->db->select('*');
+			$query=$this->db->get('owner');
+			$result=$query->result_array();
+			return $result;
+		}
 
 }
 ?>

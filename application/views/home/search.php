@@ -91,7 +91,10 @@
 			<span class="wishlist_icon" rel="<?= $pg['id'];?>">
 				<i class="fa fa-plus-square-o"></i>
 			</span>
+			<br>
+	
 			<phr/>
+
 			<h4><?= $pg['amenities'];?></h4>
 		</div>
 	</div>
