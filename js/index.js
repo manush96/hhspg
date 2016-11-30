@@ -55,7 +55,9 @@ $(document).ready(function()
 		{
 			var city = $("#city").val();
 			var area = $("#area").val();
-			window.location.href = "home/search/"+city+"/"+area;
+			var gender = $("#gender").val();
+			window.location.href = "home/search/"+city+"/"+area+"/"+gender;
+			
 		}	
 	});
 	$("#area").keyup(function(event)

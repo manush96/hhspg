@@ -23,12 +23,12 @@ class Home extends CI_Controller
 		$this->load->view('owner/add_pg');
 		$this->load->view('common/footer');
 	}
-	public function search($city, $area)
+	public function search($city, $area,$gender)
 	{
 		$city = urldecode($city);
 		$area = urldecode($area);
-		
-		$data['search_result'] = $this->home_model->search_pg($city, $area);
+		$gender=urldecode($gender);
+		$data['search_result'] = $this->home_model->search_pg($city, $area,$gender);
 		
 		$this->load->view('common/header');
 		$this->load->view('home/search',$data);

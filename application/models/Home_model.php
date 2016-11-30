@@ -8,11 +8,13 @@ class Home_model extends CI_Model
 			$this->load->helper('cookie');
 		}
 		
-		public function search_pg($city, $area)
+		public function search_pg($city, $area, $gender)
 		{
 			$this->db->select('*');
 	        $this->db->where('city',$city);
+	        $this->db->where('gender',$gender);
 	        $this->db->like('area',$area);
+
 	        $query=$this->db->get('pg');
 	        $result=$query->result_array();
 	        $size=$query->num_rows();
@@ -21,7 +23,7 @@ class Home_model extends CI_Model
 	        	$this->db->select('*');
 	        	$this->db->from('search');
 	        	$this->db->where('area',$result[0]['area']);
-	        	$this->db->where('status','1');
+	        	#$this->db->where('status','1');
 	        	$query2=$this->db->get();
 	        	$row=$query2->num_rows();
 	        	if($row==0)
