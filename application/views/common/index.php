@@ -1,5 +1,7 @@
 <script type="text/javascript" src="js/typed.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
 <div class="container-fluid" id="center">
 	<div id="intro_container">
 		<h1 class="text-center white welcome">Welcome to HHSPG!</h1>
@@ -24,7 +26,7 @@
 		</div>
 		<div id="gender_div" class="pull-left">
 			<select class="center_input" name="gender" id="gender" data-placeholder="Pg for">
-				<option value="male">Boys</option>
+				<option value="male"><span class="fa fa-mars" aria-hidden="true">Boys</span></option>
 				<option value="female">Girls</option>
 			</select>
 		</div>
