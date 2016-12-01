@@ -79,14 +79,19 @@
 
 
 </script>
-
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		
+	});
+</script>
 <div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 520px">
 <?php foreach($search_result as $pg):?>
 	<div class="col-sm-12 pg_result_div">
-		<div class="col-sm-4">
+		<div class="col-sm-4 img_div">
 			<img src="img/img.jpg" class="img-responsive pull-left" style="height: 90px; width: 100%;"/>
 		</div>
-		<div class="col-sm-8">
+		<div class="col-sm-8 data_div">
 			<span class="pg_name"><?= $pg['name'];?></span>
 			<span class="wishlist_icon" rel="<?= $pg['id'];?>">
 				<i class="fa fa-plus-square-o"></i>
