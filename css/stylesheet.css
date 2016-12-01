@@ -284,15 +284,32 @@ input:-webkit-autofill
 }
 #results_pane
 {
-	background: #f2f6fc;
+	background: #d9e5f9;
+	padding: 15px;
 }
 .pg_result_div
 {
 	font-family: "Times New Roman", Times, serif;
 	padding: 10px;
 	background-color: #fff;
-	margin: 10px 10px;
-	box-shadow: -1px 1px 2px gray;
+	margin: 10px 0px;
+	box-shadow: none;
+	cursor: pointer;
+	border-bottom: 2px solid #d9e5f9;
+	min-height: 130px;
+	border-radius: 3px;
+}
+.pg_result_div:hover
+{
+	border-color: #e6ebed;
+}
+.pg_result_div .img_div
+{
+	padding: 7px 5px;
+}
+.pg_result_div img
+{
+	border-radius: 5px;
 }
 phr
 {

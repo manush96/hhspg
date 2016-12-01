@@ -11,12 +11,7 @@
 	<title>HHS PG</title>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function()
-		{
-		    $('[data-toggle="popover"]').popover(); 
-		});
-	</script>
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
 </head>
 <body>
 	<div id="header">
