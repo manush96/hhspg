@@ -1,5 +1,7 @@
 <script type="text/javascript" src="js/typed.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
 <div class="container-fluid" id="center">
 	<div id="intro_container">
 		<h1 class="text-center white welcome">Welcome to HHSPG!</h1>

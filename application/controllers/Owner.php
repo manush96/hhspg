@@ -58,6 +58,7 @@ class Owner extends CI_Controller
     }
     public function verify_otp()
     {
+
       $otp=$this->owner_model->otp_generation();
       $data['otp']=$otp;
       $this->session->set_userdata('otp',$otp);
@@ -82,8 +83,12 @@ class Owner extends CI_Controller
    	public function profile()
    	{
    		$this->load->view("common/header");
-   		$this->load->view("owner/profile");
-   	}
+   		
+   	  
+      $id=$this->session->userdata('owner_id');
+      $data['details']=$this->owner_model->get_pg($id);
+      $this->load->view("owner/profile",$data);
+    }
    	public function add_pg()
    	{
    		$this->load->view("owner/add_pg");
@@ -91,6 +96,19 @@ class Owner extends CI_Controller
     public function add_pg_data()
     {
       echo $this->input->post();
+    }
+    public function submit_pg()
+    {
+      $owner_id=$this->input->post('owner_id');
+      $address=$this->input->post('address');
+      $landmark=$this->input->post('landmark');
+      $contact=$this->input->post('contact');
+
+      echo $landmark."   ---   ". $owner_id;
+    
+      $output=$this->owner_model->add_pg_request($owner_id,$address,$landmark,$contact);
+    
+      $this->load->view("owner/profile");
     }
 
 }

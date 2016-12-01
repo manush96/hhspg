@@ -34,6 +34,13 @@ class Home extends CI_Controller
 		$this->load->view('home/search',$data);
 		$this->load->view('common/footer');
 	}
+	public function blog()
+	{
+		$this->load->view('common/header');
+		$this->load->view('home/view_blog');
+		$this->load->view('common/footer');
+
+	}
 
 	public function get_area_suggestion()
 	{
