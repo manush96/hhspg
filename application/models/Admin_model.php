@@ -60,5 +60,19 @@ class Admin_model extends CI_Model
 			return $result;
 		}
 
+		public function add_pg_request()
+		{
+			$this->db->select('*');
+			$query=$this->db->get('pg_request');
+			$result=$query->result_array();
+			return $result;
+		}
+
+		public function delete_visited($id)
+		{
+			$query="delete from pg_request where id='".$id."'";
+			$result=$this->db->query($query);
+		}
+
 }
 ?>
