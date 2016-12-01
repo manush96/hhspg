@@ -11,6 +11,12 @@
 	<title>HHS PG</title>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+		    $('[data-toggle="popover"]').popover(); 
+		});
+	</script>
 </head>
 <body>
 	<div id="header">
@@ -31,23 +37,36 @@
                             </ul>
                         </li>
                     </ul> -->
-                    <?php if($this->session->userdata('user_id')==null and $this->session->userdata('owner_id')==null){?>	
+	                
+		      		<div class="dropdown pull-right" id="large_side_links">
+						<p class="navbar-text navbar-right actions pointer" data-toggle="dropdown" style="padding: 5px; margin-left: 25px;" >
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</p>
+						<ul class="dropdown-menu pull-right">
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Blogs</a></li>
+							<li><a href="#">Contact us</a></li>
+						</ul>
+					</div>
+                    <?php if($this->session->userdata('user_id')==null and $this->session->userdata('owner_id')==null):?>	
 	                    <p class="navbar-text navbar-right actions">
-		                    <a class="navbar-link login" href="owner">Owner</a>
-		                    <a class="btn btn-default action-button" role="button" href="user">User</a>
+		                    <a class="btn btn-default action-button" role="button" href="user">Login</a>
 		                </p>
 
-	                <?php
-	            		} 
-	                	else
-	                	{
-	                ?>
+	                <?php else:?>
 							<p class="navbar-text navbar-right actions">
 							<a class="btn btn-default action-button" role="button" href="user/logout">Logout</a>
 							</p>
-					<?php 
-						}
-					?>
+					<?php endif;?>	
+					<div id="small_side_links">
+						<p class="white">
+							<a class="navbar-link login white" href="owner">About us</a>
+							<a class="navbar-link login white" href="owner">Blogs</a>
+							<a class="navbar-link login white" href="owner">Contact us</a>
+						</p>
+					</div>
                 </div>
             </div>
         </nav>
@@ -56,5 +75,4 @@
 	<div id="body">
 	<?php 
 	$t=$this->session->userdata('user_id')==null Or $this->session->userdata('owner_id')==null;
-
-	echo $t; ?>
+	 ?>
