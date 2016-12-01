@@ -1,46 +1,30 @@
 <script type="text/javascript" src="js/add_pg.js"></script>
+<?php
+        $id= $this->session->userdata('owner_id');
+        #echo $id;
+?>
 <div id="add_pg_form">
-    <form action="owner/submit_pg" method="POST">
+    <form action="submit_pg" method="POST">
         <div class="pg_info_div col-sm-offset-2 col-sm-8">
-            <div class="div_head">
-                <span class="full_text">
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span class="head_text">PG Info</span>
-                </span>
-            </div>
             <div class="div_data col-sm-12">
                 <div class="form-group">
-                    <label for="email">Email address:</label>
-                    <input type="email" class="form-control" id="email">
+                    <label for="address">Address:</label>
+                    <input type="text" class="form-control" id="address" name="address">
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd">
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="">Option 1</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="">Option 2</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 1</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 2</label>
+                    <label for="landmark">Landmark:</label>
+                    <input type="Landmark" class="form-control" id="landmark" name="landmark">
                 </div>
                 <div class="form-group">
-                    <label for="sel1">Select list:</label>
-                    <select class="form-control" id="sel1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
-                </div>
+                    <label for="contact number">Contact:</label>
+                    <input type="number" class="form-control" id="contact" name="contact">
+                    <input type="hidden" class="form-control" id="owner_id" name="owner_id" value=<?=$id ?>>
+                </div>                
             </div>
         </div>
         <div class="clearfix"></div>
-        
+        <div class="div_data"col-sm-12>
+                <input type="submit" value="Add PG Request" id="submit" class="btn btn-success"/> 
+        </div>
     </form>
 </div>
