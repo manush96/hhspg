@@ -21,23 +21,26 @@ class User extends CI_Controller
 
     public function login()
     {
-        $email=$this->input->post("email");
-        $password=$this->input->post("password");
-        
-        $k=$this->user_model->check($email,$password);
-        $return_url = $this->input->post('return_url');
+        $email=$this->input->post('email');
+        $password=$this->input->post('password');
 
-        if($k!=-1)
+        $check=$this->user_model->check_creds($email,$password);
+
+        if($check>0)
         {
-            $this->session->set_userdata('user_id',$k);
-            if($return_url != "")
-                redirect($return_url);
-            else
-                redirect(""); 
-        }   
+            $this->session->set_userdata('user_id',$check);
+            redirect(""); 
+        }
+        elseif($check==-1)
+        {
+            $id=$this->session->userdata('user_id');
+            $number=$this->user_model->get_number($id);
+            $this->verify_otp($number);
+        }
+
         else
         {
-            $this->general->set_alert('danger','Wrong username or password!','user');
+            $this->general->set_alert('danger','Wrong username or password!');
         }
     }
     public function register()
@@ -77,5 +80,38 @@ class User extends CI_Controller
         }
 	    redirect("home");
 	}
+    
+    public function verify_otp($number)
+    {
+
+      $otp=$this->user_model->otp_generation();
+
+      $data['otp']=$otp;
+    #  $number = "8980274484";
+      $message  = "Hello ";
+
+      $response = file_get_contents('http://tra.smsmyntraa.com/API/WebSMS/Http/v1.0a/index.php?username=HHMS&password=HHMS@123&sender=VHHSIN&to='.$number.'&message='.$message.'&reqid=&format=text&route_id=TRANSACTIONAL&callback=&unique=1&sendondate=');
+
+
+      $this->session->set_userdata('otp',$otp);
+      $this->load->view("user/verify_otp",$data);
+
+    }
+    public function check_otp()
+    {
+      $given=$this->input->post('otp');
+      $true=$this->session->userdata('otp');
+      if($given==$true)
+      {
+        $this->user_model->set_active();
+
+        redirect("");
+      }
+      else
+      {
+        redirect("user/verify_otp");
+      }
+    }
+    
 }
 ?>

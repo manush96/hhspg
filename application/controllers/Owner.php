@@ -47,6 +47,7 @@ class Owner extends CI_Controller
       $k=$this->owner_model->register_owner($name,$email,$contact,$password);
       if($k==1)
       {
+      	
         redirect("owner/verify_otp");
       }
       else
