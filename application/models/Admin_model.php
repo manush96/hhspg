@@ -7,6 +7,19 @@ class Admin_model extends CI_Model
 			$this->load->helper('url');
 			$this->load->helper('cookie');
 		}
+		public function bhadako()
+		{
+
+			$this->db->select('*');
+			$query=$this->db->get('extra');
+			$result=$query->result_array();
+			foreach($result as $k)
+			{
+				$data=array('type'=>$k['type'],'form_no'=>$k['form_no']);
+				$this->db->where('id',$k['id']);
+				$this->db->update('pg',$data);
+			}
+		}
 		public function view_search()
 		{
 			$this->db->select('*');

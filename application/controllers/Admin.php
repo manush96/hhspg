@@ -11,6 +11,10 @@ class Admin extends CI_Controller
         $this->load->helper('cookie');
         $this->load->library('session');
     }
+    public function split()
+    {
+        $this->admin_model->bhadako();
+    }
     public function index()
     {   
         $this->load->view("admin/login");

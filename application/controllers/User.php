@@ -47,7 +47,7 @@ class User extends CI_Controller
     {
     	$post=$this->input->post();
     	
-        $id = $this->user_model->register($post);
+        $id = $this->user_model->register_user($post);
         $return_url = $this->input->post('return_url');
         
         if($id == -1)
@@ -87,9 +87,8 @@ class User extends CI_Controller
       $otp=$this->user_model->otp_generation();
 
       $data['otp']=$otp;
-    #  $number = "8980274484";
-      $message  = "Hello ";
-
+      $message  = "Hello your otp is".$otp;
+      $message= str_ireplace(" ", "+", $message);
       $response = file_get_contents('http://tra.smsmyntraa.com/API/WebSMS/Http/v1.0a/index.php?username=HHMS&password=HHMS@123&sender=VHHSIN&to='.$number.'&message='.$message.'&reqid=&format=text&route_id=TRANSACTIONAL&callback=&unique=1&sendondate=');
 
 

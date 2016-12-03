@@ -94,10 +94,10 @@
 			<img src="img/img.jpg" class="img-responsive pull-left" style="height: 90px; width: 100%;"/>
 		</div>
 		<div class="col-sm-8 data_div">
-			<span class="pg_name"><?= $pg['name'];?></span>
-			<span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
+			<div class="col-sm-9"><span class="pg_name"><?= $pg['name'];?></span></div>
+			<div class="col-sm-3"><span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
 				<i class="fa fa-heart"></i>
-			</span>
+			</span></div>
 			<br>
 	
 			<phr/>
