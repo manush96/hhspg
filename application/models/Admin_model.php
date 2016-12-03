@@ -87,5 +87,19 @@ class Admin_model extends CI_Model
 			$result=$this->db->query($query);
 		}
 
+		public function request_changes()
+		{
+			$this->db->select('*');
+			$query=$this->db->get('request');
+			$result=$query->result_array();
+			return $result;
+		}
+
+		public function delete_handled($id)
+		{
+			$query="delete from request where id='".$id."'";
+			$result=$this->db->query($query);
+		}
+
 }
 ?>
