@@ -27,7 +27,7 @@ $(document).ready(function()
 					{
 						setTimeout(function()
 						{
-							$("#type_anim_2").next().removeClass().addClass("click_remove");	
+							$("#type_anim_2").next().remove();
 						},1000);
 					},
 				});

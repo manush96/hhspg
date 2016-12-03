@@ -25,9 +25,9 @@
 			</div>
 		</div>
 		<div id="gender_div" class="pull-left">
-			<select class="center_input" name="gender" id="gender" data-placeholder="Pg for">
-				<option value="male"><span class="fa fa-mars" aria-hidden="true">Boys</span></option>
-				<option value="female">Girls</option>
+			<select class="center_input" name="gender" id="gender" placeholder="Pg for..">
+				<option value="male">&#9794; Boys</option>
+				<option value="female">&#9792; Girls</option>
 			</select>
 		</div>
 		<div id="search_btn_div" class="pull-left">

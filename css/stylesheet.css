@@ -98,6 +98,14 @@ body
 	padding-left: 5px;
 	padding-right: 5px;
 }
+.white
+{
+	color: white !important;
+}
+#small_side_links a:hover
+{
+	color: black !important;
+}
 input::-webkit-calendar-picker-indicator
 {
 	display: none;
@@ -116,6 +124,14 @@ input:-webkit-autofill
 	display: inline-block;
 	vertical-align: middle;
 	float: none;
+}
+.icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: black;
+  border-radius: 1px;
+  margin-top: 5px;
 }
 #center
 {
@@ -163,11 +179,26 @@ input:-webkit-autofill
     50% { opacity:0; }
     100% { opacity:1; }
 }
+#small_side_links
+{
+	display: none;
+}
+@media screen and (max-width: 768px)
+{
+	#large_side_links
+	{
+		display: none;
+	}
+	#small_side_links
+	{
+		display: block;
+	}
+}
 #search_container
 {
 	position: absolute;
 	top: 30%;
-	padding: 0% 0% 0% 18%;
+	padding: 0% 0% 0% 15%;
 }
 @media screen and (max-width: 800px)
 {
@@ -176,7 +207,7 @@ input:-webkit-autofill
     	width: 100%;
         padding-left: 10% !important;
     }
-    #city_div select, #area_div input, #search_pgs
+    #city_div select, #area_div input, #gender_div select, #search_pgs
     {
     	width: 200px !important;
     }
@@ -191,8 +222,7 @@ input:-webkit-autofill
 #city_div select
 {
 	width: 180px;
-	padding: 14px 8px;
-	padding-left: 15px;
+	padding: 14px 8px 14px 15px;
 	border-top-left-radius: 4px;
 	border-bottom-left-radius: 4px;
 }
@@ -202,9 +232,15 @@ input:-webkit-autofill
 	padding: 14px 8px;
 	border-left: 1px solid #ccc;
 }
+#gender_div select
+{
+	width: 120px;
+	padding: 14px 8px 14px 15px;
+	border-left: 1px solid #ccc;
+}
 @media screen and (max-width: 1200px)
 {
-	#city_div select, #area_div input
+	#city_div select, #area_div input, #gender_div select
 	{
 		width: 100%;
 	}
@@ -248,15 +284,34 @@ input:-webkit-autofill
 }
 #results_pane
 {
-	background: #f2f6fc;
+	background: #d9e5f9;
+	padding: 15px;
 }
 .pg_result_div
 {
 	font-family: "Times New Roman", Times, serif;
 	padding: 10px;
 	background-color: #fff;
-	margin: 10px 10px;
-	box-shadow: -1px 1px 2px gray;
+	margin: 10px 0px;
+	box-shadow: none;
+	cursor: pointer;
+	border-bottom: 2px solid #d9e5f9;
+	min-height: 130px;
+	border-radius: 3px;
+	transition: 0.2s box-shadow;
+}
+.pg_result_div:hover
+{
+	border-color: #e6ebed;
+	box-shadow: -2px 2px 0px #ccc;
+}
+.pg_result_div .img_div
+{
+	padding: 7px 5px;
+}
+.pg_result_div img
+{
+	border-radius: 5px;
 }
 phr
 {
@@ -277,13 +332,33 @@ phr
 }
 .pg_result_div .wishlist_icon
 {
+	position: absolute;
+	right: 10px;
+	top: 0px;
 	font-size: 25px;
 	cursor: pointer;
+	transition: all 0.2s ease in out;
 }
-.pg_result_div .wishlist_icon:hover
+.pg_result_div .add_to_wishlist
 {
-	background: black;
 	color: white;
+	text-shadow: -1px 0 #4286f4, 0 1px #4286f4, 1px 0 #4286f4, 0 -1px #4286f4;
+}
+.pg_result_div .add_to_wishlist:hover
+{
+	text-shadow: -1px 0 #4286f4, 0 1px #4286f4, 1px 0 #4286f4, 0 -1px #4286f4;
+	color: #4286f4;
+}
+
+.pg_result_div .remove_from_wishlist
+{
+	text-shadow: -1px 0 #4286f4, 0 1px #4286f4, 1px 0 #4286f4, 0 -1px #4286f4;
+	color: #4286f4;
+}
+.pg_result_div .remove_from_wishlist:hover
+{
+	color: white;
+	text-shadow: -1px 0 #4286f4, 0 1px #4286f4, 1px 0 #4286f4, 0 -1px #4286f4;
 }
 #sidebar-wrapper
 {

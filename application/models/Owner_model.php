@@ -76,7 +76,23 @@ class Owner_model extends CI_Model
 			return $otp;
 		}
 
+		public function add_pg_request($id,$address,$landmark,$contact)
+		{
+			echo $landmark;
+			$data=array('owner_id'=>$id,'address'=>$address,'contact'=>$contact,'landmark'=>$landmark);
+			$this->db->insert('pg_request',$data);
 
+		}
+
+		public function get_pg($id)
+		{
+			$this->db->select('id,name,address,area,city,room_price,gender');
+			$this->db->where('owner_id',$id);
+			$query=$this->db->get('pg');
+			$result=$query->result_array();
+
+			return $result;
+		}
 
 
 

@@ -91,7 +91,7 @@ class Admin extends CI_Controller
         $this->load->view("admin/header");
         $this->load->view("admin/sidebar");
         $this->load->view('admin/view_owner', $data);
-        $this->load->view("admin/footer");
+        /*$this->load->view("admin/footer");*/
     }
     public function get_pg_request()
     {
@@ -106,6 +106,19 @@ class Admin extends CI_Controller
     {
         $k=$this->input->post();
         print_r($k);
+    }
+    public function owner_requests()
+    {
+        $data['details']=$this->admin_model->add_pg_request();
+        $this->load->view("admin/header");
+        $this->load->view("admin/sidebar");
+        $this->load->view('admin/add_pg_request', $data);
+        $this->load->view("admin/footer");
+    }
+    public function visited()
+    {
+        $id=$this->input->post('id');
+        echo $this->admin_model->delete_visited($id);
     }
 }
 
