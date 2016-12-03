@@ -12,8 +12,10 @@ class User extends CI_Controller
 
     public function index()
     {   
+        $data['return_url'] = $this->input->get('return_url');
+
         $this->load->view("common/header");
-        $this->load->view("user/login");
+        $this->load->view("user/login",$data);
         $this->load->view("common/footer");
     }
 
@@ -23,24 +25,28 @@ class User extends CI_Controller
         $password=$this->input->post("password");
         
         $k=$this->user_model->check($email,$password);
-        
+        $return_url = $this->input->post('return_url');
+
         if($k!=-1)
         {
             $this->session->set_userdata('user_id',$k);
-            redirect(""); 
+            if($return_url != "")
+                redirect($return_url);
+            else
+                redirect(""); 
         }   
         else
         {
             $this->general->set_alert('danger','Wrong username or password!','user');
         }
     }
-
     public function register()
     {
     	$post=$this->input->post();
     	
         $id = $this->user_model->register($post);
-
+        $return_url = $this->input->post('return_url');
+        
         if($id == -1)
         {
             $this->general->set_alert('danger','Email already in use!');
@@ -52,7 +58,10 @@ class User extends CI_Controller
         else
         {
             $this->general->set_alert('success','Registered successfully');
-            redirect("");
+            if($return_url != "")
+                redirect($return_url);
+            else
+                redirect(""); 
         }
     }
     

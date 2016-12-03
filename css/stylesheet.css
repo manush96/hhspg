@@ -298,10 +298,12 @@ input:-webkit-autofill
 	border-bottom: 2px solid #d9e5f9;
 	min-height: 130px;
 	border-radius: 3px;
+	transition: 0.2s box-shadow;
 }
 .pg_result_div:hover
 {
 	border-color: #e6ebed;
+	box-shadow: -2px 2px 0px #ccc;
 }
 .pg_result_div .img_div
 {
@@ -330,13 +332,33 @@ phr
 }
 .pg_result_div .wishlist_icon
 {
+	position: absolute;
+	right: 10px;
+	top: 0px;
 	font-size: 25px;
 	cursor: pointer;
+	transition: all 0.2s ease in out;
 }
-.pg_result_div .wishlist_icon:hover
+.pg_result_div .add_to_wishlist
 {
-	background: black;
 	color: white;
+	text-shadow: -1px 0 #4286f4, 0 1px #4286f4, 1px 0 #4286f4, 0 -1px #4286f4;
+}
+.pg_result_div .add_to_wishlist:hover
+{
+	text-shadow: -1px 0 #4286f4, 0 1px #4286f4, 1px 0 #4286f4, 0 -1px #4286f4;
+	color: #4286f4;
+}
+
+.pg_result_div .remove_from_wishlist
+{
+	text-shadow: -1px 0 #4286f4, 0 1px #4286f4, 1px 0 #4286f4, 0 -1px #4286f4;
+	color: #4286f4;
+}
+.pg_result_div .remove_from_wishlist:hover
+{
+	color: white;
+	text-shadow: -1px 0 #4286f4, 0 1px #4286f4, 1px 0 #4286f4, 0 -1px #4286f4;
 }
 #sidebar-wrapper
 {

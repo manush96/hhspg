@@ -69,5 +69,64 @@ class Home_model extends CI_Model
 		$result_list = $query->result_array();
         return $result_list;
 	}
+	public function get_wishlist($id)
+	{
+		$myArr = array();
+		
+		if(!($id == NULL))
+		{
+			$this->db->select('shortlist');
+			$this->db->where('id',$id);
+			$query = $this->db->get('user');
+			$result = $query->row_array();
+
+			$myArr = explode(',', $result['shortlist']);
+		}
+
+		return $myArr;
+	}
+	public function add_to_wishlist($pg_id, $id)
+	{
+		$this->db->select('shortlist');
+		$this->db->where('id',$id);
+		$query = $this->db->get('user');
+		$result = $query->row_array();
+
+		$tmp_array = explode(',', $result['shortlist']);
+		array_push($tmp_array, $pg_id);
+		$tmp_array = array_unique(array_filter($tmp_array));
+
+		$res = implode(',', $tmp_array);
+
+		$data = array(
+			'shortlist' => $res,
+			);
+
+		$this->db->where('id',$id);
+		$this->db->update('user',$data);
+
+	}
+
+	public function remove_from_wishlist($pg_id, $id)
+	{
+		$this->db->select('shortlist');
+		$this->db->where('id',$id);
+		$query = $this->db->get('user');
+		$result = $query->row_array();
+
+		$tmp_array = explode(',', $result['shortlist']);
+		if(($key = array_search($pg_id, $tmp_array)) !== false)
+    		unset($tmp_array[$key]);
+		$tmp_array = array_unique(array_filter($tmp_array));
+
+		$res = implode(',', $tmp_array);
+
+		$data = array(
+			'shortlist' => $res,
+			);
+
+		$this->db->where('id',$id);
+		$this->db->update('user',$data);
+	}
 }
 ?>

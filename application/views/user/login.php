@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Sign-Up/Login Form</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+  <link rel="stylesheet" href="css/style.css">
   
-      <link rel="stylesheet" href="css/style.css">
-
-  
-</head>
-
-<body>
   <div class="form">
       
       <ul class="tab-group">
@@ -34,7 +23,7 @@
             </label>
             <input type="email"required autocomplete="off" name="email"/>
           </div>
-          
+          <input type="hidden" name="return_url" value="<?= $return_url;?>"/>
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
@@ -68,7 +57,7 @@
             </label>
             <input type="email" name="email" required autocomplete="off"/>
           </div>
-          
+          <input type="hidden" name="return_url" value="<?= $return_url;?>"/>
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
@@ -91,7 +80,4 @@
       </div><!-- tab-content -->
       
 </div> <!-- /form -->
-    <script src="js/login.js"></script>
-
-</body>
-</html>
+<script src="js/login.js"></script>

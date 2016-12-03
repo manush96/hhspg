@@ -23,12 +23,16 @@ class Home extends CI_Controller
 		$this->load->view('owner/add_pg');
 		$this->load->view('common/footer');
 	}
-	public function search($city, $area,$gender)
+	public function search($city="", $area="",$gender="")
 	{
+		$id = $this->session->userdata('user_id');
+
 		$city = urldecode($city);
 		$area = urldecode($area);
 		$gender=urldecode($gender);
+
 		$data['search_result'] = $this->home_model->search_pg($city, $area,$gender);
+		$data['wishlist'] = $this->home_model->get_wishlist($id);
 		
 		$this->load->view('common/header');
 		$this->load->view('home/search',$data);
@@ -40,6 +44,38 @@ class Home extends CI_Controller
 		$this->load->view('home/view_blog');
 		$this->load->view('common/footer');
 
+	}
+
+	public function add_to_wishlist()
+	{
+		$id = $this->session->userdata('user_id');
+		$url = $this->input->post('url');
+		if($id == NULL)
+		{
+			echo $url;
+		}
+		else
+		{
+			$pg_id = $this->input->post('pg_id');
+			$this->home_model->add_to_wishlist($pg_id, $id);
+			echo "TRUE";
+		}
+	}
+
+	public function remove_from_wishlist()
+	{
+		$id = $this->session->userdata('user_id');
+		$url = $this->input->post('url');
+		if($id == NULL)
+		{
+			echo $url;
+		}
+		else
+		{
+			$pg_id = $this->input->post('pg_id');
+			$this->home_model->remove_from_wishlist($pg_id, $id);
+			echo "TRUE";
+		}
 	}
 
 	public function get_area_suggestion()
