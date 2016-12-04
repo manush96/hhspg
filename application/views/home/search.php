@@ -6,14 +6,16 @@
 $( document ).ready(function() {
     $(".pg_result_div").click(function()
     {	
+    	$("#disp").hide();
+    	id = $(this).attr('id');
     	$.ajax({
     		type: 'POST',
     		url: "home/get_modal_pg", 
-    		data: {id:$(this).attr('id')},
+    		data: {id: id},
     		success: function(result){
         		$("#tar").html(result);
     		}});
-    	$("#disp").show();
+    	$("#disp").fadeIn();
     });
     $("#close_button").click(function()
     {
@@ -92,7 +94,7 @@ $( document ).ready(function() {
 </script>
 <div id="main_div" style="position: relative">
 	<div class="col-sm-12 lr0pad">
-		<div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 520px">
+		<div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 530px">
 		<?php foreach($search_result as $pg):?>
 			<?php
 				if(in_array($pg['id'], $wishlist))
@@ -125,11 +127,11 @@ $( document ).ready(function() {
 
 		</div>
 		<div class="col-sm-8">
-			<div  id="googleMap" style="width:100%;height:510px;"></div>
+			<div  id="googleMap" style="width:100%;height:530px;"></div>
 		</div>
 	</div>
-	<div class="col-sm-12 lr0pad" style="position: absolute;display:none" id="disp">
-		<div class="col-sm-offset-4 col-sm-3" style="position: absolute; background: #fff">
+	<div class="col-sm-12 lr0pad" style="position: absolute;display:none;" id="disp">
+		<div class="col-sm-offset-4 col-sm-4" style="position: absolute; background: #fff;  height: 530px; overflow-y: scroll;">
 			
 			<div class="pull-right"><span class="glyphicon glyphicon-remove pointer" id="close_button"></span></button></div>
 			<br>
