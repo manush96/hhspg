@@ -50,4 +50,22 @@ $(document).ready(function()
 			}
 		});
 	});
+	$(".pg_result_div").click(function()
+    {	
+    	$("#disp").hide();
+    	id = $(this).attr('id');
+    	$.ajax({
+    		type: 'POST',
+    		url: "home/get_modal_pg", 
+    		data: {id: id},
+    		success: function(result){
+        		$("#tar").html(result);
+    		}});
+    	$("#disp").fadeIn();
+    });
+    $("#close_button").click(function()
+    {
+    	$("#disp").hide();
+    	$("#tar").html("");
+    });
 });
