@@ -10,7 +10,6 @@ $(document).ready(function()
 	});
 	$(document).on("click",".edit_btn",function()
 	{
-		alert('a');
 		$(this).parents(".content_grp").find(".content_div").find(".content").attr("contenteditable",true);
 		$(this).parents(".content_grp").find(".content_div").find(".content").trigger('click');
 		$(this).parents(".content_grp").find(".content_div").find(".content").trigger('click');

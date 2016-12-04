@@ -11,72 +11,69 @@
 <link rel="stylesheet" type="text/css" href="css/tabular.css"/>
 <script type="text/javascript" src="js/user_edit.js"></script>
 <div id="user_data_div">
-	<table class="table table-striped table-bordered table-hover pointer shadow_box">
-		<thead>
-			<tr>
-				<th>Username</th>
-				<th>Email</th>
-				<th>Password</th>
-				<th>Phone</th>
-				<th>Shortlist</th>
-			</tr>
-		</thead>
+	<div class="container" id="main_table">
+		<div class="row bg-info">
+			<div class="col-sm-3 head_cell">
+				<p class="h3">Firstname</p>
+			</div>
+			<div class="col-sm-3 head_cell">
+				<p class="h3">Lastname</p>
+			</div>
+			<div class="col-sm-3 head_cell">
+				<p class="h3">Username</p>
+			</div>
+			<div class="col-sm-3 head_cell">
+				<p class="h3">Password</p>
+			</div>
+		</div>
 		<?php foreach ($result as $row):?>
-			<tr rel="<?= $row['id'];?>">
-				<td>
-					<div class="content_grp col-sm-3 lr0pad" rel="<?= 'username@'.$row['id'];?>">
-						<div class="edit_btn_div col-sm-2 lr0pad">
-							<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
-								<span class="glyphicon glyphicon-pencil"></span>
-							</button>
-						</div>
-						<div class="content_div col-sm-10 lr0pad">
-							<p class="h4 content"><?= $row['username'] ?></p>
-						</div>
-					</div>		
-				</td>
-				<td>
-					<div class="content_grp col-sm-3 lr0pad" rel="<?= 'email@'.$row['id'];?>">
-						<div class="edit_btn_div col-sm-2 lr0pad">
-							<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
-								<span class="glyphicon glyphicon-pencil"></span>
-							</button>
-						</div>
-						<div class="content_div col-sm-10 lr0pad">
-							<p class="h4 content"><?= $row['email'] ?></p>
-						</div>
+			<div class="row" rel="<?= $row['id'];?>">
+				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'username@'.$row['id'];?>">
+					<div class="edit_btn_div col-sm-2 lr0pad">
+						<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
 					</div>
-				</td>
-				<td>
-					<div class="content_grp col-sm-3 lr0pad" rel="<?= 'password@'.$row['id'];?>">
-						<div class="edit_btn_div col-sm-2 lr0pad">
-							<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
-								<span class="glyphicon glyphicon-pencil"></span>
-							</button>
-						</div>
-						<div class="content_div col-sm-10 lr0pad">
-							<p class="h4 content"><?= $row['password'] ?></p>
-						</div>
+					<div class="content_div col-sm-10 lr0pad">
+						<p class="h4 content"><?= $row['username'] ?></p>
 					</div>
-				</td>
-				<td>
-					<div class="content_grp col-sm-3 lr0pad" rel="<?= 'phone@'.$row['id'];?>">
-						<div class="edit_btn_div col-sm-2 lr0pad">
-							<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
-								<span class="glyphicon glyphicon-pencil"></span>
-							</button>
-						</div>
-						<div class="content_div col-sm-10 lr0pad">
-							<p class="h4 content"><?= $row['phone'] ?></p>
-						</div>
+				</div>		
+				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'email@'.$row['id'];?>">
+					<div class="edit_btn_div col-sm-2 lr0pad">
+						<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
 					</div>
-				</td>
-				<td>
+					<div class="content_div col-sm-10 lr0pad">
+						<p class="h4 content"><?= $row['email'] ?></p>
+					</div>
+				</div>
+				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'password@'.$row['id'];?>">
+					<div class="edit_btn_div col-sm-2 lr0pad">
+						<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+					</div>
+					<div class="content_div col-sm-10 lr0pad">
+						<p class="h4 content"><?= $row['password'] ?></p>
+					</div>
+				</div>
+				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'phone@'.$row['id'];?>">
+					<div class="edit_btn_div col-sm-2 lr0pad">
+						<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+					</div>
+					<div class="content_div col-sm-10 lr0pad">
+						<p class="h4 content"><?= $row['phone'] ?></p>
+					</div>
+				</div>
+				<div class="col-sm-2">
 					<button class="btn btn-info" rel="<?= $row['shortlist'] ?>">
-						View Shortlist
+							View Shortlist
 					</button>
-				</td>
-			</tr> 
+				</div>
+			</div> 
 		<?php endforeach;?>
-	</table>
+	</div>
 </div>

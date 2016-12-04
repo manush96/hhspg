@@ -69,6 +69,23 @@ class Home_model extends CI_Model
 		$result_list = $query->result_array();
         return $result_list;
 	}
+	public function get_pg_info($id)
+	{
+		$this->db->select('*');
+		$this->db->where('id',$id);
+		$query = $this->db->get('pg');
+		$result = $query->row_array();
+		return $result;
+	}
+	public function get_amenities($amenities)
+	{
+		$this->db->select('*');
+		$where = 'id IN ('.$amenities.')';
+		$this->db->where($where);
+		$query = $this->db->get('amenities');
+		$result = $query->result_array();
+		return $result;
+	}
 	public function get_wishlist($id)
 	{
 		$myArr = array();

@@ -45,6 +45,24 @@ class Home extends CI_Controller
 		$this->load->view('common/footer');
 
 	}
+	
+	public function view_pg($token)
+	{
+		$myArr = explode('_', $token);
+		if($myArr[0] == "")
+		{
+			redirect("");
+		}
+		else
+		{
+			$id = $myArr[1];
+			$data['pg'] = $this->home_model->get_pg_info($id);
+			$data['amenities'] = $this->home_model->get_amenities($data['pg']['amenities']);
+			$this->load->view('common/header');
+			$this->load->view('home/view_pg', $data);
+			$this->load->view('common/footer');
+		}
+	}
 
 	public function add_to_wishlist()
 	{
