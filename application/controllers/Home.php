@@ -50,7 +50,13 @@ class Home extends CI_Controller
 		$this->load->view('common/footer');
 
 	}
-	
+	public function get_modal_pg()
+	{
+		$id=$this->input->post('id');
+		$result=$this->home_model->get_pg_info($id);
+		$data['result']=$result;
+		$this->load->view('home/view_modal',$data);
+	}
 	public function view_pg($token)
 	{
 		$myArr = explode('_', $token);
@@ -81,17 +87,26 @@ class Home extends CI_Controller
 					$tmp[0] = str_ireplace("ac", "", $tmp[0]);
 					$tmp[0] = trim($tmp[0]);
 					$tmp2 = explode(' ', $tmp[0]);
-
+					if(!isset($tmp[1]))
+					{
+						$tmp2 = explode(' ', $tmp[0]);
+						$tmp[0] = $tmp2[0].' '.$tmp2[1];
+						$tmp[1] = $tmp2[2];
+					}
 					$new[$tmp2[0]]['ac'] = trim($tmp[1]);
 				}
 				else
 				{
 					$tmp[0] = trim($tmp[0]);
 					$tmp2 = explode(' ', $tmp[0]);
-
+					if(!isset($tmp[1]))
+					{
+						$tmp2 = explode(' ', $tmp[0]);
+						$tmp[0] = $tmp2[0].' '.$tmp2[1];
+						$tmp[1] = $tmp2[2];
+					}
 					$new[$tmp2[0]]['normal'] = trim($tmp[1]);
 				}
-				
 			}
 
 			$data['rooms'] = $new;
