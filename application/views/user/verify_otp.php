@@ -1,10 +1,6 @@
 <html>
 <head>
-
-<?php
-echo $otp;
-
-?>
+ 
 
 
 <body>

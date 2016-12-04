@@ -102,9 +102,32 @@ $( document ).ready(function() {
 
 
 </script>
+<<<<<<< HEAD
 <?php
 
 $i=0;
+=======
+<div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 520px">
+<?php foreach($search_result as $pg):?>
+	<?php
+		if(in_array($pg['id'], $wishlist))
+			$wish = "remove_from_wishlist";
+		else
+			$wish = "add_to_wishlist";
+	?>
+	<div class="col-sm-12 pg_result_div">
+		<div class="col-sm-4 img_div">
+			<img src="img/img.jpg" class="img-responsive pull-left" style="height: 90px; width: 100%;"/>
+		</div>
+		<div class="col-sm-8 data_div">
+			<div class="col-sm-9"><span class="pg_name"><?= $pg['name'];?></span></div>
+			<div class="col-sm-3"><span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
+				<i class="fa fa-heart"></i>
+			</span></div>
+			<br>
+	
+			<phr/>
+>>>>>>> 4efb3e8f049d955db919fbfc793e65e531ab7b6d
 
 ?>
 <div id="main_div" style="position: relative">

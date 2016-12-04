@@ -49,6 +49,30 @@ class User_model extends CI_Model
 			$this->db->update('user',$data);
 
 		}
+		public function register_user($post)
+		{
+			$name=$post['name'];
+			$email=$post['email'];
+			$contact=$post['phone'];
+			$password=$post['password'];
+			$this->db->select('id');
+			$this->db->where('email',$email);
+			$this->db->or_where('phone',$contact);
+			$query=$this->db->get('user');
+			if($query->num_rows()==0)
+			{
+				$data=array('name'=>$name,'email'=>$email,'phone'=>$contact,'password'=>md5($password));
+				$this->db->insert('user',$data);
+
+				$this->session->set_user('user_id',$this->db->insert_id());
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+
 		public function otp_generation()
 		{
 			$a="0123456789";

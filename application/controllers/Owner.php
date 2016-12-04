@@ -111,5 +111,14 @@ class Owner extends CI_Controller
     
       $this->load->view("owner/profile");
     }
+    public function submit_change()
+    {
+      $contact=$this->input->post('contact');
+      $pg=$this->input->post('pg');
+      $description=$this->input->post('description');
+      $data=array('pg'=>$pg,'contact'=>$contact,'description'=>$description);
+      $this->owner_model->change_request($data);
+      redirect('owner/profile');
+    }
 
 }
