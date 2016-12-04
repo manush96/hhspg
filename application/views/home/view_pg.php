@@ -35,6 +35,15 @@
     {
         margin-top: 10px;
     }
+    .pg_data_div
+    {
+        background: #fff;
+        font-size: 22px;
+    }
+    .room_div
+    {
+        padding: 10px 0px;
+    }
     .highlight_div
     {
         background: #fff;
@@ -63,6 +72,15 @@
     {
         font-size: 17px;
     }
+    .room_info_div
+    {
+        min-height: 120px;
+        border-bottom: 1px solid #ccc;
+    }
+    .button_div
+    {
+        padding: 10px 10px;
+    }
 </style>
 <div class="container-fluid lr0pad" id="pg_full">
     <div class="col-sm-12 pg_header lr0pad">
@@ -82,8 +100,9 @@
             </div>
         </div>
     </div>
+    <div class="clearfix"></div><br/>
     <div class="col-sm-12 pg_body">
-        <div class="col-sm-10 col-sm-offset-1">
+        <div class="col-sm-10 col-sm-offset-1 pg_data_div">
             <div class="col-sm-7 carousel_div">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -126,7 +145,7 @@
                         ?>
                         <ul  class="nav nav-tabs col-sm-12">
                             <?php foreach ($rooms as $key => $value):?>
-                                <li class="sharing_tab col-sm-<?= $no;?> lr0pad <?php if($i == 1):?> active <?php endif;?>">
+                                <li class="sharing_tab col-sm-<?= $no;?> lr0pad text-center <?php if($i == 1):?> active <?php endif;?>">
                                     <a  href="#<?= $key;?>_sharing" data-toggle="tab">
                                         <?= $key;?> Sharing
                                     </a>
@@ -135,7 +154,7 @@
                             <?php endforeach;?>
                         </ul>
                         <?php $i = 1;?>
-                        <div class="tab-content clearfix col-sm-12 lr0pad">
+                        <div class="tab-content clearfix col-sm-12 lr0pad room_info_div">
                             <?php foreach ($rooms as $key => $value):?>
                                 <div class="tab-pane <?php if($i == 1):?> active <?php endif;?>" id="<?= $key;?>_sharing">
                                     <?php if(isset($value['ac'])):?>
@@ -154,8 +173,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12">
-                    
+                <div class="col-sm-12 button_div">
+                    <div class="col-sm-4 col-sm-offset-1">
+                        <button class="btn btn-info">
+                          <i class="fa fa-heart"></i> 
+                          Add to Wishlist
+                        </button>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-1">
+                        <button class="btn btn-success">
+                            <span class="glyphicon glyphicon-time"></span>
+                             Schedule Visit
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -178,7 +208,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
-            <div class="col-sm-12 pg_amenities highlight_div">
+            <div class="col-sm-12 pg_rules highlight_div">
                 <div class="rules_head head_div">
                     Rules
                 </div>
@@ -196,3 +226,11 @@
         </div>
     </div>
 </div>
+<?php if($no <= 2):?>
+    <style type="text/css">
+        .sharing_tab a
+        {
+            padding: 0px !important;
+        }
+    </style>
+<?php endif;?>
