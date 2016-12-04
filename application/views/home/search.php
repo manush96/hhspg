@@ -2,6 +2,27 @@
 <script type="text/javascript" src="js/search.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBBRNM1pWrb94tlegwrj9LbZQcGGmotNl4"></script>
 <script type="text/javascript" src="js/rating.js"></script>
+<script>
+$( document ).ready(function() {
+    $(".pg_result_div").click(function()
+    {	
+    	$.ajax({
+    		type: 'POST',
+    		url: "home/get_modal_pg", 
+    		data: {id:$(this).attr('id')},
+    		success: function(result){
+        		$("#tar").html(result);
+    		}});
+    	$("#disp").show();
+    });
+    $("#close_button").click(function()
+    {
+    	$("#disp").hide();
+    	$("#tar").html("");
+    });
+});
+
+</script>
 <?php
 	$name = array_column($search_result, 'name');
 	$contact = array_column($search_result, 'contact');
@@ -81,38 +102,60 @@
 
 
 </script>
-<div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 520px">
-<?php foreach($search_result as $pg):?>
-	<?php
-		if(in_array($pg['id'], $wishlist))
-			$wish = "remove_from_wishlist";
-		else
-			$wish = "add_to_wishlist";
-	?>
-	<div class="col-sm-12 pg_result_div">
-		<div class="col-sm-4 img_div">
-			<img src="img/img.jpg" class="img-responsive pull-left" style="height: 90px; width: 100%;"/>
+<?php
+
+$i=0;
+
+?>
+<div id="main_div" style="position: relative">
+	<div class="col-sm-12 lr0pad">
+		<div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 520px">
+		<?php foreach($search_result as $pg):?>
+			<?php
+				if(in_array($pg['id'], $wishlist))
+					$wish = "remove_from_wishlist";
+				else
+					$wish = "add_to_wishlist";
+			?>
+			<div class="col-sm-12 pg_result_div" id=<?= $i;?>>
+				<div class="col-sm-4 img_div">
+					<img src="img/img.jpg" class="img-responsive pull-left" style="height: 90px; width: 100%;"/>
+				</div>
+				<div class="col-sm-8 data_div">
+					<span class="pg_name"  ><?= $pg['name'];?></span>
+					<span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
+						<i class="fa fa-heart"></i>
+					</span>
+					<br>
+			
+					<phr/>
+
+					<h4>Located near <?= $pg['area'];?></h4>
+
+
+					<!-- <ul class="c-rating"></ul> -->
+				</div>
+			</div>
+		<?php 
+			$i++;
+			endforeach;
+		?>
+
 		</div>
-		<div class="col-sm-8 data_div">
-			<span class="pg_name"><?= $pg['name'];?></span>
-			<span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
-				<i class="fa fa-heart"></i>
-			</span>
-			<br>
-	
-			<phr/>
-
-			<h4>Located near <?= $pg['area'];?></h4>
-
-
-			<!-- <ul class="c-rating"></ul> -->
+		<div class="col-sm-8">
+			<div  id="googleMap" style="width:100%;height:510px;"></div>
 		</div>
 	</div>
-<?php endforeach;?>
+	<div class="col-sm-12 lr0pad" style="position: absolute;display:none" id="disp">
+		<div class="col-sm-offset-4 col-sm-3" style="position: absolute; background: #fff">
+			
+			<div class="pull-right"><span class="glyphicon glyphicon-remove pointer" id="close_button"></span></button></div>
+			<br>
+			<div id="tar"></div>
 
-</div>
-<div class="col-sm-8">
-	<div  id="googleMap" style="width:100%;height:510px;"></div>
+
+		</div>
+	</div>
 </div>
 <div id="test_div"></div>
 <!-- <script type="text/javascript">
