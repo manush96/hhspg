@@ -23,11 +23,6 @@ class Home extends CI_Controller
 		$this->load->view('owner/add_pg');
 		$this->load->view('common/footer');
 	}
-	public function get_modal_pg()
-	{
-	 echo $this->input->post('id');
-
-	}
 	public function search($city="", $area="",$gender="")
 	{
 		$id = $this->session->userdata('user_id');
