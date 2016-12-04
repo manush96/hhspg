@@ -31,6 +31,7 @@
 	                 <ul class="treeview-menu">
 	                    <li><a href="admin/owner_list"><i class="fa fa-hand-pointer-o"></i> Owner list</a></li>
 	                    <li><a href="admin/owner_requests"><i class="fa fa-bar-chart"></i>  Owner requests</a></li>
+	                    <li><a href="admin/request_changes"><i class="fa fa-bar-chart"></i>  Request changes</a></li>
 	                </ul>
 	            </li>
 	        </ul>

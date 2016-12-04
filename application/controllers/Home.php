@@ -58,6 +58,38 @@ class Home extends CI_Controller
 			$id = $myArr[1];
 			$data['pg'] = $this->home_model->get_pg_info($id);
 			$data['amenities'] = $this->home_model->get_amenities($data['pg']['amenities']);
+			$rules = $data['pg']['rules'];
+			$rules = explode(',', $rules);
+			
+			$data['rules'] = $rules;
+
+			$rooms = $data['pg']['room_price'];
+			$rooms = explode(',', $rooms);
+			$rooms = array_map('trim',$rooms);
+			$new = array();
+
+			foreach ($rooms as $i => $value)
+			{
+				$tmp = explode(':', $value);
+				if(stripos($tmp[0], 'ac') !== false)
+				{
+					$tmp[0] = str_ireplace("ac", "", $tmp[0]);
+					$tmp[0] = trim($tmp[0]);
+					$tmp2 = explode(' ', $tmp[0]);
+
+					$new[$tmp2[0]]['ac'] = trim($tmp[1]);
+				}
+				else
+				{
+					$tmp[0] = trim($tmp[0]);
+					$tmp2 = explode(' ', $tmp[0]);
+
+					$new[$tmp2[0]]['normal'] = trim($tmp[1]);
+				}
+				
+			}
+
+			$data['rooms'] = $new;
 			$this->load->view('common/header');
 			$this->load->view('home/view_pg', $data);
 			$this->load->view('common/footer');

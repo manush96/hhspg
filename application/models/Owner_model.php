@@ -93,7 +93,11 @@ class Owner_model extends CI_Model
 
 			return $result;
 		}
-
+		public function change_request($data)
+		{
+			$this->db->insert('request',$data);
+			
+		}
 
 
 }

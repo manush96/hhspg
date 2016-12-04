@@ -47,6 +47,7 @@ class Owner extends CI_Controller
       $k=$this->owner_model->register_owner($name,$email,$contact,$password);
       if($k==1)
       {
+      	
         redirect("owner/verify_otp");
       }
       else
@@ -109,6 +110,15 @@ class Owner extends CI_Controller
       $output=$this->owner_model->add_pg_request($owner_id,$address,$landmark,$contact);
     
       $this->load->view("owner/profile");
+    }
+    public function submit_change()
+    {
+      $contact=$this->input->post('contact');
+      $pg=$this->input->post('pg');
+      $description=$this->input->post('description');
+      $data=array('pg'=>$pg,'contact'=>$contact,'description'=>$description);
+      $this->owner_model->change_request($data);
+      redirect('owner/profile');
     }
 
 }

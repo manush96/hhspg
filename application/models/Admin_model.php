@@ -7,6 +7,19 @@ class Admin_model extends CI_Model
 			$this->load->helper('url');
 			$this->load->helper('cookie');
 		}
+		public function bhadako()
+		{
+
+			$this->db->select('*');
+			$query=$this->db->get('extra');
+			$result=$query->result_array();
+			foreach($result as $k)
+			{
+				$data=array('type'=>$k['type'],'form_no'=>$k['form_no']);
+				$this->db->where('id',$k['id']);
+				$this->db->update('pg',$data);
+			}
+		}
 		public function view_search()
 		{
 			$this->db->select('*');
@@ -71,6 +84,20 @@ class Admin_model extends CI_Model
 		public function delete_visited($id)
 		{
 			$query="delete from pg_request where id='".$id."'";
+			$result=$this->db->query($query);
+		}
+
+		public function request_changes()
+		{
+			$this->db->select('*');
+			$query=$this->db->get('request');
+			$result=$query->result_array();
+			return $result;
+		}
+
+		public function delete_handled($id)
+		{
+			$query="delete from request where id='".$id."'";
 			$result=$this->db->query($query);
 		}
 

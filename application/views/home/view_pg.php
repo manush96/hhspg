@@ -1,3 +1,6 @@
+<?php
+    $images = array('image1.jpg','image2.jpg','image3.jpg','image4.jpg');
+?>
 <style type="text/css">
     body
     {
@@ -51,6 +54,15 @@
         border-top: 1px solid #ccc;
         border-bottom: 1px solid #ccc;
     }
+    .amenities_val
+    {
+        font-size: 17px;
+        color: #132644;
+    }
+    .sharing_tab
+    {
+        font-size: 17px;
+    }
 </style>
 <div class="container-fluid lr0pad" id="pg_full">
     <div class="col-sm-12 pg_header lr0pad">
@@ -72,32 +84,25 @@
     </div>
     <div class="col-sm-12 pg_body">
         <div class="col-sm-10 col-sm-offset-1">
-            <div class="col-sm-7">
+            <div class="col-sm-7 carousel_div">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <?php for ($i=1; $i < count($images); $i++):?> 
+                            <li data-target="#myCarousel" data-slide-to="<?= $i;?>"></li>
+                        <?php endfor;?>
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="img/blog/image1.jpg" alt="Chania">
+                            <img src="<?= $this->config->item('img_url');?><?= $images[0];?>" alt="PG Image">
                         </div>
-
-                        <div class="item">
-                            <img src="img/blog/image2.jpg" alt="Chania">
-                        </div>
-
-                        <div class="item">
-                            <img src="img/blog/image3.jpg" alt="Flower">
-                        </div>
-
-                        <div class="item">
-                            <img src="img/blog/image4.jpg" alt="Flower">
-                        </div>
+                        <?php for ($i=1; $i < count($images); $i++):?>
+                            <div class="item">
+                                <img src="<?= $this->config->item('img_url');?><?= $images[$i];?>" alt="PG Image">
+                            </div>
+                        <?php endfor;?>
                     </div>
 
                     <!-- Left and right controls -->
@@ -112,8 +117,42 @@
                 </div>
             </div>
             <div class="col-sm-5">
-                <div class="col-sm-12 room_div">
-                    
+                <div class="col-sm-12 room_div lr0pad">
+                    <div class="col-sm-12 lr0pad">
+                        <?php
+                            $no = count($rooms);
+                            $no = floor(12/$no);
+                            $i = 1;
+                        ?>
+                        <ul  class="nav nav-tabs col-sm-12">
+                            <?php foreach ($rooms as $key => $value):?>
+                                <li class="sharing_tab col-sm-<?= $no;?> lr0pad <?php if($i == 1):?> active <?php endif;?>">
+                                    <a  href="#<?= $key;?>_sharing" data-toggle="tab">
+                                        <?= $key;?> Sharing
+                                    </a>
+                                </li>
+                                <?php $i++;?>
+                            <?php endforeach;?>
+                        </ul>
+                        <?php $i = 1;?>
+                        <div class="tab-content clearfix col-sm-12 lr0pad">
+                            <?php foreach ($rooms as $key => $value):?>
+                                <div class="tab-pane <?php if($i == 1):?> active <?php endif;?>" id="<?= $key;?>_sharing">
+                                    <?php if(isset($value['ac'])):?>
+                                        <h3>
+                                            AC Room : Rs. <?= $value['ac'];?>
+                                        </h3>
+                                    <?php endif;?>
+                                    <?php if(isset($value['normal'])):?>
+                                        <h3>
+                                            Normal Room : Rs. <?= $value['normal'];?>
+                                        </h3>
+                                    <?php endif;?>
+                                </div>
+                                <?php $i++;?>
+                            <?php endforeach;?>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-12">
                     
@@ -128,87 +167,32 @@
                     Amenities
                 </div>
                 <div class="clearfix"></div>
-                <div class="amenities_data data_div">
+                <div class="amenities_data data_div col-sm-12">
                     <?php foreach($amenities as $key => $value):?>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 amenities_val">
                             <span class="glyphicon glyphicon-user"></span>
-                            <span><?= $value['name'];?>
+                            <span><?= $value['name'];?></span>
                         </div>
                     <?php endforeach;?>
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="col-sm-12 pg_amenities">
-                <div class="amenities_head head_div">
-                    Amenities
+            <div class="clearfix"></div>
+            <div class="col-sm-12 pg_amenities highlight_div">
+                <div class="rules_head head_div">
+                    Rules
                 </div>
-                <div class="amenities_data data_div">
-                    <?= $pg['amenities'];?>    
+                <div class="clearfix"></div>
+                <div class="rules_data data_div col-sm-12">
+                    <?php foreach($rules as $key => $value):?>
+                        <div class="col-sm-12 amenities_val">
+                            <span class="glyphicon glyphicon-pushpin"></span>
+                            <span><?= $value;?></span>
+                        </div>
+                    <?php endforeach;?>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-12">
-        
-        <h4><div class="col-sm-3">
-            Accomodation:
-        </div></h4>
-            
-        <div class="col-sm-6">
-                <div class="col-sm-2">Room 2</div>
-                <div class="col-sm-2">Room 3</div>
-                <div class="col-sm-2">Room 1</div>
-            
-        </div>
-
-        <div class="col-sm-3">
-            <h4>Landmark:</h4>
-            <br>
-            <h4>Paldi</h4>
-        </div>
-
-    </div>
-    <div class="clearfix"></div>
-    <hr>
-    <div class="col-sm-12">
-        <div class="col-sm-3">
-            <h4>Ammenities:</h4>
-        </div>
-        <div class="col-sm-9">
-            <div class="col-sm-3">
-            <ul class="circle">
-                <li>Takiyo</li><li>Chadar</li><li>Sui javv</li>
-            </ul>
-            </div>
-            <div class="col-sm-3">
-            <ul class="circle">
-                <li>Takiyo</li><li>Chadar</li><li>Sui javv</li>
-            </ul>
-            </div>
-            <div class="col-sm-3">
-            <ul class="circle">
-                <li>Takiyo</li><li>Chadar</li><li>Sui javv</li>
-            </ul>
-            </div>
-
-        </div>
-
-
-    </div>
-    <div class="clearfix"></div>
-    <hr>
-    <div class="col-sm-12">
-        <div class="col-sm-3">
-            <h4>Rules and Regulations:</h4>
-        </div>
-        <div class="col-sm-9">
-            <ul class="circle">
-                <li>No Weed</li><li>No Mocha</li><li>Fuck all rules if u dare.</li>
-            </ul>
-        </div>
-
-
-    </div>
+    <
 </div>
-
-----

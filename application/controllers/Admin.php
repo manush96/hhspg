@@ -11,6 +11,10 @@ class Admin extends CI_Controller
         $this->load->helper('cookie');
         $this->load->library('session');
     }
+    public function split()
+    {
+        $this->admin_model->bhadako();
+    }
     public function index()
     {   
         $this->load->view("admin/login");
@@ -119,6 +123,21 @@ class Admin extends CI_Controller
     {
         $id=$this->input->post('id');
         echo $this->admin_model->delete_visited($id);
+    }
+
+    public function request_changes()
+    {
+        $data['details']=$this->admin_model->request_changes();
+        $this->load->view("admin/header");
+        $this->load->view("admin/sidebar");
+        $this->load->view('admin/request_change', $data);
+        #$this->load->view("admin/footer");
+    }
+
+    public function handled()
+    {
+        $id=$this->input->post('id');
+        echo $this->admin_model->delete_handled($id);
     }
 }
 

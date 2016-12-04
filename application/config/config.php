@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/hhspg';
+$config['img_url'] = 'http://localhost/hhspg/img/blog/';
 
 /*
 |--------------------------------------------------------------------------
