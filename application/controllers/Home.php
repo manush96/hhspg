@@ -25,6 +25,9 @@ class Home extends CI_Controller
 	}
 	public function search($city="", $area="",$gender="")
 	{
+		$range = $this->input->post('range');
+		$type = $this->input->post('type');
+
 		$id = $this->session->userdata('user_id');
 
 		$city = urldecode($city);
@@ -34,14 +37,26 @@ class Home extends CI_Controller
 		$data['search_result'] = $this->home_model->search_pg($city, $area,$gender);
 		$data['wishlist'] = $this->home_model->get_wishlist($id);
 		
-		$head['city'] = $city;
-		$head['area'] = $area;
-		$head['gender'] = $gender;
+		if(!isset($range) OR !isset($type) OR $range == "" OR $type == "")
+		{
+			$head['city'] = $city;
+			$head['area'] = $area;
+			$head['gender'] = $gender;
 
-		$this->load->view('common/header');
-		$this->load->view('home/search_header',$head);
-		$this->load->view('home/search',$data);
-		$this->load->view('common/footer');
+			$data['map_load'] = TRUE;
+
+			$this->load->view('common/header');
+			$this->load->view('home/search_header',$head);
+			$this->load->view('home/search',$data);
+			$this->load->view('common/footer');
+		}
+		else
+		{
+			$data['map_load'] = FALSE;
+			
+			$this->load->view('home/search',$data);
+		}
+		
 	}
 	public function blog()
 	{
