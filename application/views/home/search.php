@@ -90,7 +90,6 @@ $( document ).ready(function() {
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-<?php $i=0;?>
 <div id="main_div" style="position: relative">
 	<div class="col-sm-12 lr0pad">
 		<div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 520px">
@@ -101,7 +100,7 @@ $( document ).ready(function() {
 				else
 					$wish = "add_to_wishlist";
 			?>
-			<div class="col-sm-12 pg_result_div" id=<?= $i;?>>
+			<div class="col-sm-12 pg_result_div" id=<?= $pg['id'];?>>
 				<div class="col-sm-4 img_div">
 					<img src="img/img.jpg" class="img-responsive pull-left" style="height: 90px; width: 100%;"/>
 				</div>
@@ -121,7 +120,6 @@ $( document ).ready(function() {
 				</div>
 			</div>
 		<?php 
-			$i++;
 			endforeach;
 		?>
 
