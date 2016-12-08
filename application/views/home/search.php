@@ -26,7 +26,7 @@
 	<script type="text/javascript" src="js/map.js"></script>
 	<div id="main_div" style="position: relative">
 		<div class="col-sm-12 lr0pad">
-			<div class="col-sm-4" id="results_pane" style="overflow-y: scroll; height: 530px">
+			<div class="col-sm-3" id="results_pane" style="overflow-y: scroll; height: 530px">
 			<?php foreach($search_result as $pg):?>
 				<?php
 					if(in_array($pg['id'], $wishlist))
@@ -36,7 +36,7 @@
 				?>
 				<div class="col-sm-12 pg_result_div" id=<?= $pg['id'];?>>
 					<div class="col-sm-4 img_div">
-						<img src="img/img.jpg" class="img-responsive pull-left" style="height: 110px; width: 100%;"/>
+						<img src="img/img.jpg" class="img-responsive pull-left" style="height: 80px; width: 100%;"/>
 					</div>
 					<div class="col-sm-8 data_div">
 						<span class="pg_name"  ><?= $pg['name'];?></span>
@@ -58,12 +58,12 @@
 			?>
 
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-9">
 				<div  id="googleMap" style="width:100%;height:530px;"></div>
 			</div>
 		</div>
 		<div class="col-sm-12 lr0pad" style="position: absolute;display:none;" id="disp">
-			<div class="col-sm-offset-4 col-sm-4" style="position: absolute; background: #fff;  height: 530px; overflow-y: scroll;">
+			<div class="col-sm-offset-3 col-sm-4" style="position: absolute; background: #fff;  height: 530px; overflow-y: scroll;">
 				<div id="tar"></div>
 			</div>
 		</div>

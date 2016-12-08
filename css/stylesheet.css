@@ -331,7 +331,7 @@ input:-webkit-autofill
 }
 #results_pane
 {
-	background: #d9e5f9;
+	background: #d6d7d8;
 	padding: 15px;
 }
 .pg_result_div
@@ -343,14 +343,14 @@ input:-webkit-autofill
 	box-shadow: none;
 	cursor: pointer;
 	border-bottom: 2px solid #d9e5f9;
-	min-height: 170px;
+	min-height: 120px;
 	border-radius: 3px;
 	transition: 0.2s box-shadow;
 }
 .pg_result_div:hover
 {
 	border-color: #e6ebed;
-	box-shadow: -2px 2px 0px #ccc;
+	background: #eee;
 }
 .pg_result_div .img_div
 {

@@ -1,7 +1,6 @@
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="css/style.css">
-  
   <div class="form">
       
       <ul class="tab-group">
@@ -21,14 +20,14 @@
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off" name="email"/>
+            <input type="email" id="email" required autocomplete="off" name="email"/>
           </div>
           <input type="hidden" name="return_url" value="<?= $return_url;?>"/>
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name="password"/>
+            <input type="password" required autocomplete="off" name="password"/>
           </div>
           
           <p class="forgot"><a href="#">Forgot Password?</a></p>
@@ -80,4 +79,4 @@
       </div><!-- tab-content -->
       
 </div> <!-- /form -->
-<script src="js/login.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
