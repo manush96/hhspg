@@ -40,6 +40,13 @@ class Admin extends CI_Controller
     {
 
     }
+    public function temp()
+    {
+        $this->load->view("admin/header");
+        $this->load->view("admin/sidebar");
+        $this->load->view('owner/add_pg');
+        $this->load->view("admin/footer");
+    }
     public function view_search_trends()
     {
         $data['result']=$this->admin_model->view_search();
