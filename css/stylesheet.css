@@ -374,14 +374,14 @@ phr
 }
 .pg_result_div .pg_name
 {
-	font-size: 150%;
+	font-size: 130%;
 	font-weight: 600;
 }
 .pg_result_div .wishlist_icon
 {
 	position: absolute;
-	right: 10px;
-	top: 0px;
+	right: 5px;
+	top: -5px;
 	font-size: 25px;
 	cursor: pointer;
 	transition: all 0.2s ease in out;

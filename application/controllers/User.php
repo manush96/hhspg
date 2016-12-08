@@ -13,9 +13,9 @@ class User extends CI_Controller
     public function index()
     {   
         $data['return_url'] = $this->input->get('return_url');
-
+        $data['action'] = 'user/login';
         $this->load->view("common/header");
-        $this->load->view("user/login",$data);
+        $this->load->view("common/login",$data);
         $this->load->view("common/footer");
     }
 

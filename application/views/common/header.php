@@ -18,8 +18,8 @@
         <nav class="navbar navbar-default navigation-clean-button navbar-head">
             <div class="container_div">
                 <div class="navbar-header">
-                	<a class="navbar-brand" href="">
-                		<img src="img/HHS1.png" style="height:80px; width:100px" />
+                	<a class="navbar-brand" href="" style="padding: 0px"> 
+                		<img src="img/HHS1.png" style="height:60px; width:100px; margin-top: -6px" />
                 	</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>

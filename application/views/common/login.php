@@ -14,20 +14,20 @@
         <div id="login">   
           <h1>Welcome Back!</h1>
           
-          <form action="user/login" method="post">
+          <form action="<? $action;?>" method="post">
           
             <div class="field-wrap">
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email" id="email" required autocomplete="off" name="email"/>
+            <input type="email" id="email" required autocomplete="off" name="email" readonly onfocus="this.removeAttribute('readonly');"/>
           </div>
           <input type="hidden" name="return_url" value="<?= $return_url;?>"/>
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password" required autocomplete="off" name="password"/>
+            <input type="password" required autocomplete="off" name="password" readonly onfocus="this.removeAttribute('readonly');"/>
           </div>
           
           <p class="forgot"><a href="#">Forgot Password?</a></p>
@@ -48,20 +48,20 @@
               <label>
                 Name<span class="req">*</span>
               </label>
-              <input type="text" name="name" required autocomplete="off" />
+              <input type="text" name="name" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"/>
             </div>
           <div class="field-wrap">
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email" name="email" required autocomplete="off"/>
+            <input type="email" name="email" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"/>
           </div>
           <input type="hidden" name="return_url" value="<?= $return_url;?>"/>
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password" name="password" required autocomplete="off"/>
+            <input type="password" name="password" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"/>
           </div>
           <div class="field-wrap">
             <label>
