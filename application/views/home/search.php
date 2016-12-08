@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="js/search.js"></script>
 	
 	<?php if($map_load):?>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBBRNM1pWrb94tlegwrj9LbZQcGGmotNl4&callback=initialize"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBBRNM1pWrb94tlegwrj9LbZQcGGmotNl4"></script>
 		<script type="text/javascript" src="js/rating.js"></script>
 	<?php endif;?>
 

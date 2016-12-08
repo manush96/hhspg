@@ -20,7 +20,7 @@ function initialize()
 	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 	
 	var image = new google.maps.MarkerImage(
-		'http://i.imgur.com/3YJ8z.png',
+		'http://hhshostel.com/pointer.png',
 		new google.maps.Size(19,25),    // size of the image
 		new google.maps.Point(0,0), // origin, in this case top-left corner
 		new google.maps.Point(9, 25)    // anchor, i.e. the point half-way along the bottom of the image
