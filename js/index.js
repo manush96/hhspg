@@ -1,7 +1,6 @@
 var list_ind;
 var list_max;
 var search_allow = 0;
-$("body").css('backgroundImage', 'url("/hhspg/img/banner.jpg")');
 $("#header").children().each(function()
 {
 	$(this).css('backgroundColor','transparent');

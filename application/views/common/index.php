@@ -1,3 +1,13 @@
+<style type="text/css">
+	body
+	{
+		background-image: url("/hhspg/img/banner.jpg"); 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+</style>
 <script type="text/javascript" src="js/typed.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
