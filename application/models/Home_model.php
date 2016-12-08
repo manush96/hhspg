@@ -145,5 +145,25 @@ class Home_model extends CI_Model
 		$this->db->where('id',$id);
 		$this->db->update('user',$data);
 	}
+	public function get_images($id)
+	{
+		$this->db->select('form_no');
+		$this->db->where('id',$id);
+		$query=$this->db->get('pg');
+		$result=$query->result_array();
+		$directory = "img/pg_images/".$result[0]['form_no']."/";
+					$filecount = 0;
+					$files = glob($directory . "*");
+					if ($files){
+					$filecount = count($files);
+					}
+		$images=array();
+		for($i=1;$i<=$filecount;$i++)
+		{
+			$im=$result[0]['form_no']."/".$i.".jpg";
+			array_push($images,$im);
+		}
+		return $images;
+	}
 }
 ?>

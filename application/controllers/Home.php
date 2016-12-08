@@ -17,6 +17,12 @@ class Home extends CI_Controller
 		$this->load->view('common/index');
 		$this->load->view('common/footer');
 	}
+	public function temp()
+	{
+		$this->load->view('common/header');
+		$this->load->view('owner/add_pg');
+		$this->load->view('common/footer');
+	}
 	public function search($city="", $area="",$gender="")
 	{
 		$range = $this->input->post('range');
@@ -64,6 +70,8 @@ class Home extends CI_Controller
 		$id = $this->input->post('id');
 		$data['pg'] = $this->home_model->get_pg_info($id);
 		$data['amenities'] = $this->home_model->get_amenities($data['pg']['amenities']);
+		$data['images']=$this->home_model->get_images($id);
+
 		$rules = $data['pg']['rules'];
 		$rules = explode(',', $rules);
 		
@@ -106,10 +114,7 @@ class Home extends CI_Controller
 
 		$data['rooms'] = $new;
 		$this->load->view('home/view_modal', $data);
-	}	
-
-
-		
+	}		
 	public function view_pg($token)
 	{
 		$myArr = explode('_', $token);
@@ -122,6 +127,7 @@ class Home extends CI_Controller
 			$id = $myArr[1];
 			$data['pg'] = $this->home_model->get_pg_info($id);
 			$data['amenities'] = $this->home_model->get_amenities($data['pg']['amenities']);
+			$data['images']=$this->home_model->get_images($id);
 			$rules = $data['pg']['rules'];
 			$rules = explode(',', $rules);
 			

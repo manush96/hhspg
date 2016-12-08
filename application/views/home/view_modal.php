@@ -1,6 +1,3 @@
-<?php
-    $images = array('image1.jpg','image2.jpg','image3.jpg','image4.jpg');
-?>
 <style type="text/css">
     body
     {
@@ -87,11 +84,14 @@
     <div class="col-sm-12 pg_header lr0pad">
         <div class="col-sm-12 text-center">
             <div class="col-sm-12">
-                <span class="pg_name">
-                    <?= $pg['name'];?> Paying Guest 
-                </span> 
+                <a href="home/view_pg/<?= $pg['name'];?>_<?= $pg['id'];?>" target="_blank">
+                    <span class="pg_name">
+                        <?= $pg['name'];?> Paying Guest 
+                    </span> 
+                </a>
+                <br/>
                 <span class="avail_for">
-                     - Available for <?= $pg['gender'];?>
+                     Available for <?= $pg['gender'];?>
                 </span>    
             </div>
             <div class="col-sm-12 landmark_div">
@@ -116,11 +116,11 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="<?= $this->config->item('img_url');?><?= $images[0];?>" alt="PG Image">
+                            <img src="<?= $this->config->item('img_url');?><?= $images[0];?>" alt="PG Image" style="height: 200px">
                         </div>
                         <?php for ($i=1; $i < count($images); $i++):?>
                             <div class="item">
-                                <img src="<?= $this->config->item('img_url');?><?= $images[$i];?>" alt="PG Image">
+                                <img src="<?= $this->config->item('img_url');?><?= $images[$i];?>" alt="PG Image" style="height: 200px">
                             </div>
                         <?php endfor;?>
                     </div>
