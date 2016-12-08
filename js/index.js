@@ -12,14 +12,14 @@ $(document).ready(function()
 	{
 		$("#type_anim_1").typed
 		({
-			strings: ["We make life"],
+			strings: ["Right"],
 			typeSpeed: 100,
 			callback: function()
 			{
 				$("#type_anim_1").next().remove();
 				$("#type_anim_2").typed
 				({
-					strings: ["simpler.","simplest."],
+					strings: ["Accommodation.","Place.","Time.","Price."],
 					typeSpeed: 100,
 					backDelay: 800,
 					backSpeed: 50,

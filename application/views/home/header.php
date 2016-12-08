@@ -16,7 +16,8 @@
 	<div id="header">
         <nav class="navbar navbar-default navigation-clean-button navbar-head">
             <div class="container_div">
-                <div class="navbar-header"><a class="navbar-brand" href="">HHSPG</a>
+                <div class="navbar-header"><a class="navbar-brand" href="">
+		HHSPG</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
                 <div id="search_container">

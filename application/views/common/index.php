@@ -4,7 +4,7 @@
 
 <div class="container-fluid" id="center">
 	<div id="intro_container">
-		<h1 class="text-center white welcome">Welcome to HHSPG!</h1>
+		<h1 class="text-center welcome" style="color:black">Rent. Simply. Smartly.</h1>
 		<h3 class="text-center" id="anim_header">
 			<span id="type_anim_1"></span>
 			<span id="type_anim_2"></span>
@@ -31,7 +31,7 @@
 			</select>
 		</div>
 		<div id="search_btn_div" class="pull-left">
-			<button type="button" id="search_pgs" class="btn center_input">
+			<button type="button" id="search_pgs" class="btn center_input" style="background:#2e64ba">
 				<span class="glyphicon glyphicon-search"></span>
 				 Search
 			</button>
