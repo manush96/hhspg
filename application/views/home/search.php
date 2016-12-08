@@ -64,12 +64,7 @@
 		</div>
 		<div class="col-sm-12 lr0pad" style="position: absolute;display:none;" id="disp">
 			<div class="col-sm-offset-4 col-sm-4" style="position: absolute; background: #fff;  height: 530px; overflow-y: scroll;">
-				
-				<div class="pull-right"><span class="glyphicon glyphicon-remove pointer" id="close_button"></span></button></div>
-				<br>
 				<div id="tar"></div>
-
-
 			</div>
 		</div>
 	</div>

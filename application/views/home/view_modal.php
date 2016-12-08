@@ -4,11 +4,10 @@
 <style type="text/css">
     body
     {
-        font-family: circular-book;
+        
     }
     #pg_full
     {
-        background: #f5f8f9;
     }
     .carousel img
     {
@@ -20,7 +19,6 @@
         min-height: 90px;
         padding: 20px 0px;
         background: #fff;
-        border-top: 1px solid #ccc;
     }
     .pg_name
     {
@@ -62,7 +60,7 @@
         border-top: 1px solid #ccc;
         border-bottom: 1px solid #ccc;
     }
-    .amenities_val
+    .amenities_val, .rules_val
     {
         font-size: 17px;
         color: #132644;
@@ -74,16 +72,20 @@
     .room_info_div
     {
         min-height: 120px;
-        border-bottom: 1px solid #ccc;
     }
     .button_div
     {
         padding: 10px 10px;
     }
 </style>
+<div class="pull-right" style="margin-top: 10px;">
+    <span id="close_button">
+        <span class="glyphicon glyphicon-remove pointer"></span>
+    </span>
+</div>
 <div class="container-fluid lr0pad" id="pg_full">
     <div class="col-sm-12 pg_header lr0pad">
-        <div class="col-sm-10 col-sm-offset-1">
+        <div class="col-sm-12 text-center">
             <div class="col-sm-12">
                 <span class="pg_name">
                     <?= $pg['name'];?> Paying Guest 
@@ -172,20 +174,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 button_div">
-                    <div class="col-sm-4 col-sm-offset-1">
-                        <button class="btn btn-info">
-                          <i class="fa fa-heart"></i> 
-                          Add to Wishlist
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-sm-offset-1">
-                        <button class="btn btn-success">
-                            <span class="glyphicon glyphicon-time"></span>
-                             Schedule Visit
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -198,7 +186,7 @@
                 <div class="clearfix"></div>
                 <div class="amenities_data data_div col-sm-12">
                     <?php foreach($amenities as $key => $value):?>
-                        <div class="col-sm-4 amenities_val">
+                        <div class="col-sm-6 amenities_val">
                             <span class="glyphicon glyphicon-user"></span>
                             <span><?= $value['name'];?></span>
                         </div>
@@ -214,7 +202,7 @@
                 <div class="clearfix"></div>
                 <div class="rules_data data_div col-sm-12">
                     <?php foreach($rules as $key => $value):?>
-                        <div class="col-sm-12 amenities_val">
+                        <div class="col-sm-12 rules_val">
                             <span class="glyphicon glyphicon-pushpin"></span>
                             <span><?= $value;?></span>
                         </div>
@@ -222,6 +210,20 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
+        </div>
+    </div>
+    <div class="col-sm-12 button_div">
+        <div class="col-sm-4 col-sm-offset-1">
+            <button class="btn btn-info">
+              <i class="fa fa-heart"></i> 
+              Add to Wishlist
+            </button>
+        </div>
+        <div class="col-sm-4 col-sm-offset-1">
+            <button class="btn btn-success">
+                <span class="glyphicon glyphicon-time"></span>
+                 Schedule Visit
+            </button>
         </div>
     </div>
 </div>

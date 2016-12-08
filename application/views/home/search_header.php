@@ -33,7 +33,16 @@
 	}
 	#search_header .btn_transparent:hover
 	{
-		background: #eee;
+		background: #5a92ed;
+		color: white;
+	}
+	#close_button
+	{
+		font-size: 120%;
+	}
+	#close_button:hover
+	{
+		color: #ccc !important;
 	}
 </style>
 <script type="text/javascript" src="js/search_header.js"></script>

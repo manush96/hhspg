@@ -54,18 +54,21 @@ $(document).ready(function()
     {	
     	$("#disp").hide();
     	id = $(this).attr('id');
-    	$.ajax({
+    	$.ajax
+    	({
     		type: 'POST',
     		url: "home/get_modal_pg", 
     		data: {id: id},
-    		success: function(result){
+    		success: function(result)
+    		{
         		$("#tar").html(result);
-    		}});
-    	$("#disp").fadeIn();
+        		$("#disp").fadeIn("slow");
+    		}
+    	});
+    	
     });
-    $("#close_button").click(function()
+    $(document).on("click","#close_button",function()
     {
-    	$("#disp").hide();
-    	$("#tar").html("");
+    	$("#disp").fadeOut("slow");
     });
 });
