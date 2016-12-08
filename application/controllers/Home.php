@@ -216,4 +216,9 @@ class Home extends CI_Controller
 
 		$this->load->view('home/area_suggestion',$data);
 	}
+	public function schedule_visit()
+	{
+		$post=$this->input->post();
+		$this->home_model->schedule($post);
+	}
 }

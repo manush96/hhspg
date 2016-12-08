@@ -111,6 +111,13 @@ class User extends CI_Controller
         redirect("user/verify_otp");
       }
     }
+    public function schedule_visit()
+    {
+        $data['id'] = $this->input->get('id');
+        $this->load->view('common/header');
+        $this->load->view('home/schedule_visit',$data);
+        $this->load->view('common/footer');
+    }
     
 }
 ?>

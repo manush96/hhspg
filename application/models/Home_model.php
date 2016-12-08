@@ -165,5 +165,9 @@ class Home_model extends CI_Model
 		}
 		return $images;
 	}
+	public function schedule($post)
+	{
+		$this->db->insert('scheduled_visit',$post);
+	}
 }
 ?>
