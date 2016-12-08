@@ -17,7 +17,10 @@
 	<div id="header">
         <nav class="navbar navbar-default navigation-clean-button navbar-head">
             <div class="container_div">
-                <div class="navbar-header"><a class="navbar-brand" href="">HHSPG</a>
+                <div class="navbar-header">
+                	<a class="navbar-brand" href="">
+                		<img src="img/HHS1.png" style="height:80px; width:100px" />
+                	</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
@@ -47,12 +50,12 @@
 					</div>
                     <?php if($this->session->userdata('user_id')==null and $this->session->userdata('owner_id')==null):?>	
 	                    <p class="navbar-text navbar-right actions">
-		                    <a class="btn btn-default action-button" role="button" href="user">Login</a>
+		                    <a class="btn btn-default action-button" role="button" href="user" style="background:#2e64ba">Login</a>
 		                </p>
 
 	                <?php else:?>
 							<p class="navbar-text navbar-right actions">
-							<a class="btn btn-default action-button" role="button" href="user/logout">Logout</a>
+							<a class="btn btn-default action-button" role="button" href="user/logout" style="background:#2e64ba">Logout</a>
 							</p>
 					<?php endif;?>	
 					<div id="small_side_links">
