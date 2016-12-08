@@ -199,7 +199,7 @@
                 <div class="amenities_data data_div col-sm-12">
                     <?php foreach($amenities as $key => $value):?>
                         <div class="col-sm-4 amenities_val">
-                            <span class="glyphicon glyphicon-user"></span>
+                            <span><?= $value['icon'];?></span>
                             <span><?= $value['name'];?></span>
                         </div>
                     <?php endforeach;?>

@@ -55,7 +55,6 @@
     {
         padding: 10px 5px;
         border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
     }
     .amenities_val, .rules_val
     {
@@ -187,7 +186,7 @@
                 <div class="amenities_data data_div col-sm-12">
                     <?php foreach($amenities as $key => $value):?>
                         <div class="col-sm-6 amenities_val">
-                            <span class="glyphicon glyphicon-user"></span>
+                            <span><?= $value['icon'];?></span>
                             <span><?= $value['name'];?></span>
                         </div>
                     <?php endforeach;?>

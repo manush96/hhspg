@@ -1,4 +1,3 @@
-
 var lat_sum = lat.reduce(add, 0);
 var long_sum = long.reduce(add, 0);
 var lat_len = lat.length;
@@ -20,7 +19,7 @@ function initialize()
 	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 	
 	var image = new google.maps.MarkerImage(
-		'http://hhshostel.com/pointer.png',
+		'http://i.imgur.com/3YJ8z.png',
 		new google.maps.Size(19,25),    // size of the image
 		new google.maps.Point(0,0), // origin, in this case top-left corner
 		new google.maps.Point(9, 25)    // anchor, i.e. the point half-way along the bottom of the image
@@ -37,8 +36,8 @@ function initialize()
 		
     	google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
-                infowindow.setContent("<img src="+"\"img/img.jpg\""+" /><h5>" + names[i] + "</h5><h5>"
-                	+ contact[i] + "</h5>");
+                infowindow.setContent('<img src='+imgs[i]+' class="map_img"/><br/><span class="map_div_txt_big">' + names[i] + '</span><br/><span class="map_div_txt pull-left">Rs. '
+                	+ price[i] + '+</span><span class="map_div_txt pull-right"> For '+gender[i]+'</h5>');
                 infowindow.open(map, marker);                	
             }
         })(marker, i));

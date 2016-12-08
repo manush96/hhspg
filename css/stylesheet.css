@@ -470,3 +470,24 @@ phr
 {
 	display: none;
 }
+.icon_style
+{
+	height: 20px !important;
+	width: 20px !important;
+}
+.map_img
+{
+	height: 120px !important;
+	width: 250px !important;
+}
+.map_div_txt_big
+{
+	font-size: 18px;
+	font-weight: 500;
+}
+.map_div_txt
+{
+	font-size: 15px;
+	font-weight: 400;
+	margin-top: 7px;
+}
