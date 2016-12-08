@@ -165,9 +165,27 @@ class Home_model extends CI_Model
 		}
 		return $images;
 	}
+	public function get_address($id)
+	{
+		$this->db->select('address');
+		$this->db->where('id',$id);
+		$query=$this->db->get('pg');
+		$result=$query->result_array();
+		return $result[0]['address'];
+	}
 	public function schedule($post)
 	{
 		$this->db->insert('scheduled_visit',$post);
+		$address=$this->session->userdata('pg_address');
+		$number=$post['contact'];
+		
+		$date=date("d-m-Y",strtotime($post['date']));
+		$message  = "Hello address of your pg is ".$address.". You have scheduled a visit on ".$date." and ".$post['time'];
+
+      	$message= str_ireplace(" ", "+", $message);
+      	$response = file_get_contents('http://tra.smsmyntraa.com/API/WebSMS/Http/v1.0a/index.php?username=HHMS&password=HHMS@123&sender=VHHSIN&to='.$number.'&message='.$message.'&reqid=&format=text&route_id=TRANSACTIONAL&callback=&unique=1&sendondate=');
+
+
 	}
 }
 ?>

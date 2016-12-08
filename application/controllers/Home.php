@@ -130,9 +130,9 @@ class Home extends CI_Controller
 			$data['images']=$this->home_model->get_images($id);
 			$rules = $data['pg']['rules'];
 			$rules = explode(',', $rules);
-			
+			$address=$this->home_model->get_address($id);	
 			$data['rules'] = $rules;
-
+			$this->session->set_userdata('pg_address',$address);
 			$rooms = $data['pg']['room_price'];
 			$rooms = explode(',', $rooms);
 			$rooms = array_map('trim',$rooms);
@@ -220,5 +220,7 @@ class Home extends CI_Controller
 	{
 		$post=$this->input->post();
 		$this->home_model->schedule($post);
+		$this->load->view('common/header');
+		$this->load->view('home/success_visit');		
 	}
 }
