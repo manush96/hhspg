@@ -185,7 +185,7 @@
                 <div class="clearfix"></div>
                 <div class="amenities_data data_div col-sm-12">
                     <?php foreach($amenities as $key => $value):?>
-                        <div class="col-sm-6 amenities_val">
+                        <div class="col-sm-6 amenities_val" style="margin-top: 10px">
                             <span><?= $value['icon'];?></span>
                             <span><?= $value['name'];?></span>
                         </div>

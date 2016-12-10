@@ -145,6 +145,15 @@ class Home_model extends CI_Model
 		$this->db->where('id',$id);
 		$this->db->update('user',$data);
 	}
+	public function get_wishlist_1($id)
+	{
+		$this->db->get('shortlist');
+		$this->db->where('id',$id);
+		$query=$this->db->get('user');
+		$result=$query->result_array();
+		return $result[0]['shortlist'];
+
+	}
 	public function get_images($id)
 	{
 		$this->db->select('form_no');

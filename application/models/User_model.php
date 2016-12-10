@@ -61,10 +61,10 @@ class User_model extends CI_Model
 			$query=$this->db->get('user');
 			if($query->num_rows()==0)
 			{
-				$data=array('name'=>$name,'email'=>$email,'phone'=>$contact,'password'=>md5($password));
+				$data=array('username'=>$name,'email'=>$email,'phone'=>$contact,'password'=>md5($password));
 				$this->db->insert('user',$data);
 
-				$this->session->set_user('user_id',$this->db->insert_id());
+				$this->session->set_userdata('user_id',$this->db->insert_id());
 				return 1;
 			}
 			else

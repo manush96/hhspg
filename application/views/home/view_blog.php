@@ -23,7 +23,7 @@
                                             <!-- Title -->
                                             <h2>
                                                 <a href="#">
-                                                    A Sample Blog Title</a>
+                                                    Life in PG</a>
                                             </h2>
                                             <div class="clearfix"></div>
                                             <!-- End Title -->

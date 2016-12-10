@@ -44,7 +44,7 @@
 						</p>
 						<ul class="dropdown-menu pull-right">
 							<li><a href="#">About us</a></li>
-							<li><a href="#">Blogs</a></li>
+							<li><a href="blogs">Blogs</a></li>
 							<li><a href="#">Contact us</a></li>
 						</ul>
 					</div>

@@ -206,6 +206,19 @@ class Home extends CI_Controller
 			echo "TRUE";
 		}
 	}
+	public function view_wishlist()
+	{
+		$id=$this->session->userdata('user_id');
+		$wishlist=$this->home_model->get_wishlist_1($id);
+		$k=explode(",", $wishlist);
+		$result=array();
+		for($i=0;$i<$wishlist.length;$i++)
+		{
+			array_push($result,$this->home_model->get_pg_info($k[$i]));
+		}
+		$data['result']=$result;
+		$this->load->view('home/view_shortlist',$data);
+	}
 
 	public function get_area_suggestion()
 	{
