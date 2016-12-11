@@ -49,19 +49,15 @@ class User_model extends CI_Model
 			$this->db->update('user',$data);
 
 		}
-		public function register_user($post)
+		public function register_user($name,$email,$contact,$password)
 		{
-			$name=$post['name'];
-			$email=$post['email'];
-			$contact=$post['phone'];
-			$password=$post['password'];
 			$this->db->select('id');
 			$this->db->where('email',$email);
-			$this->db->or_where('phone',$contact);
+			$this->db->or_where('contact',$contact);
 			$query=$this->db->get('user');
 			if($query->num_rows()==0)
 			{
-				$data=array('username'=>$name,'email'=>$email,'phone'=>$contact,'password'=>md5($password));
+				$data=array('name'=>$name,'email'=>$email,'contact'=>$contact,'password'=>md5($password));
 				$this->db->insert('user',$data);
 
 				$this->session->set_userdata('user_id',$this->db->insert_id());

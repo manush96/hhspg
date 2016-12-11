@@ -47,25 +47,20 @@ class User extends CI_Controller
     {
     	$post=$this->input->post();
     	
-        $id = $this->user_model->register_user($post);
-        $return_url = $this->input->post('return_url');
-        
-        if($id == -1)
-        {
-            $this->general->set_alert('danger','Email already in use!');
-        }
-        else if($id == 0)
-        {
-            $this->general->set_alert('danger','Oops something went wrong!');
-        }
-        else
-        {
-            $this->general->set_alert('success','Registered successfully');
-            if($return_url != "")
-                redirect($return_url);
-            else
-                redirect(""); 
-        }
+             $name=$this->input->post('name');
+      $email=$this->input->post('email');
+      $contact=$this->input->post('contact');
+      $password=$this->input->post('password');
+      $k=$this->user_model->register_user($name,$email,$contact,$password);
+      if($k==1)
+      {
+        $this->verify_otp($contact);
+      }
+      else
+      {
+        echo "already in use";
+      }
+
     }
     
     public function logout()

@@ -26,7 +26,7 @@
         <div id="login">   
           <h1>Welcome Back!</h1>
           
-          <form action="<? $action;?>" method="post">
+          <form action="<?=  $action;?>" method="post">
           
             <div class="field-wrap">
             <label>
@@ -79,11 +79,11 @@
             <label>
               Phone no<span class="req">*</span>
             </label>
-            <input type="text" name="phone" required autocomplete="off"/>
+            <input type="text" name="contact" required autocomplete="off"/>
           </div>
           
           <button type="submit" class="button button-block"/>Get Started</button>
-          
+            
           </form>
 
         </div>
