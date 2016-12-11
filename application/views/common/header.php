@@ -60,6 +60,12 @@
 
 	                <?php else:?>
 							<p class="navbar-text navbar-right actions">
+							<a href="user/view_wishlist">
+								<button class="btn btn-danger action-button">
+									<i class="fa fa-star"></i> 
+									View Wishlist
+								</button>
+							</a>
 							<a class="btn btn-default action-button" role="button" href="user/logout" style="background:#2e64ba">Logout</a>
 							</p>
 					<?php endif;?>	

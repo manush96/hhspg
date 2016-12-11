@@ -14,6 +14,7 @@ class User extends CI_Controller
     {   
         $data['return_url'] = $this->input->get('return_url');
         $data['action'] = 'user/login';
+        $data['action2'] = 'user/register';
         $this->load->view("common/header");
         $this->load->view("common/login",$data);
         $this->load->view("common/footer");
@@ -40,7 +41,7 @@ class User extends CI_Controller
 
         else
         {
-            $this->general->set_alert('danger','Wrong username or password!');
+            $this->general->set_alert('danger','Wrong username or password!',"user");
         }
     }
     public function register()
@@ -106,6 +107,16 @@ class User extends CI_Controller
         redirect("user/verify_otp");
       }
     }
+    public function view_wishlist()
+    {
+        $id = $this->session->userdata('user_id');
+
+        $data['wishlist'] = $this->user_model->get_wishlist($id);
+
+        $this->load->view('common/header');
+        $this->load->view('user/view_wishlist',$data);
+        $this->load->view('common/footer');
+    }
     public function schedule_visit()
     {
         $data['id'] = $this->input->get('id');
@@ -115,8 +126,7 @@ class User extends CI_Controller
     }
     public function contact_us()
     {
-        $post=$this->input->post();
-        $this->user_model->contact_us($post);
+        $this->general->set_alert('success','Your feedback has been received. Thank you!',"home/contact");
     }
     
 }

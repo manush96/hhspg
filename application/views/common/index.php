@@ -48,3 +48,12 @@
 		</div>
 	</div>
 </div>
+<div class="clearfix"></div><br/>
+	<div class="pull-right">	
+		<h3>
+			<a class="" href="owner" style="color: white">
+				<img src="img/owner_img.png" style="height: 100px; width: 250px;"/> 
+			</a>
+		</h3>
+	</div>
+</div>

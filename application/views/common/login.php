@@ -1,3 +1,6 @@
+<?php
+  $flash = $this->session->flashdata();
+?>
 <style type="text/css">
   body
   {
@@ -19,7 +22,16 @@
         <li class="tab active"><a href="#login">Log In</a></li>
         <li class="tab"><a href="#signup">Sign Up</a></li>
       </ul>
-      
+      <?php if(isset($flash)):?>
+        <?php foreach ($flash as $type => $message):?>
+          <div class="col-sm-12">
+            <div class="alert alert-<?= $type;?> fade in">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong><?= $message;?></strong>
+            </div>
+          </div>
+        <?php endforeach;?>  
+      <?php endif;?>
       <div class="tab-content">
         
         
@@ -53,7 +65,7 @@
         <div id="signup">   
           <h1>Sign Up for Free</h1>
           
-          <form action="user/register" method="post" autocomplete="off">
+          <form action="<?= $action2;?>" method="post" autocomplete="off">
           
           
           <div class="field-wrap">

@@ -90,7 +90,7 @@ class User_model extends CI_Model
 		    		'username'=> $post['name'],
 		    		'password'=> md5($post['password']),
 		    		'email'=> $post['email'],
-		    		'phone' => $post['phone']
+		    		'contact' => $post['contact']
 		    	);
 		    	if($this->db->insert('user',$data))
 		    	{
@@ -109,11 +109,25 @@ class User_model extends CI_Model
 		}
 		public function get_number($id)
 		{
-			$this->db->select('phone');
+			$this->db->select('contact');
 			$this->db->where('id',$id);
 			$query=$this->db->get('user');
 			$result=$query->result_array();
-			return $result[0]['phone'];
+			return $result[0]['contact'];
+		}
+		public function get_wishlist($id)
+		{
+			$this->db->select('shortlist');
+			$this->db->where('id',$id);
+			$query = $this->db->get('user');
+			$result = $query->row_array();
+
+			$this->db->select('*');
+			$where = "id IN (".$result['shortlist'].")";
+			$this->db->where($where);
+			$query = $this->db->get('pg');
+			$result = $query->result_array();
+			return $result;
 		}
 }
 	
