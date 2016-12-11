@@ -8,43 +8,80 @@ class Home_model extends CI_Model
 			$this->load->helper('cookie');
 		}
 		
-		public function search_pg($city, $area, $gender)
+		public function search_pg($city, $area, $gender,$range="",$type="")
 		{
 			$this->db->select('*');
 	        $this->db->where('city',$city);
 	        $this->db->where('gender',$gender);
+	        if($range!="")
+	        {
+	        	$arr = explode('_', $range);
+	        	$min = $arr[0];
+	        	$max = $arr[1];
+	        	$this->db->where('price_from >= ',$min);
+	        	$this->db->where('price_from <= ',$max);
+	        	$this->db->where('price_to >= ',$min);
+	        	$this->db->where('price_to <= ',$max);
+	        }
+	        if($type!="")
+	        {
+	        	$this->db->where('type',$type);
+	        }
 	        $this->db->like('area',$area);
 
 	        $query=$this->db->get('pg');
 	        $result=$query->result_array();
-	        $size=$query->num_rows();
-	        if($size>1)
+	        
+        	$this->db->select('*');
+        	$this->db->from('search');
+        	$this->db->where('area',$area);
+        	$query2=$this->db->get();
+        	$row=$query2->num_rows();
+        	if($row<=0)
+        	{
+		        $data = array(
+	        		'area' => $area,
+	        		'city' => $city,
+	        		'count' => 1
+        		);
+        		$this->db->insert('search',$data);
+	        }
+	        else
 	        {
-	        	$this->db->select('*');
-	        	$this->db->from('search');
-	        	$this->db->where('area',$result[0]['area']);
-	        	#$this->db->where('status','1');
-	        	$query2=$this->db->get();
-	        	$row=$query2->num_rows();
-	        	if($row==0)
-	        	{
-			        $data=array(
-			        	'area'=>$area,
-			        );
-			        $this->db->insert("search",$data);
-			        $id=$this->db->insert_id();
-			        $sql="Update search set count=count+1 where id=".$id;
-			        
-			        $query1=$this->db->query($sql);
-		        }
-		        else
-		        {
-		        	$sql="Update search set count=count+1 where area='".$result[0]['area']."'";
-		        	$query1=$this->db->query($sql);
-		        }
+	        	$sql="Update search set count=count+1 where area='".$area."'";
+	        	$query1=$this->db->query($sql);
 	        }
 	        return $result;
 
+		}
+		public function get_popular_pg($city, $area, $no, $ids)
+		{
+			$this->db->select('*');
+			$this->db->from('search');
+			$this->db->where('city',$city);
+			$this->db->order_by('count', 'desc');
+			$this->db->limit($no);
+			$query = $this->db->get();
+			$result = $query->result_array();
+			$final_arr = array();
+			
+			foreach($result as $key => $value)
+			{
+				$this->db->select('*');
+				$this->db->from('pg');
+				$this->db->where('area',$value['area']);
+				if($ids != "")
+				{
+					$where = "id NOT IN (".$ids.")";
+					$this->db->where($where);
+				}
+				$this->db->order_by('search_count', 'desc');
+				$this->db->limit(1);
+				$query = $this->db->get();
+				$result2 = $query->row_array();
+				array_push($final_arr, $result2);
+			}
+			return $final_arr;
 		}
 		public function get_area_suggestion($area,$city)
 		{
@@ -85,6 +122,11 @@ class Home_model extends CI_Model
 		$query = $this->db->get('amenities');
 		$result = $query->result_array();
 		return $result;
+	}
+	public function set_pg_search($id)
+	{
+		$sql="Update pg set search_count=search_count+1 where id=".$id;
+		$query1=$this->db->query($sql);
 	}
 	public function get_wishlist($id)
 	{

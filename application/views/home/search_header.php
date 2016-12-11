@@ -66,10 +66,10 @@
 		<div class="col-sm-5 lr0pad">
 			<div class="col-sm-4 border_block lr0pad">
 				<select class="form-control" name="range" id="range" placeholder="Price Range">
-					<option value="1">&lt; 5000</option>
-					<option value="2">5000-10000</option>
-					<option value="3">10000-15000</option>
-					<option value="4">&gt; 15000</option>
+					<option value="0_5000" <?php if($range == "0_5000"):?> selected <?php endif;?>>&lt; 5000</option>
+					<option value="5000_10000" <?php if($range == "5000_10000"):?> selected <?php endif;?>>5000-10000</option>
+					<option value="10000_15000" <?php if($range == "10000_15000"):?> selected <?php endif;?>>10000-15000</option>
+					<option value="15000_100000" <?php if($range == "15000_100000"):?> selected <?php endif;?>>&gt; 15000</option>
 				</select>
 			</div>	
 			<div class="col-sm-4 border_block lr0pad">
@@ -80,9 +80,9 @@
 			</div>
 			<div class="col-sm-4 border_block lr0pad">
 				<select class="form-control" name="type" id="type" placeholder="PG type">
-					<option value="Executive">Executive</option>
-					<option value="Premium">Premium</option>
-					<option value="Backpacker">Backpacker</option>
+					<option value="Executive" <?php if($type == "Executive"):?> selected <?php endif;?>>Executive</option>
+					<option value="Premium" <?php if($type == "Premium"):?> selected <?php endif;?>>Premium</option>
+					<option value="Backpacker" <?php if($type == "Backpacker"):?> selected <?php endif;?>>Backpacker</option>
 				</select>
 			</div>
 			
@@ -93,5 +93,9 @@
 				 Search
 			</button>
 		</div>
+		<form method="POST" id="search_form">
+			<input type="hidden" class="range" name="range"/>
+			<input type="hidden" class="type" name="type"/>
+		</form>
 	</div>
 </div>

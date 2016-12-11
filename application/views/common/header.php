@@ -4,6 +4,11 @@
 	<base href="<?= $this->config->item('base_url');?>/"/>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/stylesheet.css">
 	<link rel="stylesheet" href="css/header.css">
@@ -19,7 +24,7 @@
             <div class="container_div">
                 <div class="navbar-header">
                 	<a class="navbar-brand" href="" style="padding: 0px"> 
-                		<img src="img/HHS1.png" style="height:60px; width:100px; margin-top: -6px" />
+                		<img src="img/HHS1.png" style="height:80px; width:100px; margin-top: -14px" />
                 	</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
