@@ -21,6 +21,10 @@
     {
         font-size: 30px;
     }
+    .link_logo
+    {
+        font-size: 20px;
+    }
     .avail_for
     {
         font-size: 18px;
@@ -87,6 +91,7 @@
                     <span class="pg_name">
                         <?= $pg['name'];?> Paying Guest 
                     </span> 
+                    <span class="glyphicon glyphicon-share link_logo"></span>
                 </a>
                 <br/>
                 <span class="avail_for">
@@ -158,14 +163,14 @@
                             <?php foreach ($rooms as $key => $value):?>
                                 <div class="tab-pane <?php if($i == 1):?> active <?php endif;?>" id="<?= $key;?>_sharing">
                                     <?php if(isset($value['ac'])):?>
-                                        <h3>
+                                        <h4>
                                             AC Room : Rs. <?= $value['ac'];?>
-                                        </h3>
+                                        </h4>
                                     <?php endif;?>
                                     <?php if(isset($value['normal'])):?>
-                                        <h3>
+                                        <h4>
                                             Normal Room : Rs. <?= $value['normal'];?>
-                                        </h3>
+                                        </h4>
                                     <?php endif;?>
                                 </div>
                                 <?php $i++;?>

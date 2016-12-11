@@ -2,10 +2,10 @@
 	body
 	{
 		background-image: url("/hhspg/img/banner.jpg"); 
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
+		-webkit-background-size: 100% 100%;
+		-moz-background-size: 100% 100%;
+		-o-background-size: 100% 100%;
+		background-size: 100% 100%;
 	}
 </style>
 <script type="text/javascript" src="js/typed.js"></script>

@@ -1,17 +1,22 @@
 <div id="ajax_load_result_div">
 	<?php
-		$name = array_column($search_result, 'name');
-		$price = array_column($search_result, 'price_from');
-		$gender = array_column($search_result, 'gender');
-		$lat = array_column($search_result, 'latitude');
-		$long = array_column($search_result, 'longitude');
+		if(count($search_result) == 0)
+			$temp = $popular;
+		else
+			$temp = $search_result;
+
+		$name = array_column($temp, 'name');
+		$price = array_column($temp, 'price_from');
+		$gender = array_column($temp, 'gender');
+		$lat = array_column($temp, 'latitude');
+		$long = array_column($temp, 'longitude');
 		$myNames = json_encode($name);
 		$price = json_encode($price);
 		$gender = json_encode($gender);
 		$myLat = implode(',', $lat);
 		$myLong = implode(',', $long);
 		$imgs = array();
-		foreach($search_result as $pg)
+		foreach($temp as $pg)
 		{
 			array_push($imgs, "img/pg_images/".$pg['form_no']."/1.jpg");
 		}
@@ -36,6 +41,7 @@
 	<div id="main_div" style="position: relative">
 		<div class="col-sm-12 lr0pad">
 			<div class="col-sm-3" id="results_pane" style="overflow-y: scroll; height: 530px">
+			<?php if(count($search_result) > 0):?>
 			<?php foreach($search_result as $pg):?>
 				<?php
 					if(in_array($pg['id'], $wishlist))
@@ -62,10 +68,42 @@
 						<!-- <ul class="c-rating"></ul> -->
 					</div>
 				</div>
-			<?php 
-				endforeach;
-			?>
+			<?php endforeach;?>
+			<?php else:?>
+				<div class="col-sm-12" style="text-align: center">
+					<h3>We are arriving shortly at <?= $area;?>, <?= $city;?> for <?= $gen;?>!</h3>
+				</div>
+			<?php endif;?>
+			<div class="clearfix"></div><br/>
+			<?php if(isset($popular)):?>
+				<h3>Popular in your city.</h3>
+				<hr/>
+			<?php foreach($popular as $pg):?>
+				<?php
+					if(in_array($pg['id'], $wishlist))
+						$wish = "remove_from_wishlist";
+					else
+						$wish = "add_to_wishlist";
+				?>
+				<div class="col-sm-12 pg_result_div" id=<?= $pg['id'];?>>
+					<div class="col-sm-4 img_div">
+						<img src="img/pg_images/<?= $pg['form_no'];?>/1.jpg" class="img-responsive pull-left" style="height: 80px; width: 100%;"/>
+					</div>
+					<div class="col-sm-8 data_div">
+						<span class="pg_name"><?= $pg['name'];?></span>
+						<span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
+							<i class="fa fa-heart"></i>
+						</span>
+						<br>
+				
+						<phr/>
 
+						<h4>Located near <?= $pg['area'];?></h4>
+						<!-- <ul class="c-rating"></ul> -->
+					</div>
+				</div>
+			<?php endforeach;?>
+			<?php endif;?>
 			</div>
 			<div class="col-sm-9">
 				<div  id="googleMap" style="width:100%;height:530px;"></div>

@@ -11,17 +11,10 @@ $(document).ready(function()
 		var gender = $("#gender").val();
 		var type = $("#type").val();
 
-		$.ajax
-		({
-			type: "POST",
-			url: "home/search/"+city+"/"+area+"/"+gender,
-			data: { range: range, type: type },
-			success: function(response)
-			{
-				$("script[charset='UTF-8']").remove();
-				$("#ajax_load_result_div").replaceWith(response);
-			}
-		});
+		$("#search_form").attr("action","home/search/"+city+"/"+area+"/"+gender);
+		$("#search_form").find(".range").val(range);
+		$("#search_form").find(".type").val(type);
+		$("#search_form").submit();
 	});
 	$(document).mouseup(function(e)
 	{

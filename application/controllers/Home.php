@@ -34,28 +34,36 @@ class Home extends CI_Controller
 		$area = urldecode($area);
 		$gender=urldecode($gender);
 
-		$data['search_result'] = $this->home_model->search_pg($city, $area,$gender);
+		$data['search_result'] = $this->home_model->search_pg($city, $area,$gender,$range,$type);
+
+		$pg_ids = array_column($data['search_result'], 'id');
+		$myids = implode(',', $pg_ids); 
+		
+		$min = 5;
+		if(count($data['search_result']) < $min)
+		{
+			$no = $min-count($data['search_result']);
+			$data['popular'] = $this->home_model->get_popular_pg($city, $area, $no, $myids);
+		}
+
 		$data['wishlist'] = $this->home_model->get_wishlist($id);
 		
-		if(!isset($range) OR !isset($type) OR $range == "" OR $type == "")
-		{
-			$head['city'] = $city;
-			$head['area'] = $area;
-			$head['gender'] = $gender;
+		$head['city'] = $city;
+		$head['area'] = $area;
+		$head['gender'] = $gender;
+		$head['range'] = $range;
+		$head['type'] = $type;
 
-			$data['map_load'] = TRUE;
+		$data['map_load'] = TRUE;
+		$data['area'] = $area;
+		$data['city'] = $city;
+		$data['gen'] = $gender;
 
-			$this->load->view('common/header');
-			$this->load->view('home/search_header',$head);
-			$this->load->view('home/search',$data);
-			$this->load->view('common/footer');
-		}
-		else
-		{
-			$data['map_load'] = FALSE;
-			
-			$this->load->view('home/search',$data);
-		}
+		$this->load->view('common/header');
+		$this->load->view('home/search_header',$head);
+		$this->load->view('home/search',$data);
+		$this->load->view('common/footer');
+		
 		
 	}
 	public function blog()
@@ -68,9 +76,11 @@ class Home extends CI_Controller
 	public function get_modal_pg()
 	{
 		$id = $this->input->post('id');
+		
 		$data['pg'] = $this->home_model->get_pg_info($id);
 		$data['amenities'] = $this->home_model->get_amenities($data['pg']['amenities']);
 		$data['images']=$this->home_model->get_images($id);
+		$this->home_model->set_pg_search($id);
 
 		$rules = $data['pg']['rules'];
 		$rules = explode(',', $rules);

@@ -6,10 +6,6 @@ html {
   overflow-y: scroll;
 }
 
-body {
-  background: #c1bdba;
-}
-
 a {
   text-decoration: none;
   color: #2e64ba;
@@ -84,6 +80,7 @@ label {
   -webkit-backface-visibility: hidden;
   pointer-events: none;
   font-size: 22px;
+  color: #2e64ba;
 }
 label .req {
   margin: 2px;
