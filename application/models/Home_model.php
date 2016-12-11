@@ -145,6 +145,15 @@ class Home_model extends CI_Model
 		$this->db->where('id',$id);
 		$this->db->update('user',$data);
 	}
+	public function get_wishlist_1($id)
+	{
+		$this->db->get('shortlist');
+		$this->db->where('id',$id);
+		$query=$this->db->get('user');
+		$result=$query->result_array();
+		return $result[0]['shortlist'];
+
+	}
 	public function get_images($id)
 	{
 		$this->db->select('form_no');
@@ -158,10 +167,17 @@ class Home_model extends CI_Model
 					$filecount = count($files);
 					}
 		$images=array();
-		for($i=1;$i<=$filecount;$i++)
+		if($filecount==0)
 		{
-			$im=$result[0]['form_no']."/".$i.".jpg";
-			array_push($images,$im);
+			array_push($images,"000/1.jpg");
+		}
+		else
+		{
+			for($i=1;$i<=$filecount;$i++)
+			{
+				$im=$result[0]['form_no']."/".$i.".jpg";
+				array_push($images,$im);
+			}
 		}
 		return $images;
 	}

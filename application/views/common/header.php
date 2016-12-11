@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/stylesheet.css">
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-	<title>HHS PG</title>
+	<title>HHS HOSTEL-Home, Experience - all at one place</title>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
@@ -44,7 +44,7 @@
 						</p>
 						<ul class="dropdown-menu pull-right">
 							<li><a href="#">About us</a></li>
-							<li><a href="#">Blogs</a></li>
+							<li><a href="blogs">Blogs</a></li>
 							<li><a href="#">Contact us</a></li>
 						</ul>
 					</div>

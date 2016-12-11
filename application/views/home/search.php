@@ -1,13 +1,20 @@
 <div id="ajax_load_result_div">
 	<?php
 		$name = array_column($search_result, 'name');
-		$contact = array_column($search_result, 'contact');
+		$price = array_column($search_result, 'price_from');
+		$gender = array_column($search_result, 'gender');
 		$lat = array_column($search_result, 'latitude');
 		$long = array_column($search_result, 'longitude');
 		$myNames = json_encode($name);
-		$contact = json_encode($contact);
+		$price = json_encode($price);
+		$gender = json_encode($gender);
 		$myLat = implode(',', $lat);
 		$myLong = implode(',', $long);
+		$imgs = array();
+		foreach($search_result as $pg)
+		{
+			array_push($imgs, "img/pg_images/".$pg['form_no']."/1.jpg");
+		}
 	?>
 	<link rel="stylesheet" type="text/css" href="css/rating.css"/>
 	<script type="text/javascript" src="js/search.js"></script>
@@ -21,7 +28,9 @@
 		var lat = [<?= $myLat;?>];
 		var long = [<?= $myLong;?>];
 		var names = <?= $myNames;?>;
-		var contact = <?= $contact;?>;
+		var price = <?= $price;?>;
+		var gender = <?= $gender;?>;
+		var imgs = <?= json_encode($imgs);?>;
 	</script>
 	<script type="text/javascript" src="js/map.js"></script>
 	<div id="main_div" style="position: relative">
