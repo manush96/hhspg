@@ -113,6 +113,11 @@ class User extends CI_Controller
         $this->load->view('home/schedule_visit',$data);
         $this->load->view('common/footer');
     }
+    public function contact_us()
+    {
+        $post=$this->input->post();
+        $this->user_model->contact_us($post);
+    }
     
 }
 ?>

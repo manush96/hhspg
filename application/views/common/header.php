@@ -48,9 +48,9 @@
 							<span class="icon-bar"></span>
 						</p>
 						<ul class="dropdown-menu pull-right">
-							<li><a href="#">About us</a></li>
+							<li><a href="home/about_us">About us</a></li>
 							<li><a href="blogs">Blogs</a></li>
-							<li><a href="#">Contact us</a></li>
+							<li><a href="home/contact">Contact us</a></li>
 						</ul>
 					</div>
                     <?php if($this->session->userdata('user_id')==null and $this->session->userdata('owner_id')==null):?>	

@@ -257,7 +257,7 @@ class Home extends CI_Controller
 	public function contact()
 	{
 		$this->load->view('common/header');
-		$this->load->view('common/about_us');
+		$this->load->view('common/contact_us');
 		$this->load->view('common/footer');
 	}
 }

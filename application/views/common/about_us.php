@@ -1,89 +1,81 @@
-<style type="text/css">
+<link href="css/about.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" /> 
 
-.tab1-group {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 40px 0;
-}
-.tab1-group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.tab1-group li a {
-  display: block;
-  text-decoration: none;
-  padding: 15px;
-  background: rgba(160, 179, 176, 0.25);
-  color: #a0b3b0;
-  font-size: 20px;
-  float: none;
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-  -webkit-transition: .5s ease;
-  transition: .5s ease;
-}
-.tab1-group li a:hover {
-  background: #179b77;
-  color: #ffffff;
-}
-.tab1-group .active a {
-  background: #1ab188;
-  color: #ffffff;
-}
+<section class="features" id="features">
+ <div class="container" class="section-top wow animated fadeInUp" data-wow-delay=".5s" style="max-height: 100px !important">
+           <div class="row text-center" >
+           
+               <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+               
+                <h3>
+                    <strong>
+                   About Us
+                        </strong>
+                        </h3>
+                
+            </div>
+                
+               </div>
+     <div class="row " >
+           
+              <div class="col-lg-6 col-md-6 col-sm-6" >
+                        <div class="media">
+                            <div class="pull-left">
+                                <i class=" fa fa-history fa-5x "></i>
 
-.tab1-content > div:last-child {
-  display: none;
-}
-</style>
-<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="css/style.css">
-<div class="form" style="min-height: 500px">
-      
-      <ul class="tab1-group" style="width: 100%; float: none;">
-        <li class="tab1 active" style="width: 100%; float: none;"><a href="home/about_us">About Us</a></li>
-        
-      </ul>
-      
-      <div class="tab1-content" >
-        
-        
-        <div id="about"  >   
-                   
-          <div >
-                <img src="img/banner2.jpg" height="250px" style="padding-top: 50px" align="center">
-                <div style="float: right; width: 250px;" >
-                  <div>
-                  <b>
-                    <p style="font-family: calibri; font-weight: 1000;"> 
-                      HHS is a trusted community marketplace for people to list, discover, and book unique accommodation - online or from a mobile phone or from a tab1let.
-                    </p>
-                  </b>
-                  </div>
-                  <div>
-                  <b>
-                    <p style="font-family: calibri"> 
-                     Whether a paying guest for a month or bagpacker for a night, HHS connects users with unique experiences, at any price point. And with world-class customer services and growing community of users, HHS is a simplest way to find accommodation and rent out your paying guest or bagpackers to showcase to an audience of millions.
-                    </p>
-                  </b>
-                  </div>                 
-                </div>
-                <br>
-               <h4 style="width: 100% ; text-decoration-color: red; "  align="center">We are HELPING HOMES SERVICES...!</h4>
-          </div>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading"><strong> Services </strong></h4>
+                                <p>
+                                  We provide you the world class services to help you to nurture the natural beauty more and more and help you to take care of green cover of earth by your small will.
+                                </p>
 
-          
+                            </div>
+                        </div>
+                    </div>
+               <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="media">
+                            <div class="pull-left">
+                                <i class=" fa fa-ra fa-5x "></i>
 
-        </div>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading"><strong> Customer Interaction </strong></h4>
+                                <p>
+                                   We are the highest rated service provider in our field with having very adequate work force to solve your precious problem as fast as blink of an eye.
+                                </p>
 
-        <div id="">   
-          
-          
-          
-        </div>
-      </div><!-- tab1-content -->
-    </div>
-</div> <!-- /form -->
-<script type="text/javascript" src="js/login.js"></script>
+                            </div>
+                        </div>
+                    </div>
+              
+      </div>
+      <div class="row text-center just-pad" >
+           
+              <div class="col-lg-4 col-md-4 col-sm-4" >
+                        <i class=" fa fa-database fa-5x "></i>
+                   <h4 ><strong> Easy Understanding </strong></h4>
+                  <p>
+                    Customer dissatifcation is our biggest concern to fight. So we have advanced so much to solve your problems even before uttering. High Understanding.!
+                  </p>
+              </div>
+               
+              <div class="col-lg-4 col-md-4 col-sm-4" >
+                        <i class=" fa fa-send fa-5x "></i>
+                        <h4 ><strong> Service and Product Genuineness </strong></h4>
+                        <p>
+                          We respect our customer and their satisfaction. So, genuineness and healthy service accomplicements are our main concerns.
+                        </p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4"  >
+                        <i class=" fa fa-puzzle-piece fa-5x "></i>
+                          <h4 ><strong> Freely Available </strong></h4>
+                          <p>
+                                We are here to serve you full time 24 X 7, 365 days...! 
+                          </p>
+              </div>
+      </div>
+               </div>
+           
+       </section>
+    <!--FEATURES SECTION END-->
