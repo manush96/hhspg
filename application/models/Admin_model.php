@@ -11,11 +11,11 @@ class Admin_model extends CI_Model
 		{
 
 			$this->db->select('*');
-			$query=$this->db->get('extra');
+			$query=$this->db->get('temp');
 			$result=$query->result_array();
 			foreach($result as $k)
 			{
-				$data=array('type'=>$k['type'],'form_no'=>$k['form_no']);
+				$data=array('room_price'=>$k['room_price'],'rules'=>$k['rules']);
 				$this->db->where('id',$k['id']);
 				$this->db->update('pg',$data);
 			}

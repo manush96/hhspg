@@ -167,10 +167,17 @@ class Home_model extends CI_Model
 					$filecount = count($files);
 					}
 		$images=array();
-		for($i=1;$i<=$filecount;$i++)
+		if($filecount==0)
 		{
-			$im=$result[0]['form_no']."/".$i.".jpg";
-			array_push($images,$im);
+			array_push($images,"000/1.jpg");
+		}
+		else
+		{
+			for($i=1;$i<=$filecount;$i++)
+			{
+				$im=$result[0]['form_no']."/".$i.".jpg";
+				array_push($images,$im);
+			}
 		}
 		return $images;
 	}
