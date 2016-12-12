@@ -4,7 +4,7 @@ $(document).ready(function()
 	{
 		id = $(this).attr('rel');
 		//alert(id);
-
+		par = $(this).parents(".request_row");
 		$.ajax
 		({
 			type: "POST",
@@ -12,6 +12,7 @@ $(document).ready(function()
 			data: { id:id },
 			success: function(response)
 			{
+				par.fadeOut("slow");
 				//alert(response);	
 			}
 		});

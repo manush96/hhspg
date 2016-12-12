@@ -8,7 +8,7 @@ class Authenticate {
         	$this->CI->load->helper('url_helper');
 
         	$auth_arr = array(
-                'admin' => array('view_users'),
+                'admin' => array(''),
                 'owner' => array('profile'),
         	);
 
