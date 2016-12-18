@@ -47,8 +47,6 @@ class Admin_model extends CI_Model
 			for($i=0;$i<sizeof($result);$i++)
 			{
 				$k=explode(',',$result[$i]['shortlist']);
-				echo "<br>";
-				print_r($k);
 				foreach($k as $j)
 				{
 					$sql="Update pg set list_count=list_count+1 where id='".$j."'";
@@ -101,5 +99,38 @@ class Admin_model extends CI_Model
 			$result=$this->db->query($query);
 		}
 
+		public function format_amenities($amenities)
+		{			
+			$amenities= implode(",", $amenities);
+			return $amenities;
+		}
+
+		public function format_rules($rules)
+		{			
+			$rules= implode(",", $rules);
+			return $rules;
+		}
+
+		public function pg_data_to_db($name, $address, $contact, $area, $room_price, $gender, $vacant_beds, $city, $price_from, $price_to, $type, $form_no, $amenities, $rules)
+		{
+			$this->db->select('id');
+			$this->db->where('contact',$contact);
+			$query=$this->db->get('owner');
+			$result=$query->result_array();
+
+			$owner_id = $result['0']['id'];
+
+			#id,ownerid,name,address,area,amenities,room_price,rules,gender,vacant_beds,city,price_to,price_from,type,form_no
+			
+			$data=array('owner_id'=>'25','name'=>$name,'address'=>$address,'area'=>$area ,'amenities'=>$amenities , 'room_price'=>$room_price,'rules'=>$rules,'gender'=>$gender,'vacant_beds'=>$vacant_beds ,'city'=>$city ,'price_to'=>$price_to,'price_from'=>$price_from
+				,'type'=>$type,'form_no'=>$form_no);
+  			$this->db->insert('pg',$data);
+		}
+
+		public function owner_data_to_db($name, $email, $contact, $password)
+		{
+			$data=array('name'=>$name , 'email'=>$email , 'contact'=>$contact , 'password'=>md5($password) , 'status'=>'1');
+			$this->db->insert('owner',$data);
+		}
 }
 ?>
