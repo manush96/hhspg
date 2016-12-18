@@ -154,14 +154,46 @@ class Admin extends CI_Controller
     public function new_pg_data()
     {
         #id,ownerid,name,address,area,amenities,room_price,rules,gender,vacant_beds,city,price_to,price_from,type,form_no
-        /*$post=$this->input->post();
-        echo "<pre>";
-        print_r($post);*/
+        #$post=$this->input->post();
+        $pg_path = $this->config->item('pg_img');
+        /*pr($_FILES);
+        pr($_POST);*/
+        $dirs = array_filter(glob($pg_path.'*'), 'is_dir');
+        foreach ($dirs as $key => $value)
+        {
+            $dirs[$key] = str_replace($pg_path,"",$value);
+        }
+        sort($dirs);
+        $form_no = intval(end($dirs))+1;
+        mkdir($pg_path.$form_no);
 
+        $count = count($_FILES['image']['size']);
+        $temp = $_FILES['image'];
+        for($i=0; $i<$count;$i++)
+        {
+            $_FILES['test'][$i]['name'] = $temp['name'][$i];
+            $_FILES['test'][$i]['type'] = $temp['type'][$i];
+            $_FILES['test'][$i]['tmp_name'] = $temp['tmp_name'][$i];
+            $_FILES['test'][$i]['error'] = $temp['error'][$i];
+            $_FILES['test'][$i]['size'] = $temp['size'][$i];
+
+            $config['upload_path'] = $this->config->item('base_img_path').$form_no."\\";
+            $config['allowed_types'] = 'gif|jpg|png';
+
+            $config['file_name'] = ($i+1).".jpg";
+
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            $this->upload->do_upload('test['.$i.']');
+            $data = $this->upload->data();
+        }
+        
         $name=$this->input->post('PG_Name');
         $address=$this->input->post('address');
         $contact=$this->input->post('contact');
         $area=$this->input->post('area');
+        $lat = $this->input->post('latitude');
+        $long = $this->input->post('longitude');
         $room_price=$this->input->post('room_price');
         $gender=$this->input->post('gender');
         $vacant_beds=$this->input->post('vacant_beds');
@@ -169,16 +201,22 @@ class Admin extends CI_Controller
         $price_to=$this->input->post('price_to');
         $price_from=$this->input->post('price_from');
         $type=$this->input->post('type');
-        $form_no=$this->input->post('form_no');
         $amenities=$this->input->post('amenities');
         $rules=$this->input->post('rules');
 
-        $new_amenities= $this->admin_model->format_amenities($amenities);
-        $new_rules=$this->admin_model->format_rules($rules);
+        if(isset($amenities))
+            $new_amenities = implode(',',$amenities);
+        else
+            $new_amenities = "";
 
-        $this->admin_model->pg_data_to_db($name, $address, $contact, $area, $room_price, $gender, $vacant_beds, $city, $price_from, $price_to, $type, $form_no, $new_amenities, $new_rules);
+        if(isset($rules))
+            $new_rules = implode(',',$rules);
+        else
+            $new_rules = "";
+
+        $this->admin_model->pg_data_to_db($name, $address, $contact, $area, $lat, $long, $room_price, $gender, $vacant_beds, $city, $price_from, $price_to, $type, $form_no, $new_amenities, $new_rules);
        
-        add_pg();
+       redirect("admin/add_pg");
     }
 
     public function add_owner()

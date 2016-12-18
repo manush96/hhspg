@@ -94,7 +94,21 @@ max-height: 500px;
 	            <div class="col-sm-4">          
             <input type="text" id="Area" class="form-control" name="area" placeholder="Enter Area">
         </div>
-        </div></p>
+        </div>
+        <div class="form-group">
+			<label class="control-label col-sm-2" for="latitude">Latitude:</label>
+	        <div class="col-sm-4">          
+            	<input type="text" id="latitude" class="form-control" name="latitude" placeholder="Enter Latitude">
+        	</div>
+        </div>
+
+        <div class="form-group">
+			<label class="control-label col-sm-2" for="longitude">Longitude:</label>
+	        <div class="col-sm-4">          
+            	<input type="text" id="longitude" class="form-control" name="longitude" placeholder="Enter Longitude">
+        	</div>
+        </div>
+    </p>
     </div>
 <button type="button" class="accordion">Rules & Regulations</button>
 <div class="panel">
@@ -242,63 +256,29 @@ max-height: 500px;
         
     </div>	<div class="form-group">
 			        <label class="control-label col-sm-2" for="Type">Type:</label>
-	            <div class="col-sm-4">          
-            <input type="text" id="Type" class="form-control" name="type" placeholder="Enter Type">
+	            <div class="col-sm-4">
+	            <select class="form-control" name="type">
+	            	<option value="Premium">Premium</option>
+	            	<option value="Executive">Executive</option>
+	            	<option value="Backpacker">Backpacker</option>
+	            </select>          
         </div>
         
-    </div>	<div class="form-group">
-			        <label class="control-label col-sm-2" for="Form Number">Form Number:</label>
-	            <div class="col-sm-4">          
-            <input type="text" id="Form Number" class="form-control" name="form_no" placeholder="Enter Form Number">
-        </div>
-       </div></p> 
+    </div>	
+    </p> 
     </div>	
 	<button type="button" class="accordion">Add Images</button>
 		<div class="panel">
 	<p>
         <div class="form-group has-feedback" style="">
-            <label class="control-label col-sm-2" for="file">Image1:</label>  
-            <div class="col-sm-2">
-                <input type="button" class="form-control btn btn-primary file_trigger" value="Upload Image">
+            <label class="control-label col-sm-2" for="file">Images:</label>  
+            <div class="col-sm-2 file_div">
+                <input type="button" class="form-control btn btn-primary file_trigger" value="Upload Images">
                 <span class="glyphicon glyphicon-picture form-control-feedback white"></span>
-                <input type="file" class="file" name="image" style="display: none">
+                <input type="file" class="file" name="image[]" accept="image/*" multiple style="display: none">
             </div>
             
-        </div>	<div class="form-group has-feedback" style="">
-			        <label class="control-label col-sm-2" for="Image">Image2:</label>
-	                <div class="col-sm-2">
-                <input type="button" class="form-control btn btn-primary file_trigger" value="Upload Image">
-                <span class="glyphicon glyphicon-picture form-control-feedback pull-left white"></span>
-                <input type="file" class="file" name="Image" accept="image/*," style="display: none">
-            </div>
-            
-	</div>
-	<div class="form-group has-feedback" style="">
-            <label class="control-label col-sm-2" for="file">Image3:</label>  
-            <div class="col-sm-2">
-                <input type="button" class="form-control btn btn-primary file_trigger" value="Upload Image">
-                <span class="glyphicon glyphicon-picture form-control-feedback white"></span>
-                <input type="file" class="file" name="image" style="display: none">
-            </div>
-            
-        </div>
-		<div class="form-group has-feedback" style="">
-            <label class="control-label col-sm-2" for="file">Image4:</label>  
-            <div class="col-sm-2">
-                <input type="button" class="form-control btn btn-primary file_trigger" value="Upload Image">
-                <span class="glyphicon glyphicon-picture form-control-feedback white"></span>
-                <input type="file" class="file" name="image" style="display: none">
-            </div>
-            
-        </div>
-		<div class="form-group has-feedback" style="">
-            <label class="control-label col-sm-2" for="file">Image5:</label>  
-            <div class="col-sm-2">
-                <input type="button" class="form-control btn btn-primary file_trigger" value="Set Image">
-                <span class="glyphicon glyphicon-picture form-control-feedback white"></span>
-                <input type="file" class="file" name="image" style="display: none">
-            </div>
-            </div> </p>
+        </div>	 </p>
         </div>
 
         <div class="clearfix"></div><br>
@@ -322,4 +302,11 @@ for (i = 0; i < acc.length; i++) {
         this.nextElementSibling.classList.toggle("show"); 
   }
 }
+$(document).ready(function()
+{
+	$(".file_trigger").click(function()
+	{
+		$(this).parents(".file_div").find(".file").trigger('click');
+	});
+});
 </script>

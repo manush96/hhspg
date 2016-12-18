@@ -99,30 +99,18 @@ class Admin_model extends CI_Model
 			$result=$this->db->query($query);
 		}
 
-		public function format_amenities($amenities)
-		{			
-			$amenities= implode(",", $amenities);
-			return $amenities;
-		}
-
-		public function format_rules($rules)
-		{			
-			$rules= implode(",", $rules);
-			return $rules;
-		}
-
-		public function pg_data_to_db($name, $address, $contact, $area, $room_price, $gender, $vacant_beds, $city, $price_from, $price_to, $type, $form_no, $amenities, $rules)
+		public function pg_data_to_db($name, $address, $contact, $area, $lat, $long, $room_price, $gender, $vacant_beds, $city, $price_from, $price_to, $type, $form_no, $amenities, $rules)
 		{
 			$this->db->select('id');
 			$this->db->where('contact',$contact);
 			$query=$this->db->get('owner');
-			$result=$query->result_array();
+			$result=$query->row_array();
 
-			$owner_id = $result['0']['id'];
+			$owner_id = $result['id'];
 
 			#id,ownerid,name,address,area,amenities,room_price,rules,gender,vacant_beds,city,price_to,price_from,type,form_no
 			
-			$data=array('owner_id'=>'25','name'=>$name,'address'=>$address,'area'=>$area ,'amenities'=>$amenities , 'room_price'=>$room_price,'rules'=>$rules,'gender'=>$gender,'vacant_beds'=>$vacant_beds ,'city'=>$city ,'price_to'=>$price_to,'price_from'=>$price_from
+			$data=array('owner_id'=>'25','name'=>$name,'address'=>$address,'area'=>$area ,'latitude'=>$lat, 'longitude'=>$long, 'amenities'=>$amenities , 'room_price'=>$room_price,'rules'=>$rules,'gender'=>$gender,'vacant_beds'=>$vacant_beds ,'city'=>$city ,'price_to'=>$price_to,'price_from'=>$price_from
 				,'type'=>$type,'form_no'=>$form_no);
   			$this->db->insert('pg',$data);
 		}

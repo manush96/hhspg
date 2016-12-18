@@ -22,7 +22,11 @@ class Authenticate {
 
             if(!(in_array($fun, $auth_arr[$ctrl])))
             {
-                if($ctrl == "admin")
+                if($ctrl == "home")
+                {
+
+                }
+                else if($ctrl == "admin")
                 {
                     $session = $this->CI->session->userdata('admin_id');
                     if(!isset($session))

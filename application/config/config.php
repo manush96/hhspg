@@ -25,7 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/hhspg';
 $config['img_url'] = 'http://localhost/hhspg/img/pg_images/';
-
+$config['pg_img'] = 'img/pg_images/';
+$config['base_img_path'] = 'C:\xampp\htdocs\hhspg\img\pg_images\\';
 /*
 |--------------------------------------------------------------------------
 | Index File
