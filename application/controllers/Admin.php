@@ -36,10 +36,6 @@ class Admin extends CI_Controller
         }
     }
 
-    public function add_pg()
-    {
-
-    }
     public function temp()
     {
         $this->load->view("admin/header");
@@ -79,7 +75,7 @@ class Admin extends CI_Controller
 
         $this->load->view("admin/header");
         $this->load->view("admin/sidebar");
-        $this->load->view('admin/pg_trends', $data);
+        $this->load->view('admin/pg_analysis', $data);
         $this->load->view("admin/footer");
     }
     public function area_analysis()
@@ -145,6 +141,64 @@ class Admin extends CI_Controller
     {
         $id=$this->input->post('id');
         echo $this->admin_model->delete_handled($id);
+    }
+
+    public function add_pg()
+    {
+        $this->load->view("admin/header");
+        $this->load->view("admin/sidebar");
+        $this->load->view('admin/add_pg');
+        $this->load->view("admin/footer");
+    }
+
+    public function new_pg_data()
+    {
+        #id,ownerid,name,address,area,amenities,room_price,rules,gender,vacant_beds,city,price_to,price_from,type,form_no
+        /*$post=$this->input->post();
+        echo "<pre>";
+        print_r($post);*/
+
+        $name=$this->input->post('PG_Name');
+        $address=$this->input->post('address');
+        $contact=$this->input->post('contact');
+        $area=$this->input->post('area');
+        $room_price=$this->input->post('room_price');
+        $gender=$this->input->post('gender');
+        $vacant_beds=$this->input->post('vacant_beds');
+        $city=$this->input->post('city');
+        $price_to=$this->input->post('price_to');
+        $price_from=$this->input->post('price_from');
+        $type=$this->input->post('type');
+        $form_no=$this->input->post('form_no');
+        $amenities=$this->input->post('amenities');
+        $rules=$this->input->post('rules');
+
+        $new_amenities= $this->admin_model->format_amenities($amenities);
+        $new_rules=$this->admin_model->format_rules($rules);
+
+        $this->admin_model->pg_data_to_db($name, $address, $contact, $area, $room_price, $gender, $vacant_beds, $city, $price_from, $price_to, $type, $form_no, $new_amenities, $new_rules);
+       
+        add_pg();
+    }
+
+    public function add_owner()
+    {
+        $this->load->view("admin/header");
+        $this->load->view("admin/sidebar");
+        $this->load->view('admin/add_owner');
+        #$this->load->view("admin/footer");
+    }
+
+    public function new_owner_data()
+    {
+        $name=$this->input->post('name');
+        $email=$this->input->post('email');
+        $contact=$this->input->post('contact');
+        $password=$this->input->post('password');
+
+        $this->admin_model->owner_data_to_db($name, $email, $contact, $password);
+
+        $this->add_owner();
     }
 }
 

@@ -8,7 +8,7 @@ class Authenticate {
         	$this->CI->load->helper('url_helper');
 
         	$auth_arr = array(
-                'admin' => array(''),
+                'admin' => array('index','login'),
                 'owner' => array('profile'),
         	);
 
@@ -20,7 +20,7 @@ class Authenticate {
     			$auth_arr[$ctrl] = array('');
     		}
 
-            if(in_array($fun, $auth_arr[$ctrl]))
+            if(!(in_array($fun, $auth_arr[$ctrl])))
             {
                 if($ctrl == "admin")
                 {

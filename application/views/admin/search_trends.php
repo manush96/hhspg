@@ -74,8 +74,14 @@ $i = count($result);
 				if (myChart) {
 				    myChart.destroy();
 				  }
+				g_type = $(this).val();
 				var temp = jQuery.extend(true, {}, config);
-				temp.type = $(this).val();
+				temp.type = g_type;
+				
+				if(g_type == "pie" || g_type == "polarArea" || g_type == "radar" || g_type == "doughnut")
+				{
+					temp.options = {}
+				}
 				myChart = new Chart(ctx, temp);
 			});
 		});

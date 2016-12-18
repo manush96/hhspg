@@ -119,10 +119,16 @@ class User extends CI_Controller
     }
     public function schedule_visit()
     {
-        $data['id'] = $this->input->get('id');
-        $this->load->view('common/header');
-        $this->load->view('home/schedule_visit',$data);
-        $this->load->view('common/footer');
+        if($this->session->userdata('user_id')!="")
+        {
+          $data['id'] = $this->input->get('id');
+          $this->load->view('common/header');
+          $this->load->view('home/schedule_visit',$data);
+          $this->load->view('common/footer');
+        }
+        else{
+          redirect("/user");
+        }     
     }
     public function contact_us()
     {
