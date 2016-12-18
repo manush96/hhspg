@@ -48,54 +48,52 @@
 <script type="text/javascript" src="js/search_header.js"></script>
 <div id="search_header" class="container-fluid">
 	<div class="col-sm-12 lr0pad" style="height: 50px">
-		<div class="col-sm-2 lr0pad">
-			<select class="form-control" name="city" id="city" data-placeholder="City">
-				<option value="Ahmedabad" <?php if($city=="Ahmedabad"):?>selected<?php endif;?>>Ahmedabad</option>
-				<option value="Jaipur" <?php if($city=="Jaipur"):?>selected<?php endif;?>>Jaipur</option>
-				<option value="Jodhpur" <?php if($city=="Jodhpur"):?>selected<?php endif;?>>Jodhpur</option>
-			</select>
-		</div>
-		<div class="col-sm-4 lr0pad">
-			<div class="form-group">
-				<input type="search" class="form-control" name="area" id="area" placeholder="Search by locality..." autocomplete="off" autofocus="true" value="<?= $area;?>"/>
-				<div id="search_header_list" class="pointer" style="display: none">
-					
+		<form method="GET" action="home/search" id="search_form">
+			<div class="col-sm-2 lr0pad">
+				<select class="form-control" name="city" id="city" data-placeholder="City">
+					<option value="Ahmedabad" <?php if($city=="Ahmedabad"):?>selected<?php endif;?>>Ahmedabad</option>
+					<option value="Jaipur" <?php if($city=="Jaipur"):?>selected<?php endif;?>>Jaipur</option>
+					<option value="Jodhpur" <?php if($city=="Jodhpur"):?>selected<?php endif;?>>Jodhpur</option>
+				</select>
+			</div>
+			<div class="col-sm-4 lr0pad">
+				<div class="form-group">
+					<input type="search" class="form-control" name="area" id="area" placeholder="Search by locality..." autocomplete="off" autofocus="true" value="<?= $area;?>"/>
+					<div id="search_header_list" class="pointer" style="display: none">
+						
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-5 lr0pad">
-			<div class="col-sm-4 border_block lr0pad">
-				<select class="form-control" name="range" id="range" placeholder="Price Range">
-					<option value="0_5000" <?php if($range == "0_5000"):?> selected <?php endif;?>>&lt; 5000</option>
-					<option value="5000_10000" <?php if($range == "5000_10000"):?> selected <?php endif;?>>5000-10000</option>
-					<option value="10000_15000" <?php if($range == "10000_15000"):?> selected <?php endif;?>>10000-15000</option>
-					<option value="15000_100000" <?php if($range == "15000_100000"):?> selected <?php endif;?>>&gt; 15000</option>
-				</select>
-			</div>	
-			<div class="col-sm-4 border_block lr0pad">
-				<select class="form-control" name="gender" id="gender" placeholder="Pg for..">
-					<option value="male" <?php if($gender=="male"):?>selected<?php endif;?>>&#9794; Male</option>
-					<option value="female" <?php if($gender=="female"):?>selected<?php endif;?>>&#9792; Female</option>
-				</select>
+			<div class="col-sm-5 lr0pad">
+				<div class="col-sm-4 border_block lr0pad">
+					<select class="form-control" name="range" id="range" placeholder="Price Range">
+						<option value="0_5000" <?php if($range == "0_5000"):?> selected <?php endif;?>>&lt; 5000</option>
+						<option value="5000_10000" <?php if($range == "5000_10000"):?> selected <?php endif;?>>5000-10000</option>
+						<option value="10000_15000" <?php if($range == "10000_15000"):?> selected <?php endif;?>>10000-15000</option>
+						<option value="15000_100000" <?php if($range == "15000_100000"):?> selected <?php endif;?>>&gt; 15000</option>
+					</select>
+				</div>	
+				<div class="col-sm-4 border_block lr0pad">
+					<select class="form-control" name="gender" id="gender" placeholder="Pg for..">
+						<option value="male" <?php if($gender=="male"):?>selected<?php endif;?>>&#9794; Male</option>
+						<option value="female" <?php if($gender=="female"):?>selected<?php endif;?>>&#9792; Female</option>
+					</select>
+				</div>
+				<div class="col-sm-4 border_block lr0pad">
+					<select class="form-control" name="type" id="type" placeholder="PG type">
+						<option value="Executive" <?php if($type == "Executive"):?> selected <?php endif;?>>Executive</option>
+						<option value="Premium" <?php if($type == "Premium"):?> selected <?php endif;?>>Premium</option>
+						<option value="Backpacker" <?php if($type == "Backpacker"):?> selected <?php endif;?>>Backpacker</option>
+					</select>
+				</div>
+				
 			</div>
-			<div class="col-sm-4 border_block lr0pad">
-				<select class="form-control" name="type" id="type" placeholder="PG type">
-					<option value="Executive" <?php if($type == "Executive"):?> selected <?php endif;?>>Executive</option>
-					<option value="Premium" <?php if($type == "Premium"):?> selected <?php endif;?>>Premium</option>
-					<option value="Backpacker" <?php if($type == "Backpacker"):?> selected <?php endif;?>>Backpacker</option>
-				</select>
+			<div class="col-sm-1 border_block lr0pad">
+				<button class="btn_transparent" id="search_ajax_result">
+					<span class="glyphicon glyphicon-search"></span>
+					 Search
+				</button>
 			</div>
-			
-		</div>
-		<div class="col-sm-1 border_block lr0pad">
-			<button class="btn_transparent" id="search_ajax_result">
-				<span class="glyphicon glyphicon-search"></span>
-				 Search
-			</button>
-		</div>
-		<form method="POST" id="search_form">
-			<input type="hidden" class="range" name="range"/>
-			<input type="hidden" class="type" name="type"/>
 		</form>
 	</div>
 </div>

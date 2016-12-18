@@ -10,9 +10,13 @@ class Home_model extends CI_Model
 		
 		public function search_pg($city, $area="", $gender,$range="",$type="")
 		{
+			$limit = 30;
 			$this->db->select('*');
 	        $this->db->where('city',$city);
-	        $this->db->where('gender',$gender);
+	        if($gender!="")
+	        {
+	        	$this->db->where('gender',$gender);
+	        }
 	        if($range!="")
 	        {
 	        	$arr = explode('_', $range);
@@ -29,9 +33,14 @@ class Home_model extends CI_Model
 	        }
 	        if($area!="")
 	        {	
-	        	$this->db->where('area',$area);
+	        	$this->db->like('area',$area);
 	        }
-	        
+	        else
+	        {
+	        	$this->db->order_by('search_count', 'desc');
+	        	$this->db->group_by("area"); 
+	        }
+	    	$this->db->limit($limit);
 	        $query=$this->db->get('pg');
 	        $result=$query->result_array();
 	        
@@ -120,8 +129,15 @@ class Home_model extends CI_Model
 	public function get_amenities($amenities)
 	{
 		$this->db->select('*');
-		$where = 'id IN ('.$amenities.')';
-		$this->db->where($where);
+		if(trim($amenities) != "")
+		{
+			$where = 'id IN ('.$amenities.')';
+			$this->db->where($where);
+		}
+		else
+		{
+			$this->db->where('id','-5000');
+		}	
 		$query = $this->db->get('amenities');
 		$result = $query->result_array();
 		return $result;

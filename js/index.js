@@ -1,6 +1,6 @@
 var list_ind;
 var list_max;
-var search_allow = 0;
+var search_allow = 1;
 $("#header").children().each(function()
 {
 	$(this).css('backgroundColor','transparent');
@@ -52,19 +52,13 @@ $(document).ready(function()
 		}
 		else
 		{
-			var city = $("#city").val();
-			var area = $("#area").val();
-			var gender = $("#gender").val();
-			window.location.href = "home/search/"+city+"/"+area+"/"+gender;
-			
+			$("#search_form").submit();
 		}	
 	});
 	$("#area").keyup(function(event)
 	{
 		if(event.which <= 45 && event.which != 8)
 			return;
-		else
-			search_allow = 0;
 
 		var city = $("#city").val();
 		var area = $("#area").val();
