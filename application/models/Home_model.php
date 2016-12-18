@@ -51,8 +51,16 @@ class Home_model extends CI_Model
         	$row=$query2->num_rows();
         	if($row<=0)
         	{
+        		if($area=="")
+        		{
+        			$ark="all";	
+        		}
+        		else
+        		{
+        			$ark=$area;
+        		}
 		        $data = array(
-	        		'area' => $area,
+	        		'area' => $ark,
 	        		'city' => $city,
 	        		'count' => 1
         		);

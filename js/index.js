@@ -148,6 +148,26 @@ $(document).ready(function()
 	{
 		$(this).remove();
 	});
+	$(".city_div").click(function()
+	{
+		var city = $(this).find(".city_txt").text();
+		var content = $(this).find(".description").text().replace(/\n/g, '<br/>') + $(this).find(".explore_div").html();
+		$.dialog
+		({
+			icon: 'glyphicon glyphicon-map-marker',
+			columnClass: 'col-sm-6 col-sm-offset-3 ',
+			boxWidth: '100%',
+			type: 'green',
+			title: 'Why '+city+"?",
+			content: content,
+			confirmButton: 'Delete',
+            confirmButtonClass: 'btn-danger',
+			closeIcon: true,
+            closeIconClass: 'glyphicon glyphicon-remove',
+            backgroundDismiss: true,
+
+		});
+	});
 });
 function goto_select(index)
 {
