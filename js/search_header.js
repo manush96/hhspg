@@ -1,21 +1,8 @@
 var list_ind;
 var list_max;
-var search_allow = 0;
+var search_allow = 1;
 $(document).ready(function()
 {
-	$("#search_ajax_result").click(function()
-	{
-		var city = $("#city").val();
-		var area = $("#area").val();
-		var range = $("#range").val();
-		var gender = $("#gender").val();
-		var type = $("#type").val();
-
-		$("#search_form").attr("action","home/search/"+city+"/"+area+"/"+gender);
-		$("#search_form").find(".range").val(range);
-		$("#search_form").find(".type").val(type);
-		$("#search_form").submit();
-	});
 	$(document).mouseup(function(e)
 	{
 	    var container = $("#search_header");
@@ -35,19 +22,13 @@ $(document).ready(function()
 		}
 		else
 		{
-			var city = $("#city").val();
-			var area = $("#area").val();
-			var gender = $("#gender").val();
-			window.location.href = "home/search/"+city+"/"+area+"/"+gender;
-			
+			$("#search_form").submit();
 		}	
 	});
 	$("#area").keyup(function(event)
 	{
 		if(event.which <= 45 && event.which != 8)
 			return;
-		else
-			search_allow = 0;
 
 		var city = $("#city").val();
 		var area = $("#area").val();

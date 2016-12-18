@@ -71,7 +71,7 @@
 			<?php endforeach;?>
 			<?php else:?>
 				<div class="col-sm-12" style="text-align: center">
-					<h3>We are arriving shortly at <?= $area;?>, <?= $city;?> for <?= $gen;?>!</h3>
+					<h3>We will be arriving there soon! Thank you.</h3>
 				</div>
 			<?php endif;?>
 			<div class="clearfix"></div><br/>

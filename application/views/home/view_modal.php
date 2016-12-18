@@ -224,10 +224,12 @@
             </button>
         </div>
         <div class="col-sm-4 col-sm-offset-1">
-            <button class="btn btn-success">
-                <span class="glyphicon glyphicon-time"></span>
-                 Schedule Visit
-            </button>
+            <a href="user/schedule_visit?id=<?= $pg['id']?>">
+                <button class="btn btn-success">
+                    <span class="glyphicon glyphicon-time"></span>
+                     Schedule Visit
+                </button>
+            </a>
         </div>
     </div>
 </div>
