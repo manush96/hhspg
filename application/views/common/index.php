@@ -25,7 +25,7 @@
 			<select class="center_input" name="city" id="city" data-placeholder="City">
 				<option value="Ahmedabad" selected>Ahmedabad</option>
 				<option value="Jaipur">Jaipur</option>
-				<option value="Jodhpur">Jodhpur</option>
+				<option value="Kota">Kota</option>
 			</select>
 		</div>
 		<div id="area_div" class="pull-left">

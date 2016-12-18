@@ -101,7 +101,7 @@ class Home_model extends CI_Model
 				 	END, area ASC
 
 			 	LIMIT $limit;";
-
+			 	
 		$query = $this->db->query($sql);
 		$result_list = $query->result_array();
         return $result_list;
