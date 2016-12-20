@@ -260,4 +260,9 @@ class Home extends CI_Controller
 		$this->load->view('common/contact_us');
 		$this->load->view('common/footer');
 	}
+	public function subscribe()
+	{
+		$this->home_model->subscribe($this->input->post());
+		redirect("");
+	}
 }

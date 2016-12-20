@@ -9,7 +9,8 @@ class Authenticate {
 
         	$auth_arr = array(
                 'admin' => array('index','login'),
-                'owner' => array('profile'),
+                'owner' => array('index','login','signup'),
+                'user'=>array('index','login','register')
         	);
 
           	$ctrl = $this->CI->router->fetch_class();

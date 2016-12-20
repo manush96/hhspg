@@ -1,3 +1,12 @@
+<script type="text/javascript">
+$('.people_div').scroll(
+function()
+{
+	$('.lister').fadeIn();
+	
+});
+
+</script>
 <style type="text/css">
 	body
 	{
@@ -21,6 +30,7 @@
 		background: #fff;
 		overflow-y: auto;
 		padding-bottom: 10px;
+
 	}
 	.border-left
 	{
@@ -50,9 +60,23 @@
 	{
 		display: none;
 	}
-	.why_people
+	.work_div
 	{
-		text-align: center;
+		background-image: url("/hhspg/img/how.png"); 
+		transition: background 1s linear;
+		min-height:400px;
+
+	}
+	.people_div
+	{
+		background-image: url("/hhspg/img/why.png"); 
+		
+		min-height:400px;	
+	}
+	.owner_div
+	{
+		background-image: url("/hhspg/img/for.png"); 
+		min-height:400px;	
 	}
 </style>
 <script type="text/javascript" src="js/typed.js"></script>
@@ -100,7 +124,7 @@
 </div>
 <div class="clearfix"></div><br/>
 <div id="bottom_div" style="background: #fafafa">
-	<h2 class="text-center">Our cities</h2>
+	<h1 class="text-center">Our cities</h1>
 	<br>
 
 	<div class="col-sm-12">
@@ -170,34 +194,54 @@ If planning to move in this education hub we are here to serve you right accommo
 		</div>
 	</div>
 </div>
-
-<div class="why_div col-sm-12 text-justify">
-	<div class="col-sm-6 border-right">
-	<img src="img/people.png" class="col-sm-offset-5"/>
-	<h2 class="col-sm-offset-3">Why people love us?</h2>
-	<ul class="" style="font-size:20px;">
-	<li>Easiest way to find a right accommodation at right place at right price.</li>
-	<li>No charges - free sign up.</li>
-	<li>
-	Real photographs of every paying guest and bagpackers.</li>
-	<li>Hustle free services - Bed sharing, amenities, rules and regulation mentioned so if matches your requirement then choose it.
-	</li>
-	<li>Flexibility - Choose your time and date for visit.</li>
-
-	</ul> 
-	<br>
+<div class="work_div col-sm-12">
+	<div class="col-sm-offset-4">
+		<h1 style="color:black;font-family: calibri">How it works?</h1>
 	</div>
-	<div class="col-sm-6 border-left">
-		<img src="img/owner.png" class="col-sm-offset-5"/>
-		<h2 class="col-sm-offset-2">Why home owners love us?</h2>
-		<ul style="font-size:20px;">
-			<li>Easiest way to monetise your space whether it be paying guest or bagpackers.</li>
-			<li>One month free trial - pay after your satisfaction.</li>
-			<li>Handymen Services at lowest rate and fastest response time.</li>
-			<li>Flexibility - You set your price and decide when you want to accommodate.</li>
-			<li>Schedule Visit - No whole day worry of seeker, you will get notification of specific time and date when he will 	be coming to see your accommodation.</li>
+	<br>
+	<div class="col-sm-4">
+		<ul class="lister" style="color:black;font-size:30px;line-height:200%;font-weight:bolder;">
+			<li>Choose city</li>
+			<li>Choose locality</li>
+			<li>Find a perfect home</li>
+			<li>Login to find details</li>
+			<li>Schedule a visit</li>
 
-		</ul> 
+		</ul>
+
+	</div>
+</div>
+<div class="people_div col-sm-12">
+	<div class="col-sm-offset-4">
+		<h1 style="color:white;font-family: calibri">Why people love NapSace?</h1>
+	</div>
+	<br>
+	<div class="col-sm-4">
+		<ul class="lister" style="color:white;font-size:30px;line-height:200%">
+			<li>Hassle free</li>
+			<li>Affordable for singles</li>
+			<li>Ready to move</li>
+			<li>Flexibility to visit</li>
+			<li>No brokerage</li>
+
+		</ul>
+
+	</div>
+</div>
+<div class="owner_div col-sm-12">
+	<div class="col-sm-offset-3">
+		<h1 style="color:black;font-family: calibri">For owners</h1>
+	</div>
+	<br>
+	<div class="col-sm-4">
+		<ul class="lister" style="color:black;font-size:30px;line-height:200%;font-weight:bolder;">
+			<li>Monetise your space</li>
+			<li>Get details of tenants online</li>
+			<li>One month free trial</li>
+			<li>No brokerage</li>
+			<li>Easy way for marketing</li>
+
+		</ul>
 
 	</div>
 </div>

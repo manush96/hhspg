@@ -272,5 +272,13 @@ class Home_model extends CI_Model
 
 
 	}
+
+	public function subscribe($post)
+	{
+		$data=array(
+			'email'=>$post['email']
+			);
+		$this->db->insert('newsletter',$data);
+	}
 }
 ?>

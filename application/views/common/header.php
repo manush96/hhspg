@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/jquery-confirm.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-	<title>HHS HOSTEL-Home, Experience - all at one place</title>
+	<title>NapSpace-Home, Experience - all at one place</title>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery-confirm.js"></script>
@@ -25,7 +25,7 @@
             <div class="container_div">
                 <div class="navbar-header">
                 	<a class="navbar-brand" href="" style="padding: 0px"> 
-                		<img src="img/HHS1.png" style="height:80px; width:100px; margin-top: -14px" />
+                		<span style="color:#2e64ba;font-family:perpetua;font-weight:900;font-size:40px">NapSpace</span>
                 	</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>

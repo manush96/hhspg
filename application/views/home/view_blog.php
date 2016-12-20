@@ -91,6 +91,8 @@ Sometimes, living in the past is better and peaceful than dreaming about the fut
                                                 </div>
                                             </div>
                                         </div>
+                                        </div>
+                                        </div>
                                         <!-- End Blog Item Body -->
                                     </div>
                                     <!-- End Blog Item -->
@@ -194,13 +196,13 @@ Leave alone the use of maggi to fill empty stomachs, it has been more or less su
 
 
  </p>
-                                                    <!-- Read More -->
-                                                    <span class="likebtn-wrapper" data-identifier="item_1"></span>
-                                                    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-                                                    <!-- End Read More -->
+                                                    
                                                 </div>
                                             </div>
                                         </div>
+                                     </div>
+                                     </div>
+
                                         <!-- End Blog Item Body -->
                                     </div>
                                     <!-- End Blog Item -->
@@ -296,11 +298,7 @@ Couple of glass/mugs/utensils to cook and eat!
 Digital camera, if you’re into photography. 
 Finally, board games and a pack of cards – Armed with these, you’re sure to break-the-ice and pave the way to make some lifelong mates. 😊
  </p>
-                                                    <!-- Read More -->
-                                                    <span class="likebtn-wrapper" data-identifier="item_1"></span>
-                                                    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-                                                    <!-- End Read More -->
-                                                </div>
+                                                                                                    </div>
                                             </div>
                                         </div>
                                         <!-- End Blog Item Body -->
@@ -315,3 +313,17 @@ Finally, board games and a pack of cards – Armed with these, you’re sure to 
                     </div>
                 </div>
             </div>
+            </div>
+            </div>
+            </p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
