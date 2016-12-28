@@ -89,7 +89,7 @@
             <div class="col-sm-12">
                 <a href="home/view_pg/<?= $pg['name'];?>_<?= $pg['id'];?>" target="_blank">
                     <span class="pg_name">
-                        <?= $pg['name'];?> Paying Guest 
+                        <?= $pg['name'];?>
                     </span> 
                     <span class="glyphicon glyphicon-share link_logo"></span>
                 </a>
