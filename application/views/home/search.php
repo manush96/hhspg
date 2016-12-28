@@ -50,7 +50,7 @@
 						$wish = "add_to_wishlist";
 				?>
 				<?php if($mobile):?>
-					<a href="view_pg/<?= $pg['name'];?>_<?= $pg['id'];?>">
+					<a href="home/view_pg/<?= $pg['name'];?>_<?= $pg['id'];?>">
 						<div class="col-sm-12 pg_result_div" id=<?= $pg['id'];?>>
 							<div class="col-sm-4 img_div">
 								<img src="img/pg_images/<?= $pg['form_no'];?>/1.jpg" class="img-responsive pull-left" style="height: 80px; width: 100%;"/>
