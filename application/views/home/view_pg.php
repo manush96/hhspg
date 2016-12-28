@@ -84,7 +84,7 @@
         <div class="col-sm-10 col-sm-offset-1">
             <div class="col-sm-12">
                 <span class="pg_name">
-                    <?= $pg['name'];?> Paying Guest 
+                    <?= $pg['name'];?> 
                 </span> 
                 <span class="avail_for">
                      - Available for <?= $pg['gender'];?>
