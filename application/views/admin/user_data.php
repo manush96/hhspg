@@ -13,25 +13,23 @@
 <div id="user_data_div">
 	<div class="container" id="main_table">
 		<div class="row bg-info">
-			<div class="col-sm-1">
-				<p class="h3">id</p>
-			</div>
-			<div class="col-sm-1 head_cell">
+			
+			<div class="col-sm-1 head_cell lr0pad">
 				<p class="h3">Name</p>
 			</div>
-			<div class="col-sm-2 head_cell">
+			<div class="col-sm-3 head_cell lr0pad">
 				<p class="h3">Email</p>
 			</div>
-			<div class="col-sm-2 head_cell">
+			<div class="col-sm-2 head_cell lr0pad">
 				<p class="h3">Contact</p>
 			</div>
-			<div class="col-sm-2 head_cell">
+			<div class="col-sm-2 head_cell lr0pad">
 				<p class="h3">Shortlisted PG</p>
 			</div>
-			<div class="col-sm-1 head_cell">
+			<div class="col-sm-1 head_cell lr0pad">
 				<p class="h3">Login Count</p>
 			</div>
-			<div class="col-sm-2 head_cell">
+			<div class="col-sm-2 head_cell lr0pad">
 				<p class="h3">Scheduled Visit</p>
 			</div>
 			<div class="col-sm-1">
@@ -40,13 +38,6 @@
 		</div>
 		<?php foreach ($result as $row):?>
 			<div class="row owner_row" rel="<?= $row['id'];?>">
-				<div class="content_grp col-sm-1 lr0pad" rel="<?= 'id@'.$row['id'];?>">
-					<div class="edit_btn_div col-sm-2 lr0pad">
-					</div>
-					<div class="content_div col-sm-10 lr0pad">
-						<p class="h4 content"><?= $row['id'] ?></p>
-					</div>
-				</div>
 				<div class="content_grp col-sm-1 lr0pad" rel="<?= 'name@'.$row['id'];?>">
 					<div class="edit_btn_div col-sm-2 lr0pad">
 					</div>
@@ -54,7 +45,7 @@
 						<p class="h4 content"><?= $row['name'] ?></p>
 					</div>
 				</div>
-				<div class="content_grp col-sm-2 lr0pad" rel="<?= 'email@'.$row['id'];?>">
+				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'email@'.$row['id'];?>">
 					<div class="edit_btn_div col-sm-2 lr0pad">
 					</div>
 					<div class="content_div col-sm-10 lr0pad">

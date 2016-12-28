@@ -59,7 +59,7 @@
 		                    <a class="btn btn-default action-button" role="button" href="user" style="background:#2e64ba">Login</a>
 		                </p>
 
-	                <?php else:?>
+	                <?php elseif($this->session->userdata('user_id')!=null):?>
 							<p class="navbar-text navbar-right actions">
 							<a href="user/view_wishlist">
 								<button class="btn btn-danger action-button">
@@ -67,6 +67,10 @@
 									View Wishlist
 								</button>
 							</a>
+							<a class="btn btn-default action-button" role="button" href="user/logout" style="background:#2e64ba">Logout</a>
+							</p>
+					<?php elseif($this->session->userdata('owner_id')!=null):?>
+							<p class="navbar-text navbar-right actions">
 							<a class="btn btn-default action-button" role="button" href="user/logout" style="background:#2e64ba">Logout</a>
 							</p>
 					<?php endif;?>	

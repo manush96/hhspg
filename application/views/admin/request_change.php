@@ -58,19 +58,19 @@ foreach ($details as $k)
 	<div class="container" id="main_table">
 		<div class="row bg-info">
 			<div class="col-sm-1 head_cell">
-				<p class="h3">id</p>
+				<p class="h3">ID</p>
 			</div>
 			<div class="col-sm-3 head_cell">
-				<p class="h3">Firstname</p>
+				<p class="h3">Hostel Name</p>
 			</div>
 			<div class="col-sm-4 head_cell">
-				<p class="h3">Email</p>
-			</div>
-			<div class="col-sm-2 head_cell">
-				<p class="h3">Password</p>
+				<p class="h3">Description</p>
 			</div>
 			<div class="col-sm-2 head_cell">
 				<p class="h3">Contact</p>
+			</div>
+			<div class="col-sm-2 head_cell">
+				<p class="h3"></p>
 			</div>
 		</div>
 		<?php foreach ($details as $row):?>
@@ -83,23 +83,23 @@ foreach ($details as $k)
 					</div>
 				</div>		
 				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'pg@'.$row['id'];?>">
-					<div class="edit_btn_div col-sm-2 lr0pad">
+					<div class="edit_btn_div col-sm-1 lr0pad">
 					</div>
-					<div class="content_div col-sm-10 lr0pad">
+					<div class="content_div col-sm-11 lr0pad">
 						<p class="h4 content"><?= $row['pg'] ?></p>
 					</div>
 				</div>
 				<div class="content_grp col-sm-4 lr0pad" rel="<?= 'description@'.$row['id'];?>">
-					<div class="edit_btn_div col-sm-2 lr0pad">
+					<div class="edit_btn_div col-sm-1 lr0pad">
 					</div>
-					<div class="content_div col-sm-10 lr0pad">
+					<div class="content_div col-sm-11 lr0pad">
 						<p class="h4 content"><?= $row['description'] ?></p>
 					</div>
 				</div>
 				<div class="content_grp col-sm-2 lr0pad" rel="<?= 'contact@'.$row['id'];?>">
-					<div class="edit_btn_div col-sm-2 lr0pad">
+					<div class="edit_btn_div col-sm-1 lr0pad">
 					</div>
-					<div class="content_div col-sm-10 lr0pad">
+					<div class="content_div col-sm-11 lr0pad">
 						<p class="h4 content"><?= $row['contact'] ?></p>
 					</div>
 				</div>

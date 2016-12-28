@@ -6,10 +6,16 @@
 			<div class="col-sm-2 head_cell">
 				<p class="h3">ID</p>
 			</div>
-			<div class="col-sm-5 head_cell">
+			<div class="col-sm-3 head_cell">
+				<p class="h3">Hostel Name</p>
+			</div>
+			<div class="col-sm-3 head_cell">
+				<p class="h3">Area</p>
+			</div>
+			<div class="col-sm-2 head_cell">
 				<p class="h3">No. of user added this to shortlist</p>
 			</div>
-			<div class="col-sm-5 head_cell">
+			<div class="col-sm-2 head_cell">
 				<p class="h3">SEARCH COUNT-No. of hits on this PG</p>
 			</div>
 		</div>
@@ -21,15 +27,29 @@
 					<div class="content_div col-sm-10 lr0pad">
 						<p class="h4 content"><?= $row['id'] ?></p>
 					</div>
-				</div>		
-				<div class="content_grp col-sm-5 lr0pad" rel="<?= 'list@'.$row['id'];?>">
+				</div>	
+				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'name@'.$row['id'];?>">
+					<div class="edit_btn_div col-sm-2 lr0pad">
+					</div>
+					<div class="content_div col-sm-10 lr0pad">
+						<p class="h4 content"><?= $row['name'] ?></p>
+					</div>
+				</div>
+				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'area@'.$row['id'];?>">
+					<div class="edit_btn_div col-sm-2 lr0pad">
+					</div>
+					<div class="content_div col-sm-10 lr0pad">
+						<p class="h4 content"><?= $row['area'] ?></p>
+					</div>
+				</div>	
+				<div class="content_grp col-sm-2 lr0pad" rel="<?= 'list@'.$row['id'];?>">
 					<div class="edit_btn_div col-sm-2 lr0pad">
 					</div>
 					<div class="content_div col-sm-10 lr0pad">
 						<p class="h4 content"><?= $row['list_count'] ?></p>
 					</div>
 				</div>
-				<div class="content_grp col-sm-5 lr0pad" rel="<?= 'search@'.$row['id'];?>">
+				<div class="content_grp col-sm-2 lr0pad" rel="<?= 'search@'.$row['id'];?>">
 					<div class="edit_btn_div col-sm-2 lr0pad">
 					</div>
 					<div class="content_div col-sm-10 lr0pad">

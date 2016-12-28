@@ -14,7 +14,7 @@
 	<div class="container" id="main_table">
 		<div class="row bg-info">
 			<div class="col-sm-1 head_cell">
-				<p class="h3">id</p>
+				<p class="h3">ID</p>
 			</div>
 			<div class="col-sm-2 head_cell">
 				<p class="h3">Firstname</p>
@@ -22,10 +22,10 @@
 			<div class="col-sm-3 head_cell">
 				<p class="h3">Email</p>
 			</div>
-			<div class="col-sm-3 head_cell">
+			<div class="col-sm-4 head_cell">
 				<p class="h3">Password</p>
 			</div>
-			<div class="col-sm-3 head_cell">
+			<div class="col-sm-2 head_cell">
 				<p class="h3">Contact</p>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 						<p class="h4 content"><?= $row['email'] ?></p>
 					</div>
 				</div>
-				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'password@'.$row['id'];?>">
+				<div class="content_grp col-sm-4 lr0pad" rel="<?= 'password@'.$row['id'];?>">
 					<div class="edit_btn_div col-sm-2 lr0pad">
 						<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
 							<span class="glyphicon glyphicon-pencil"></span>
@@ -71,7 +71,7 @@
 						<p class="h4 content"><?= $row['password'] ?></p>
 					</div>
 				</div>
-				<div class="content_grp col-sm-3 lr0pad" rel="<?= 'contact@'.$row['id'];?>">
+				<div class="content_grp col-sm-2 lr0pad" rel="<?= 'contact@'.$row['id'];?>">
 					<div class="edit_btn_div col-sm-2 lr0pad">
 						<button class="btn btn-info edit_btn col-sm-offset-1 col-sm-10" style="display: none">
 							<span class="glyphicon glyphicon-pencil"></span>

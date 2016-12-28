@@ -34,7 +34,7 @@ class Admin_model extends CI_Model
 		}
 		public function pg_trends()
 		{	
-			$this->db->select('id,search_count,list_count');
+			$this->db->select('id,search_count,list_count,name,area');
 			$query1=$this->db->get('pg');
 			$result1=$query1->result_array();
 			return $result1;
