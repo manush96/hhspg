@@ -44,6 +44,9 @@ class Home_model extends CI_Model
 	        $query=$this->db->get('pg');
 	        $result=$query->result_array();
 	        
+	        if($area=="")
+        		$area="all";
+
         	$this->db->select('*');
         	$this->db->from('search');
         	$this->db->where('area',$area);
@@ -51,16 +54,8 @@ class Home_model extends CI_Model
         	$row=$query2->num_rows();
         	if($row<=0)
         	{
-        		if($area=="")
-        		{
-        			$ark="all";	
-        		}
-        		else
-        		{
-        			$ark=$area;
-        		}
 		        $data = array(
-	        		'area' => $ark,
+	        		'area' => $area,
 	        		'city' => $city,
 	        		'count' => 1
         		);

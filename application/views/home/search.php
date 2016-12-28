@@ -58,10 +58,6 @@
 						<span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
 							<i class="fa fa-heart"></i>
 						</span>
-						<br>
-				
-						<phr/>
-
 						<h4>Located near <?= $pg['area'];?></h4>
 
 
