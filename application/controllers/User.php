@@ -130,6 +130,15 @@ class User extends CI_Controller
           redirect("/user");
         }     
     }
+    public function save_scheduled_visit()
+    {
+      $post=$this->input->post();
+      $this->user_model->schedule($post);
+
+      $this->load->view('common/header');
+      $this->load->view('home/success_visit');
+      $this->load->view('common/footer');
+    }
     public function contact_us()
     {
         $this->general->set_alert('success','Your feedback has been received. Thank you!',"home/contact");

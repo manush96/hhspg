@@ -122,6 +122,8 @@ function()
 		</form>
 	</div>
 </div>
+
+	<div class="col-sm-2 col-sm-offset-10"><a href="owner"><img src="img/owner.png"/></a></div>
 <div class="clearfix"></div><br/>
 <div id="bottom_div" style="background: #fafafa">
 	<h1 class="text-center">Our cities</h1>

@@ -129,6 +129,34 @@ class User_model extends CI_Model
 			$result = $query->result_array();
 			return $result;
 		}
+		public function schedule($post)
+		{
+			$this->db->insert('scheduled_visit',$post);
+			$pg_id = $post['pg_id'];
+			$number=$post['contact'];
+			$date=date("d-m-Y",strtotime($post['date']));
+
+			$this->db->select('pg.address as address, owner.contact as contact, owner.name as name, pg.name as pg_name');
+	      	$this->db->where('pg.id',$pg_id);
+	      	$this->db->join('owner','
+	      		pg.owner_id = owner.id');
+	      	$query=$this->db->get('pg');
+	      	$result=$query->row_array();
+
+			$message  = "Hello, your visit has been confirmed. The address of ".$result['pg_name']." is \'".$result['address']."\'. Contact owner at ".$result['contact'].". Thanks for choosing us.";
+	      	$message= str_ireplace(" ", "+", $message);
+	      	$response = file_get_contents('http://tra.smsmyntraa.com/API/WebSMS/Http/v1.0a/index.php?username=HHMS&password=HHMS@123&sender=VHHSIN&to='.$number.'&message='.$message.'&reqid=&format=text&route_id=TRANSACTIONAL&callback=&unique=1&sendondate=');
+
+	      	$uid = $this->session->userdata('user_id');
+	      	$this->db->select('name');
+	      	$this->db->where('id',$uid);
+	      	$query = $this->db->get('user');
+	      	$user = $query->row_array();
+
+	      	$message  = "Hello, visit of your hostel is been confirmed by ".$user['name']."(".$number.") and he will be visiting your hostel on ".$date." at ".$post['time'].". Happy to serve you.";
+	      	$message= str_ireplace(" ", "+", $message);
+	      	$response = file_get_contents('http://tra.smsmyntraa.com/API/WebSMS/Http/v1.0a/index.php?username=HHMS&password=HHMS@123&sender=VHHSIN&to='.$result['contact'] .'&message='.$message.'&reqid=&format=text&route_id=TRANSACTIONAL&callback=&unique=1&sendondate=');
+		}
 }
 	
 ?>

@@ -91,7 +91,7 @@
             <label>
               Phone no<span class="req">*</span>
             </label>
-            <input type="text" name="contact" required autocomplete="off"/>
+            <input type="text" name="contact" required  minlength="10" pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Please enter a valid phone number')" autocomplete="off"/>
           </div>
           
           <button type="submit" class="button button-block"/>Get Started</button>
