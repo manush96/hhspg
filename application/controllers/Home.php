@@ -25,6 +25,9 @@ class Home extends CI_Controller
 	}
 	public function search()
 	{
+		$this->load->library('user_agent');
+		$data['mobile'] = $this->agent->mobile();  
+
 		$city = $this->input->get('city');
 		$area = $this->input->get('area');
 		$gender = $this->input->get('gender');
@@ -121,6 +124,13 @@ class Home extends CI_Controller
 				$new[$tmp2[0]]['normal'] = trim($tmp[1]);
 			}
 		}
+		$this->load->library('user_agent');
+		$tmp = $this->agent->mobile();  
+
+		if(trim($tmp) != "")
+			$data['mobile'] = true;
+		else
+			$data['mobile'] = false;
 
 		$data['rooms'] = $new;
 		$this->load->view('home/view_modal', $data);

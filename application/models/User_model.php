@@ -123,7 +123,10 @@ class User_model extends CI_Model
 			$result = $query->row_array();
 
 			$this->db->select('*');
-			$where = "id IN (".$result['shortlist'].")";
+			if(trim($result['shortlist']) != "")
+				$where = "id IN (".$result['shortlist'].")";
+			else
+				$where = "id = 0";
 			$this->db->where($where);
 			$query = $this->db->get('pg');
 			$result = $query->result_array();

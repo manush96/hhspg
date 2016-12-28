@@ -49,21 +49,41 @@
 					else
 						$wish = "add_to_wishlist";
 				?>
-				<div class="col-sm-12 pg_result_div" id=<?= $pg['id'];?>>
-					<div class="col-sm-4 img_div">
-						<img src="img/pg_images/<?= $pg['form_no'];?>/1.jpg" class="img-responsive pull-left" style="height: 80px; width: 100%;"/>
-					</div>
-					<div class="col-sm-8 data_div">
-						<span class="pg_name"><?= $pg['name'];?></span>
-						<span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
-							<i class="fa fa-heart"></i>
-						</span>
-						<h4>Located near <?= $pg['area'];?></h4>
+				<?php if($mobile):?>
+					<a href="view_pg/<?= $pg['name'];?>_<?= $pg['id'];?>">
+						<div class="col-sm-12 pg_result_div" id=<?= $pg['id'];?>>
+							<div class="col-sm-4 img_div">
+								<img src="img/pg_images/<?= $pg['form_no'];?>/1.jpg" class="img-responsive pull-left" style="height: 80px; width: 100%;"/>
+							</div>
+							<div class="col-sm-8 data_div">
+								<span class="pg_name"><?= $pg['name'];?></span>
+								<span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
+									<i class="fa fa-heart"></i>
+								</span>
+								<h4>Located near <?= $pg['area'];?></h4>
 
 
-						<!-- <ul class="c-rating"></ul> -->
+								<!-- <ul class="c-rating"></ul> -->
+							</div>
+						</div>
+					</a>
+				<?php else:?>
+					<div class="col-sm-12 pg_result_div" id=<?= $pg['id'];?>>
+						<div class="col-sm-4 img_div">
+							<img src="img/pg_images/<?= $pg['form_no'];?>/1.jpg" class="img-responsive pull-left" style="height: 80px; width: 100%;"/>
+						</div>
+						<div class="col-sm-8 data_div">
+							<span class="pg_name"><?= $pg['name'];?></span>
+							<span class="wishlist_icon <?= $wish;?>" rel="<?= $pg['id'];?>" title="Add to wishlist">
+								<i class="fa fa-heart"></i>
+							</span>
+							<br/><phr/>
+							<h4>Located near <?= $pg['area'];?></h4>
+							<!-- <ul class="c-rating"></ul> -->
+						</div>
 					</div>
-				</div>
+				<?php endif;?>
+				
 			<?php endforeach;?>
 			<?php else:?>
 				<div class="col-sm-12" style="text-align: center">
