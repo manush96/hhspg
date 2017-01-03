@@ -50,6 +50,7 @@ $(document).ready(function()
 			}
 		});
 	});
+	
 	$(".pg_result_div").click(function()
     {	
     	$("#disp").hide();

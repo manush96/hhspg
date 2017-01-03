@@ -166,6 +166,18 @@ class Home_model extends CI_Model
 
 		return $myArr;
 	}
+	public function in_wishlist($uid,$pg_id)
+	{
+		$this->db->select('shortlist');
+		$this->db->where('id',$uid);
+		$query = $this->db->get('user');
+		$result = $query->row_array();
+		$shortlist = explode(',', $result['shortlist']);
+		if(in_array($pg_id, $shortlist))
+			return TRUE;
+		else
+			return FALSE;
+	}
 	public function add_to_wishlist($pg_id, $id)
 	{
 		$this->db->select('shortlist');

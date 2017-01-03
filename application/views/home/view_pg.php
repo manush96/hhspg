@@ -172,9 +172,21 @@
                 </div>
                 <div class="col-sm-12 button_div">
                     <div class="col-sm-4 col-sm-offset-1">
-                        <button class="btn btn-info">
+                        <?php 
+                            if($in_wishlist)
+                            {
+                                $class="btn-danger remove_from_wishlist_btn";
+                                $txt = "Remove from wishlist";
+                            }
+                            else
+                            {
+                                $class="btn-info add_to_wishlist_btn";
+                                $txt = "Add to wishlist";
+                            }
+                        ?>
+                        <button class="btn <?= $class;?>" rel="<?= $pg['id'];?>">
                           <i class="fa fa-heart"></i> 
-                          Add to Wishlist
+                          <span class="btn_text"><?= $txt;?></span>
                         </button>
                     </div>
                     <div class="col-sm-4 col-sm-offset-1">

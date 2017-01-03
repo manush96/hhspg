@@ -133,6 +133,9 @@ class Home extends CI_Controller
 			$data['mobile'] = false;
 
 		$data['rooms'] = $new;
+		$uid = $this->session->userdata('user_id');
+		$data['in_wishlist'] = $this->home_model->in_wishlist($uid,$id);
+		
 		$this->load->view('home/view_modal', $data);
 	}		
 	public function view_pg($token)
@@ -190,6 +193,8 @@ class Home extends CI_Controller
 			}
 
 			$data['rooms'] = $new;
+			$uid = $this->session->userdata('user_id');
+			$data['in_wishlist'] = $this->home_model->in_wishlist($uid,$id);
 			$this->load->view('common/header');
 			$this->load->view('home/view_pg', $data);
 			$this->load->view('common/footer');

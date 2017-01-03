@@ -58,7 +58,7 @@
 				}
 		</style>
 		</div>
-		<div class="container-fluid lr0pad" id="footer" style="border-top:5px solid blue">
+		<div class="container-fluid lr0pad" id="footer">
 			<div class="col-sm-12" style="height:5px;background:#467fdb">
 			</div>
 			<div class="col-sm-12" style="background-color: #49494b;font-size:20px;">

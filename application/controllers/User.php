@@ -13,6 +13,9 @@ class User extends CI_Controller
     public function index()
     {   
         $data['return_url'] = $this->input->get('return_url');
+        if(isset($data['return_url']))
+          $this->general->set_ajax_alert('info','Please login to continue!');
+        
         $data['action'] = 'user/login';
         $data['action2'] = 'user/register';
         $this->load->view("common/header");

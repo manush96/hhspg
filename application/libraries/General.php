@@ -13,5 +13,9 @@ class General {
             $this->CI->session->set_flashdata($type,$message);
             redirect($url);
         }
+        public function set_ajax_alert($type, $message)
+        {
+            $this->CI->session->set_flashdata($type,$message);
+        }
 }
 ?>
